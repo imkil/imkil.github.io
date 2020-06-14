@@ -1,8 +1,310 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>PHP基础巩固--运算符</title>
+    <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-14/PHP-foundation-consolidation-operator/</url>
+    <content><![CDATA[<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>参考：<a href="https://www.runoob.com/php/php-operators.html" target="_blank" rel="noopener">PHP菜鸟教程</a></p>
+<h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><ul>
+<li><p>在 PHP 中，赋值运算符 = 用于给变量赋值</p>
+</li>
+<li><p>在 PHP 中，算术运算符 + 用于把值加在一起</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">名称</th>
+<th align="center">描述</th>
+<th align="center">实例</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">x + y</td>
+<td align="center">加</td>
+<td align="center">x和y的和</td>
+<td align="center">2 + 2</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">x - y</td>
+<td align="center">减</td>
+<td align="center">x和y的差</td>
+<td align="center">5 - 2</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">x * y</td>
+<td align="center">乘</td>
+<td align="center">x和y的积</td>
+<td align="center">5 * 2</td>
+<td align="center">10</td>
+</tr>
+<tr>
+<td align="center">x / y</td>
+<td align="center">除</td>
+<td align="center">x和y的商</td>
+<td align="center">15 / 5</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">x % y</td>
+<td align="center">模</td>
+<td align="center">x除以y的余数</td>
+<td align="center">5 % 2</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">-x</td>
+<td align="center">取反</td>
+<td align="center">x取反</td>
+<td align="center">$x = 2  echo -x</td>
+<td align="center">-2</td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+
+<p>注意：</p>
+<ul>
+<li><p>如果int型，运算后数据过大，会转换成float型</p>
+</li>
+<li><p>去摸算法时，结果的正负仅取决于被除数</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$a</span> = 10            // 使用10或-10</span><br><span class="line"><span class="variable">$b</span> = 3             // 使用3或-3</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span> / <span class="variable">$b</span>       // a=-10时，均为-1</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><ul>
+<li><p>比较运算符可以比较两个值</p>
+</li>
+<li><p>比较运算符的结果是布尔型的值</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">名称</th>
+<th align="center">描述</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">x == y</td>
+<td align="center">等于</td>
+<td align="center">如果 x 等于 y，则返回 true</td>
+<td align="center">5==8 返回 false</td>
+</tr>
+<tr>
+<td align="center">x === y</td>
+<td align="center">绝对等于</td>
+<td align="center">如果 x 等于 y，且它们类型相同，则返回 true</td>
+<td align="center">5===”5” 返回 false</td>
+</tr>
+<tr>
+<td align="center">x != y</td>
+<td align="center">不等于</td>
+<td align="center">如果 x 不等于 y，则返回 true</td>
+<td align="center">5!=8 返回 true</td>
+</tr>
+<tr>
+<td align="center">x &lt;&gt; y</td>
+<td align="center">不等于</td>
+<td align="center">如果 x 不等于 y，则返回 true</td>
+<td align="center">5&lt;&gt;8 返回 true</td>
+</tr>
+<tr>
+<td align="center">x !== y</td>
+<td align="center">绝对不等于</td>
+<td align="center">如果 x 不等于 y，或它们类型不相同，则返回 true</td>
+<td align="center">5!==”5” 返回 true</td>
+</tr>
+<tr>
+<td align="center">x &gt; y</td>
+<td align="center">大于</td>
+<td align="center">如果 x 大于 y，则返回 true</td>
+<td align="center">5&gt;8 返回 false</td>
+</tr>
+<tr>
+<td align="center">x &lt; y</td>
+<td align="center">小于</td>
+<td align="center">如果 x 小于 y，则返回 true</td>
+<td align="center">5&lt;8 返回 true</td>
+</tr>
+<tr>
+<td align="center">x &gt;= y</td>
+<td align="center">大于等于</td>
+<td align="center">如果 x 大于或者等于 y，则返回 true</td>
+<td align="center">5&gt;=8 返回 false</td>
+</tr>
+<tr>
+<td align="center">x &lt;= y</td>
+<td align="center">小于等于</td>
+<td align="center">如果 x 小于或者等于 y，则返回 true</td>
+<td align="center">5&lt;=8 返回 true</td>
+</tr>
+</tbody></table>
+<ul>
+<li>全等于/绝对等于，要求类型相同，且值相等</li>
+</ul>
+<h3 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h3><ul>
+<li>另一个条件运算符是”?:”</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">(expr1) ? (expr2) : (expr3)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>对 expr1 求值为 TRUE 时的值为 expr2，在 expr1 求值为 false 时的值为 expr3。</p>
+</li>
+<li><p>自 PHP 5.3 起，可以省略三元运算符中间那部分。表达式 expr1 ?: expr3 在 expr1 求值为 TRUE 时返回 expr1，否则返回 expr3。</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$test</span> = <span class="string">'PHP基础'</span>;</span><br><span class="line">// 普通写法</span><br><span class="line"><span class="variable">$username</span> = isset(<span class="variable">$test</span>) ? <span class="variable">$test</span> : <span class="string">'nobody'</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$username</span>, PHP_EOL;     // PHP基础</span><br><span class="line"></span><br><span class="line">// PHP 5.3+ 版本写法</span><br><span class="line"><span class="variable">$username</span> = <span class="variable">$test</span> ?: <span class="string">'nobody'</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$username</span>, PHP_EOL;     // PHP基础</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li><p>PHP_EOL 是一个换行符，兼容更大平台</p>
+</li>
+<li><p>在 PHP7+ 版本多了一个 NULL 合并运算符 ??</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 如果 <span class="variable">$_GET</span>[<span class="string">'user'</span>] 不存在返回 <span class="string">'nobody'</span>，否则返回 <span class="variable">$_GET</span>[<span class="string">'user'</span>] 的值</span><br><span class="line"><span class="variable">$username</span> = <span class="variable">$_GET</span>[<span class="string">'user'</span>] ?? <span class="string">'nobody'</span>;</span><br><span class="line">// 类似的三元运算符</span><br><span class="line"><span class="variable">$username</span> = isset(<span class="variable">$_GET</span>[<span class="string">'user'</span>]) ? <span class="variable">$_GET</span>[<span class="string">'user'</span>] : <span class="string">'nobody'</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$x</span> = 10</span><br><span class="line"><span class="variable">$y</span> = 5</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">名称</th>
+<th align="center">描述</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">x and y</td>
+<td align="center">与</td>
+<td align="center">如果 x 和 y 都为true，则返回 true</td>
+<td align="center">(x &lt; 15 and y &gt; 1) 返回true</td>
+</tr>
+<tr>
+<td align="center">x or y</td>
+<td align="center">或</td>
+<td align="center">如果 x 和 y 至少有一个为true，则返回 true</td>
+<td align="center">(x &lt; 5 or y &gt; 1) 返回true</td>
+</tr>
+<tr>
+<td align="center">x xor y</td>
+<td align="center">异或</td>
+<td align="center">如果 x 和 y 有且仅有一个为true，则返回 true</td>
+<td align="center">(x == 10 xor y == 1) 返回true</td>
+</tr>
+<tr>
+<td align="center">x &amp;&amp; y</td>
+<td align="center">与</td>
+<td align="center">如果 x 和 y 都为true，则返回 true</td>
+<td align="center">(x &lt; 15 and y &gt; 1) 返回true</td>
+</tr>
+<tr>
+<td align="center">x &#124;&#124; y</td>
+<td align="center">或</td>
+<td align="center">如果 x 和 y 至少有一个为true，则返回 true</td>
+<td align="center">(x &lt; 5 or y &gt; 1) 返回true</td>
+</tr>
+<tr>
+<td align="center">!x</td>
+<td align="center">非</td>
+<td align="center">如果 x 不为true，则返回 true</td>
+<td align="center">!(x == y) 返回true</td>
+</tr>
+</tbody></table>
+<h3 id="递增-递减运算符"><a href="#递增-递减运算符" class="headerlink" title="递增/递减运算符"></a>递增/递减运算符</h3><ul>
+<li>++/- -符号在后，先赋值再++/- -</li>
+<li>++/- -符号在前，先++/- -再赋值</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$x</span>=10; </span><br><span class="line"><span class="built_in">echo</span> ++<span class="variable">$x</span>;         // 输出11</span><br><span class="line"> </span><br><span class="line"><span class="variable">$y</span>=10; </span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$y</span>++;         // 输出10</span><br><span class="line"> </span><br><span class="line"><span class="variable">$z</span>=5;</span><br><span class="line"><span class="built_in">echo</span> --<span class="variable">$z</span>;         // 输出4</span><br><span class="line"> </span><br><span class="line"><span class="variable">$i</span>=5;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$i</span>--;         // 输出5</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h3><ul>
+<li>字符串符</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">名称</th>
+<th align="center">描述</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">a . b</td>
+<td align="center">并置</td>
+<td align="center">连接两个字符串</td>
+<td align="center">‘hello’ + ‘world’ = ‘helloworld’</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$a</span> = <span class="string">'hello'</span>;</span><br><span class="line"><span class="variable">$b</span> = <span class="string">'world'</span>;</span><br><span class="line"><span class="variable">$c</span> = <span class="variable">$a</span> . <span class="variable">$b</span>;</span><br><span class="line">var_dump(<span class="variable">$c</span>);      // <span class="string">'helloworld'</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$d</span> = 112;</span><br><span class="line"><span class="variable">$c</span> = <span class="variable">$c</span> . <span class="variable">$112</span></span><br><span class="line">var_dump(<span class="variable">$c</span>)       // <span class="string">'helloworld112'</span></span><br><span class="line"></span><br><span class="line">// 下面哪个运行速度快？</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span> , <span class="variable">$b</span>;      // 更快</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span> . <span class="variable">$b</span>;      // 如果仅仅需要 <span class="built_in">echo</span> 结果，使用上边的更快</span><br></pre></td></tr></table></figure>
+
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><ul>
+<li>基本的赋值运算符是 “=”。它意味着左操作数被设置为右侧表达式的值。也就是说，”$x = 5” 的值是 5</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">等同于</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">x = y</td>
+<td align="center">x = y</td>
+<td align="center">左操作变量被设置成右侧表达式的值</td>
+</tr>
+<tr>
+<td align="center">x += y</td>
+<td align="center">x = x + y</td>
+<td align="center">加</td>
+</tr>
+<tr>
+<td align="center">x -= y</td>
+<td align="center">x = x - y</td>
+<td align="center">减</td>
+</tr>
+<tr>
+<td align="center">x *= y</td>
+<td align="center">x = x * y</td>
+<td align="center">乘</td>
+</tr>
+<tr>
+<td align="center">x /= y</td>
+<td align="center">x = x / y</td>
+<td align="center">除</td>
+</tr>
+<tr>
+<td align="center">x %= y</td>
+<td align="center">x = x % y</td>
+<td align="center">模</td>
+</tr>
+<tr>
+<td align="center">a .= b</td>
+<td align="center">a = a . b</td>
+<td align="center">连接两个字符串</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>PHP基础巩固</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+        <tag>基础</tag>
+        <tag>运算符</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PHP基础巩固--变量</title>
-    <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020/06/13/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA-%E5%8F%98%E9%87%8F/</url>
+    <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-13/PHP-foundation-consolidation-variable/</url>
     <content><![CDATA[<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><ul>
 <li><p>变量以 $ 符号开始，后面跟着变量的名称</p>
 </li>
@@ -179,11 +481,12 @@
       <tags>
         <tag>PHP</tag>
         <tag>基础</tag>
+        <tag>变量</tag>
       </tags>
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/be-born/2020/06/12/hello-world/</url>
+    <url>/be-born/2020-06-12/undefined/</url>
     <content><![CDATA[<p>I set up my blog on June 12, 2020</p>
 <a id="more"></a>
 
