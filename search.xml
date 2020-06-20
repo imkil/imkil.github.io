@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>PHP 基础巩固 -- 字符串</title>
+    <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-19/undefined/</url>
+    <content><![CDATA[<h2 id="字符串的定义方式"><a href="#字符串的定义方式" class="headerlink" title="字符串的定义方式"></a>字符串的定义方式</h2><ul>
+<li>除了单引号和双引号，可以使用 heredoc，nowdoc 定义大断文本</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; heredoc</span><br><span class="line">$str &#x3D; &lt;&lt;&lt;HTML</span><br><span class="line">hello</span><br><span class="line">world   abc</span><br><span class="line">    ok now;</span><br><span class="line">HTML;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; heredoc 和 nowdoc 的区别就是单引号 </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; nowdoc</span><br><span class="line">$str &#x3D; &lt;&lt;&lt;&#39;INTRO&#39;</span><br><span class="line"> 远看山有色，</span><br><span class="line"> 进听水无声 </span><br><span class="line">INTRO;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="单双引号对比、转义、解析、速度"><a href="#单双引号对比、转义、解析、速度" class="headerlink" title="单双引号对比、转义、解析、速度"></a>单双引号对比、转义、解析、速度</h2><ul>
+<li><p>转义符 \ </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$str1</span> = <span class="string">'\'</span> \\ \n \t \v \$ <span class="string">';</span></span><br><span class="line"><span class="string">// '</span> \ \n \t \v \$</span><br><span class="line"></span><br><span class="line"><span class="variable">$str2</span> = <span class="string">"\" \\ \n \t \v \$"</span>;</span><br><span class="line">// 双引号里的变量能解析 </span><br><span class="line"><span class="variable">$age</span> = 30;</span><br><span class="line"><span class="variable">$str3</span> = <span class="string">' 今年 $age 岁 '</span>;</span><br><span class="line"><span class="variable">$str4</span> = <span class="string">" 今年 <span class="variable">$age</span> 岁 "</span>;</span><br><span class="line">//str3 今年 <span class="variable">$age</span> 岁 </span><br><span class="line">//str4 今年 30 岁 </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>单引号不需要分析串内有没有变量，需要转义的内容也少，速度比双引号要快</p>
+</li>
+<li><p>优先使用单引号</p>
+</li>
+</ul>
+<h2 id="字符串常用函数"><a href="#字符串常用函数" class="headerlink" title="字符串常用函数"></a>字符串常用函数</h2><h3 id="字符长度函数"><a href="#字符长度函数" class="headerlink" title="字符长度函数"></a>字符长度函数</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">strlen (<span class="variable">$string</span>);</span><br><span class="line">// 传入 string 类型，返回 int 型 </span><br><span class="line">//utf8 编码，中文占 3 个字节 </span><br><span class="line"></span><br><span class="line">mb_strlen (<span class="variable">$string</span>, <span class="string">'$encoding'</span>);</span><br><span class="line">// 传入 string，编码方式，返回 int 型 </span><br></pre></td></tr></table></figure>
+
+<h3 id="查找字符位置函数"><a href="#查找字符位置函数" class="headerlink" title="查找字符位置函数"></a>查找字符位置函数</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">strpos (<span class="variable">$str</span>, <span class="variable">$char</span>);</span><br><span class="line">// <span class="variable">$str</span > 中是否含有 < span class="variable">$char</span>，返回在字符串中第一次出现的位置 </span><br><span class="line"></span><br><span class="line">stripos (<span class="variable">$str</span>, <span class="variable">$char</span>);</span><br><span class="line">// <span class="variable">$str</span > 中是否含有 < span class="variable">$char</span>，返回在字符串中第一次出现的位置。该函数对大小写不敏感 </span><br><span class="line"></span><br><span class="line">strrpos (<span class="variable">$str</span>, <span class="variable">$char</span>);</span><br><span class="line">// <span class="variable">$str</span > 中是否含有 < span class="variable">$char</span>，返回在字符串中最后一次出现的位置 </span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串替换函数"><a href="#字符串替换函数" class="headerlink" title="字符串替换函数"></a>字符串替换函数</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">str_replace (search, replace, <span class="variable">$str</span>);</span><br><span class="line">// 从 < span class="variable">$str</span > 中查找 search 用 replace 替换 </span><br><span class="line"></span><br><span class="line">strstr (<span class="variable">$str</span>, search, replace);</span><br><span class="line">//search，replace 可以是 array (<span class="string">'a'</span> =&gt; <span class="string">'b'</span>, <span class="string">'b'</span> =&gt; <span class="string">'a'</span>)</span><br><span class="line">// 从而同时替换多个字符 </span><br></pre></td></tr></table></figure>
+
+<h3 id="截取子字符串，分割，连接，反转函数"><a href="#截取子字符串，分割，连接，反转函数" class="headerlink" title="截取子字符串，分割，连接，反转函数"></a>截取子字符串，分割，连接，反转函数</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">substr (<span class="variable">$str</span>, start [, length]);</span><br><span class="line">//length 如果为负，代表结束位置，后往前数 </span><br><span class="line"></span><br><span class="line">str_split (<span class="variable">$str</span>, length);</span><br><span class="line">// 把 < span class="variable">$str</span > 按 length 长度进行分割返回数组 </span><br><span class="line"></span><br><span class="line">split (search, <span class="variable">$str</span>[, int]);</span><br><span class="line">// 把 < span class="variable">$str</span > 按 search 字符进行分割返回数组 int 是分割几次，后面的将不分割 </span><br><span class="line"></span><br><span class="line">explode (search, <span class="variable">$str</span>[, int]);</span><br><span class="line">// 把 < span class="variable">$str</span > 按 search 字符拆分成数组 </span><br><span class="line"></span><br><span class="line">implode (glue, pieces);</span><br><span class="line">// 把 glue 数组，用 pieces 拼接成字符串 </span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PHP基础巩固</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+        <tag>基础</tag>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PHP 基础巩固 -- 时间戳函数</title>
     <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-19/undefined/</url>
     <content><![CDATA[<h2 id="获取时间戳"><a href="#获取时间戳" class="headerlink" title="获取时间戳"></a>获取时间戳</h2><ul>
