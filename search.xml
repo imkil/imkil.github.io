@@ -4,10 +4,10 @@
     <title>PHP 基础巩固 -- 数组</title>
     <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-20/PHP-foundation-consolidation-array/</url>
     <content><![CDATA[<h2 id="数组特点及声明方式"><a href="#数组特点及声明方式" class="headerlink" title="数组特点及声明方式"></a>数组特点及声明方式</h2><ul>
-<li>数组是一种复合数据，可以装下多个值，每个值用不同的键来区分<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = array (<span class="string">'001'</span>=&gt;<span class="string">'a'</span>, <span class="string">'002'</span>=&gt;<span class="string">'b'</span>, <span class="string">'003'</span>=&gt;<span class="string">'c'</span>, <span class="string">'004'</span>=&gt;<span class="string">'d'</span>);</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>数组是一种复合数据，可以装下多个值，每个值用不同的键来区分</li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = array (<span class="string">'001'</span>=&gt;<span class="string">'a'</span>, <span class="string">'002'</span>=&gt;<span class="string">'b'</span>, <span class="string">'003'</span>=&gt;<span class="string">'c'</span>, <span class="string">'004'</span>=&gt;<span class="string">'d'</span>);</span><br></pre></td></tr></table></figure>
+
 <h2 id="索引数组，关联数组，多维数组"><a href="#索引数组，关联数组，多维数组" class="headerlink" title="索引数组，关联数组，多维数组"></a>索引数组，关联数组，多维数组</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = array (0=&gt;<span class="string">' 东 '</span>,1=&gt;<span class="string">' 西 '</span>,2=&gt;<span class="string">' 南 '</span>);   </span><br><span class="line">// 键不必有特殊意义，纯数字，这种叫 < span class="string">"索引数组"</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$stu</span> = array (<span class="string">'name'</span>=&gt;<span class="string">' 东 '</span>,<span class="string">'age'</span>=&gt;30);</span><br><span class="line">// 字符串做键，一般能体现该单元的内容，如 age-&gt; 年龄，这种叫 < span class="string">"关联数组"</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$arr</span> = array (0=&gt;<span class="string">'a'</span>, 1=&gt;array (<span class="string">'stu'</span>=&gt;<span class="string">'li'</span>,<span class="string">'bag'</span>=&gt;array (<span class="string">'yuwen'</span>,<span class="string">'shuxue'</span>)));</span><br><span class="line">// 多维数组 </span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
