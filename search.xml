@@ -1,6 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>WEB 渗透 -- 网络篇 -- 渗透测试相关术语</title>
+    <url>/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-23/Web-penetration-term/</url>
+    <content><![CDATA[<h2 id="IP-地址"><a href="#IP-地址" class="headerlink" title="IP 地址"></a>IP 地址</h2><ul>
+<li><p>IP 地址 (Internet Protocol Address) 是指互联网协议地址，又译为网际协议地址。</p>
+</li>
+<li><p>IP 地址是 IP 协议提供的一种统一的地址格式，它为互联网上的每一个网络和每一台主机分配一个逻辑地址，以此来屏蔽物理地址的差异。</p>
+</li>
+<li><p>渗透测试中，IP 地址一般出现在服务器、PC、路由交换等设备中，可以把 IP 地址理解成我们生活中的家庭地址。</p>
+</li>
+</ul>
+<h2 id="VPS"><a href="#VPS" class="headerlink" title="VPS"></a>VPS</h2><ul>
+<li><p>VPS (Virtual Private Server) 虚拟专用服务器技术，将一台服务器分割成多个虚拟专享服务器的优质服务。</p>
+</li>
+<li><p>我们一般人通常说的 VPS 就是一台人家虚拟出来的服务器，这台服务器有外网 IP，我们可以装好系统并直接连接。</p>
+</li>
+</ul>
+<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><ul>
+<li>端口 (port)，可以认为是设备与外界通讯交流的进出口。</li>
+</ul>
+<h2 id="一句话木马"><a href="#一句话木马" class="headerlink" title="一句话木马"></a>一句话木马</h2><ul>
+<li><p>指的是那些代码长度很短的脚本木马，一般只有一行，跟平常的一句话长度差不多。</p>
+</li>
+<li><p>例如 asp 的其中一种一句话密码： &lt;% execute (request (“value”))%&gt;</p>
+</li>
+</ul>
+<p>详见：[百度百科](<a href="https://baike.baidu.com/item/%" target="_blank" rel="noopener">https://baike.baidu.com/item/%</a> E4% B8%80% E5%8F% A5% E8% AF%9D% E6%9C% A8% E9% A9% AC/1845646?fr=aladdin)</p>
+<h2 id="大马"><a href="#大马" class="headerlink" title="大马"></a>大马</h2><ul>
+<li><p>指的是那些功能很多的脚本木马。</p>
+</li>
+<li><p>一般都包含但不限于文件管理、cmd 执行、可读写目录查找，例如：redhat 的大马还有提权限难易度检测功能</p>
+</li>
+</ul>
+<h2 id="Webshell"><a href="#Webshell" class="headerlink" title="Webshell"></a>Webshell</h2><ul>
+<li><p>指的是已经在某个 web 植入脚本木马。</p>
+</li>
+<li><p>且该木马能被解析成脚本文件，并能被访问。</p>
+</li>
+<li><p>能通过这个文件控制 web。</p>
+</li>
+</ul>
+<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><ul>
+<li><p>专业称呼 “统一资源定位符”。</p>
+</li>
+<li><p>也可以称呼为 “链接”</p>
+</li>
+</ul>
+<p>详见：<a href="https://baijiahao.baidu.com/s?id=1591884958560949588&wfr=spider&for=pc" target="_blank" rel="noopener">网址和 URL 之间的区别</a></p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ul>
+<li><p>也称权限提升，顾名思义，就是把我们自己的权限提高。</p>
+</li>
+<li><p>提权都需要利用到漏洞。</p>
+</li>
+</ul>
+<h2 id="POC"><a href="#POC" class="headerlink" title="POC"></a>POC</h2><ul>
+<li><p>POC (proof of concept) 称为概念验证，它可以是一段代码也可以是一个程序。</p>
+</li>
+<li><p>用作验证某个漏洞是存在的，没有破坏能力。</p>
+</li>
+</ul>
+<h2 id="EXP"><a href="#EXP" class="headerlink" title="EXP"></a>EXP</h2><ul>
+<li>EXP (exploit) 指的是漏洞利用程序，这种程序可以是任何语言编写的，具有破坏能力。</li>
+</ul>
+<h2 id="payload"><a href="#payload" class="headerlink" title="payload"></a>payload</h2><ul>
+<li>称为 “有效载荷”，当 exploit 利用成功之后将执行 payload。</li>
+</ul>
+<h2 id="shellcode"><a href="#shellcode" class="headerlink" title="shellcode"></a>shellcode</h2><ul>
+<li><p>漏洞利用的过程，就是把 shellcode 发送到目标服务器，其中 shellcode 包含 payload。</p>
+</li>
+<li><p>如果 shellcode 被成功执行，那么才会执行有效载荷 payload。</p>
+</li>
+<li><p>这个载荷可以是一条 os 命令，可以是一段二进制代码。</p>
+</li>
+</ul>
+<h2 id="CMS"><a href="#CMS" class="headerlink" title="CMS"></a>CMS</h2><ul>
+<li><p>内容管理系统，简单来说就是一种网站系统模板。</p>
+</li>
+<li><p>很多网站都是用同一种模板改的。</p>
+</li>
+</ul>
+<h2 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h2><ul>
+<li>指的是将字节序列转换成目标对象的过程。</li>
+</ul>
+<h2 id="Fuzz-测试"><a href="#Fuzz-测试" class="headerlink" title="Fuzz 测试"></a>Fuzz 测试</h2><ul>
+<li><p>一种安全测试方法。</p>
+</li>
+<li><p>他介于完全的手工测试和完全的自动化测试之间。</p>
+</li>
+</ul>
+<p>详见：<a href="https://www.cnblogs.com/forwill/p/5756634.html" target="_blank" rel="noopener">模糊测试</a></p>
+]]></content>
+      <categories>
+        <category>WEB渗透网络篇</category>
+      </categories>
+      <tags>
+        <tag>WEB渗透</tag>
+        <tag>网络篇</tag>
+        <tag>渗透测试术语</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PHP 基础巩固 -- 数组</title>
     <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-20/PHP-foundation-consolidation-array/</url>
     <content><![CDATA[<h2 id="数组特点及声明方式"><a href="#数组特点及声明方式" class="headerlink" title="数组特点及声明方式"></a>数组特点及声明方式</h2><ul>
