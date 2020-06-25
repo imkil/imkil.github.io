@@ -20,15 +20,22 @@
     var CONFIG = {"hostname":"imkil.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="道虽迩，不行不至">
-<meta property="og:url" content="https://imkil.github.io/tags/born/index.html">
+  <meta name="description" content="端口 “端口” 是英⽂ port 的意译，可以认为是设备与外界通讯交流的出口。  端口可分为虚拟端口和物理端口，其中虚拟端口指计算机内部或交换机路由器内的端口，不可见。例如计算机中的 80 端口、21 端口、23 端口等。  物理端口又称为口接口，是可见端口，计算机背板的 RJ45 网口，交换机路由器集线器等 RJ45 端口。电话使用 RJ11 插口也属于物理端口的范畴。  可以使用 netsta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WEB 渗透 -- 网络篇 -- 端口">
+<meta property="og:url" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-26/Web-penetration-port/index.html">
 <meta property="og:site_name" content="道虽迩，不行不至">
+<meta property="og:description" content="端口 “端口” 是英⽂ port 的意译，可以认为是设备与外界通讯交流的出口。  端口可分为虚拟端口和物理端口，其中虚拟端口指计算机内部或交换机路由器内的端口，不可见。例如计算机中的 80 端口、21 端口、23 端口等。  物理端口又称为口接口，是可见端口，计算机背板的 RJ45 网口，交换机路由器集线器等 RJ45 端口。电话使用 RJ11 插口也属于物理端口的范畴。  可以使用 netsta">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-25T16:29:38.000Z">
+<meta property="article:modified_time" content="2020-06-25T17:13:42.122Z">
 <meta property="article:author" content="imkil">
+<meta property="article:tag" content="WEB渗透">
+<meta property="article:tag" content="网络篇">
+<meta property="article:tag" content="端口">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://imkil.github.io/tags/born/">
+<link rel="canonical" href="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-26/Web-penetration-port/">
 
 
 <script id="page-configurations">
@@ -36,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: born | 道虽迩，不行不至</title>
+  <title>WEB 渗透 -- 网络篇 -- 端口 | 道虽迩，不行不至</title>
   
 
 
@@ -183,51 +190,151 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">born
-          <small>标签</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-26/Web-penetration-port/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/najiong.jpg#/images/avatar.gif">
+      <meta itemprop="name" content="imkil">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="道虽迩，不行不至">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          WEB 渗透 -- 网络篇 -- 端口
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-26 00:29:38 / 修改时间：01:13:42" itemprop="dateCreated datePublished" datetime="2020-06-26T00:29:38+08:00">2020-06-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/" itemprop="url" rel="index"><span itemprop="name">WEB渗透网络篇</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>868</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><ul>
+<li><p>“端口” 是英⽂ port 的意译，可以认为是设备与外界通讯交流的出口。</p>
+</li>
+<li><p>端口可分为虚拟端口和物理端口，其中虚拟端口指计算机内部或交换机路由器内的端口，不可见。例如计算机中的 80 端口、21 端口、23 端口等。</p>
+</li>
+<li><p>物理端口又称为口接口，是可见端口，计算机背板的 RJ45 网口，交换机路由器集线器等 RJ45 端口。电话使用 RJ11 插口也属于物理端口的范畴。</p>
+</li>
+<li><p>可以使用 netstat -ano 命令在 cmd 中查看 Windows 中的端口。</p>
+</li>
+<li><p>每个端口对应不用的服务。每一种都有可能出现不同的漏洞情况。</p>
+</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h2><h3 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h3><ul>
+<li><p>nmap 是一个网络连接端扫描软件，用来扫描网上电脑开放的网络连接端。</p>
+</li>
+<li><p>确定哪些服务运行在哪些连接端，并且推断计算机运行哪个操作系统（这是亦称 fingerprinting）。</p>
+</li>
+<li><p>它是网络管理员必用的软件之一，以及用以评估网络系统安全。</p>
+</li>
+<li><p>正如大多数被用于网络安全的工具，nmap 也是不少黑客及骇客（又称脚本小子）爱用的工具。</p>
+</li>
+<li><p>系统管理员可以利用 nmap 来探测工作环境中未经批准使用的服务器，但是黑客会利用 nmap 来搜集目标电脑的网络设定，从而计划攻击的方法。</p>
+</li>
+<li><p>Nmap 常被跟评估系统漏洞软件 Nessus 混为一谈。Nmap 以隐秘的手法，避开闯入检测系统的监视，并尽可能不影响目标系统的日常操作。</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmap &lt;IP&gt;</span><br><span class="line">nmap -sS --open -Pn &lt;IP&gt;</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a href="https://www.freebuf.com/news/141607.html" target="_blank" rel="noopener">nmap 使用指南</a></p>
+<h3 id="Metasploit"><a href="#Metasploit" class="headerlink" title="Metasploit"></a>Metasploit</h3><ul>
+<li><p>Metasploit 是一款开源的安全漏洞检测工具，可以帮助安全和 IT 专业人士识别安全性问题，验证漏洞的缓解措施，并管理专家驱动的安全性进行评估，提供真正的安全风险情报。</p>
+</li>
+<li><p>这些功能包括智能开发，代码审计，Web 应用程序扫描，社会工程。团队合作，在 Metasploit 和综合报告提出了他们的发现。</p>
+</li>
+</ul>
+<h3 id="zmap"><a href="#zmap" class="headerlink" title="zmap"></a>zmap</h3><ul>
+<li><p>ZMap 是一款扫描软件，由 Durumeric 领导密歇根大学研究团队开发。</p>
+</li>
+<li><p>这一工具能在一个小时内扫描整个公共互联网，显示近 40 亿在线设备的信息。</p>
+</li>
+<li><p>扫描结果能显示哪些网站无法防御特定漏洞。</p>
+</li>
+<li><p>而在 FREAK 的例子中，扫描是为了在漏洞公开宣布前评估漏洞的威胁程度。</p>
+</li>
+</ul>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-12T17:37:53+08:00"
-              content="2020-06-12">
-          06-12
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/WEB%E6%B8%97%E9%80%8F/" rel="tag"># WEB渗透</a>
+              <a href="/tags/%E7%BD%91%E7%BB%9C%E7%AF%87/" rel="tag"># 网络篇</a>
+              <a href="/tags/%E7%AB%AF%E5%8F%A3/" rel="tag"># 端口</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/be-born/2020-06-12/undefined/" itemprop="url">
-            <span itemprop="name">Hello World</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-23/Web-penetration-ip/" rel="prev" title="WEB 渗透 -- 网络篇 --IP 相关及常见网络设备">
+      <i class="fa fa-chevron-left"></i> WEB 渗透 -- 网络篇 --IP 相关及常见网络设备
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
@@ -280,6 +387,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#端口"><span class="nav-number">1.</span> <span class="nav-text">端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#端口扫描"><span class="nav-number">2.</span> <span class="nav-text">端口扫描</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nmap"><span class="nav-number">2.1.</span> <span class="nav-text">nmap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Metasploit"><span class="nav-number">2.2.</span> <span class="nav-text">Metasploit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zmap"><span class="nav-number">2.3.</span> <span class="nav-text">zmap</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
