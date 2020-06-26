@@ -1,6 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>WEB 渗透 -- 网络篇 --http 协议</title>
+    <url>/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-26/Web-penetration-hypertext-transfer-protocol/</url>
+    <content><![CDATA[<h2 id="HTTP-协议"><a href="#HTTP-协议" class="headerlink" title="HTTP 协议"></a>HTTP 协议</h2><ul>
+<li><p>超⽂本传输协议（HTTP，HyperText Transf er Protocol) 是互联⽹上应⽤最为⼴泛的⼀种⽹络协议。所有的 WWW ⽂件都必须遵守这个标准。</p>
+</li>
+<li><p>设计 HTTP 最初的⽬的是为了提供⼀种发布和接收 HTML 页⾯的⽅法。</p>
+</li>
+<li><p>1960 年美国⼈ Ted Nelson 构思了⼀种通过计算机处理⽂本信息的⽅法，并称之为超⽂本（hypertext）, 这成为了 HTTP 超⽂本传输协议标准架构的发展根基。</p>
+</li>
+<li><p>Ted Nelson 组织协调万维⽹协会（World Wide Web Consortium）和互联⽹⼯程⼯作⼩组（Internet Engineering Task Force ）共同合作研究，最终发布了⼀系列的 RFC，其中著名的 RFC 2616 定义了 HTTP 1.1。</p>
+</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="HTTP-和-HTTPS-的区别"><a href="#HTTP-和-HTTPS-的区别" class="headerlink" title="HTTP 和 HTTPS 的区别"></a>HTTP 和 HTTPS 的区别</h2><ul>
+<li><p>HTTP 的 URL 以 http:// 开头，⽽ HTTPS 的 URL 以 https:// 开头。</p>
+</li>
+<li><p>HTTP 是不安全的，⽽ HTTPS 是安全的。</p>
+</li>
+<li><p>HTTP 标准端⼝是 80 ，⽽ HTTPS 的标准端⼝是 443。</p>
+</li>
+<li><p>在 OSI ⽹络模型中，HTTP ⼯作于应⽤层，⽽ HTTPS ⼯作在传输层。</p>
+</li>
+<li><p>HTTP ⽆需加密，⽽ HTTPS 对传输的数据进⾏加密。</p>
+</li>
+<li><p>HTTP ⽆需证书，⽽ HTTPS 需要认证证书。</p>
+</li>
+</ul>
+<p>参考：<a href="https://blog.csdn.net/whatday/article/details/38147103" target="_blank" rel="noopener">HTTPS 和 HTTP 的区别</a></p>
+<h2 id="HTTP-请求抓取"><a href="#HTTP-请求抓取" class="headerlink" title="HTTP 请求抓取"></a>HTTP 请求抓取</h2><ul>
+<li><p>可以使用浏览器中 F12 按钮→Network 标签抓取请求</p>
+</li>
+<li><p>也可以使用抓包工具抓取请求。例如：burpsuite、fiddler 等</p>
+</li>
+</ul>
+<h2 id="HTTP-请求包"><a href="#HTTP-请求包" class="headerlink" title="HTTP 请求包"></a>HTTP 请求包</h2><ul>
+<li>http 请求由三部分组成，分别是：请求行、请求头 (消息报头)、请求正文。</li>
+</ul>
+<h3 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h3><ul>
+<li><p>请求行以一个方法符文开头，以空格分开，后面跟着请求的 URI 和协议的版本。</p>
+</li>
+<li><p>格式为：Method Request-URI HTTP-Version CRLF</p>
+<ul>
+<li><p>Method 表示请求方法代码</p>
+</li>
+<li><p>Request-URI 是一个统一资源标识符</p>
+</li>
+<li><p>HTTP-Version 表示请求的 HTTP 协议版本</p>
+</li>
+<li><p>CRLF 表示回车和换行 (除了作为结尾的 CRLF 外，不允许出现单独的 CR 或 LF 字符)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="常见的请求方法"><a href="#常见的请求方法" class="headerlink" title="常见的请求方法"></a>常见的请求方法</h4><ul>
+<li><p>GET：请求获取 Request-URI 所标识的资源</p>
+</li>
+<li><p>POST：在 Request-URI 所标识的资源后附加新的数据</p>
+</li>
+<li><p>HEAD：请求获取由 Request-URI 所标识的资源的响应消息报头</p>
+</li>
+<li><p>PUT：请求服务器存储⼀个资源，并⽤ Request-URI 作为其标识</p>
+</li>
+<li><p>DELETE：请求服务器删除 Request-URI 所标识的资源</p>
+</li>
+<li><p>OPTIONS：请求查询服务器的性能，或者查询与资源相关的选项和需求</p>
+</li>
+</ul>
+<h3 id="请求头-消息报头"><a href="#请求头-消息报头" class="headerlink" title="请求头 (消息报头)"></a>请求头 (消息报头)</h3><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">Host:</span> www.baidu.com</span><br><span class="line">User-<span class="string">Agent:</span> Mozilla<span class="regexp">/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/</span><span class="number">20100101</span> Firefox/<span class="number">66.0</span></span><br><span class="line"><span class="string">Accept:</span> image<span class="regexp">/webp,*/</span>*</span><br><span class="line">Accept-<span class="string">Language:</span> zh-CN,zh;q=<span class="number">0.8</span>,zh-TW;q=<span class="number">0.7</span>,zh-HK;q=<span class="number">0.5</span>,en-US;q=<span class="number">0.3</span>,en;q=<span class="number">0.2</span></span><br><span class="line">Accept-<span class="string">Encoding:</span> gzip, deflate, br</span><br><span class="line"><span class="string">Referer:</span> <span class="string">https:</span><span class="comment">//www.baidu.com/</span></span><br><span class="line"><span class="string">Connection:</span> keep-alive</span><br><span class="line"><span class="string">Cookie:</span> BAIDUID=<span class="number">636</span><span class="string">AC4A6764AA5693A158824605F2ECA:</span>FG=<span class="number">1</span>;</span><br><span class="line">BIDUPSID=<span class="number">636</span>AC4A6764AA5693A158824605F2ECA; PSTM=<span class="number">1555151944</span>; delPer=<span class="number">0</span>; BD_HOME=<span class="number">0</span>;</span><br><span class="line">H_PS_PSSID=<span class="number">1464</span>_21088_29064_28518_29098_29139_28836_28585_26350_29133_20719</span><br></pre></td></tr></table></figure>
+
+<h4 id="一些常见的请求报头"><a href="#一些常见的请求报头" class="headerlink" title="一些常见的请求报头"></a>一些常见的请求报头</h4><ul>
+<li><p>User-Agent：包含发出请求的⽤户信息。</p>
+</li>
+<li><p>Accept：Accept 请求报头域⽤于指定客户端接受哪些类型的信息。eg：Accept：image/gif，表明客户端希望接受 GIF 图象格式的资源；Accept：text/html，表明客户端希望接受 html ⽂本。</p>
+</li>
+<li><p>Referer: 告诉服务器我是从哪个页⾯链接过来的。</p>
+</li>
+<li><p>Cookie：⾝份凭证。</p>
+</li>
+</ul>
+<h2 id="HTTP-响应包"><a href="#HTTP-响应包" class="headerlink" title="HTTP 响应包"></a>HTTP 响应包</h2><ul>
+<li>HTTP 响应也是由三个部分组成，分别是：状态⾏ (响应行)、消息报头 (响应头)、响应正文。</li>
+</ul>
+<h3 id="状态行-响应行"><a href="#状态行-响应行" class="headerlink" title="状态行 (响应行)"></a>状态行 (响应行)</h3><ul>
+<li><p>响应行一般由协议版本、状态码及其描述组成 比如 HTTP/1.1 200 OK</p>
+</li>
+<li><p>格式为：HTTP-Version Status-Code Reason-Phrase CRLF</p>
+<ul>
+<li><p>HTTP-Version 表示服务器 HTTP 协议的版本</p>
+</li>
+<li><p>Status-Code 表示服务器发回的响应状态代码</p>
+</li>
+<li><p>Reason-Phrase 表示状态代码的文本描述</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="常见的状态码"><a href="#常见的状态码" class="headerlink" title="常见的状态码"></a>常见的状态码</h4><ul>
+<li><p>200 OK 客户端请求成功</p>
+</li>
+<li><p>400 Bad Request 客户端请求有语法错误，不能被服务器所理解</p>
+</li>
+<li><p>403 Forbidden 服务器收到请求，但是拒绝提供服务</p>
+</li>
+<li><p>404 Not Found 请求资源不存在</p>
+</li>
+<li><p>500 Internal Server Error 服务器发生不可预期的错误</p>
+</li>
+<li><p>503 Server Unavailable 服务器当前不能处理客户端的请求，一段时间后可能恢复正常</p>
+</li>
+</ul>
+<h3 id="消息报头-响应头"><a href="#消息报头-响应头" class="headerlink" title="消息报头 (响应头)"></a>消息报头 (响应头)</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">HTTP/1.1</span> <span class="number">200</span> <span class="string">OK</span></span><br><span class="line"><span class="attr">Accept-Ranges:</span> <span class="string">bytes</span></span><br><span class="line"><span class="attr">Cache-Control:</span> <span class="string">max-age=315360000</span></span><br><span class="line"><span class="attr">Connection:</span> <span class="string">Keep-Alive</span></span><br><span class="line"><span class="attr">Content-Length:</span> <span class="number">705</span></span><br><span class="line"><span class="attr">Content-Type:</span> <span class="string">image/gif</span></span><br><span class="line"><span class="attr">Date:</span> <span class="string">Sat,</span> <span class="number">01</span> <span class="string">Jun</span> <span class="number">2019</span> <span class="number">05</span><span class="string">:46:40</span> <span class="string">GMT</span></span><br><span class="line"><span class="attr">Etag:</span> <span class="string">"2c1-4a6473f6030c0"</span></span><br><span class="line"><span class="attr">Expires:</span> <span class="string">Tue,</span> <span class="number">29</span> <span class="string">May</span> <span class="number">2029</span> <span class="number">05</span><span class="string">:46:40</span> <span class="string">GMT</span></span><br><span class="line"><span class="attr">Last-Modified:</span> <span class="string">Wed,</span> <span class="number">22</span> <span class="string">Jun</span> <span class="number">2011</span> <span class="number">06</span><span class="string">:40:43</span> <span class="string">GMT</span></span><br><span class="line"><span class="attr">Server:</span> <span class="string">Apache</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="一些常见的响应报头"><a href="#一些常见的响应报头" class="headerlink" title="一些常见的响应报头"></a>一些常见的响应报头</h4><ul>
+<li><p>Server：Web 服务器名称</p>
+</li>
+<li><p>Set-cookie：服务器向客户端发送的信息</p>
+</li>
+<li><p>Location：服务器通过这个头告诉浏览器去访问哪个页面，浏览器接受到这个请求后，通常会立刻访问 Location 头所指向的页面，通过配合 302 状态码</p>
+</li>
+<li><p>Refresh：服务器通过这个告诉浏览器定时刷新浏览器</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>WEB渗透网络篇</category>
+      </categories>
+      <tags>
+        <tag>WEB渗透</tag>
+        <tag>网络篇</tag>
+        <tag>http协议</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>WEB 渗透 -- 网络篇 -- 端口</title>
     <url>/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-26/Web-penetration-port/</url>
     <content><![CDATA[<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><ul>
