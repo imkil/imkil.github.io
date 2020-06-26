@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"imkil.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="WEB 通信网站访问流程图：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WEB 渗透 -- 网络篇 --WEB 通信及前后端的组成">
+<meta property="og:url" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-26/Web-penetration-World-Wide-Web/index.html">
+<meta property="og:site_name" content="道虽迩，不行不至">
+<meta property="og:description" content="WEB 通信网站访问流程图：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-26/Web-penetration-World-Wide-Web/ceshi.jpg">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-26/Web-penetration-World-Wide-Web/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.jpg">
+<meta property="article:published_time" content="2020-06-26T11:42:09.000Z">
+<meta property="article:modified_time" content="2020-06-26T13:38:23.327Z">
+<meta property="article:author" content="imkil">
+<meta property="article:tag" content="WEB渗透">
+<meta property="article:tag" content="网络篇">
+<meta property="article:tag" content="WEB通信">
+<meta property="article:tag" content="WEB前端">
+<meta property="article:tag" content="WEB后端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-26/Web-penetration-World-Wide-Web/ceshi.jpg">
+
+<link rel="canonical" href="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-26/Web-penetration-World-Wide-Web/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>WEB 渗透 -- 网络篇 --WEB 通信及前后端的组成 | 道虽迩，不行不至</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">道虽迩，不行不至</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">事虽小，不为不成</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-26/Web-penetration-World-Wide-Web/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/najiong.jpg#/images/avatar.gif">
+      <meta itemprop="name" content="imkil">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="道虽迩，不行不至">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          WEB 渗透 -- 网络篇 --WEB 通信及前后端的组成
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-26 19:42:09 / 修改时间：21:38:23" itemprop="dateCreated datePublished" datetime="2020-06-26T19:42:09+08:00">2020-06-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/" itemprop="url" rel="index"><span itemprop="name">WEB渗透网络篇</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="WEB-通信"><a href="#WEB-通信" class="headerlink" title="WEB 通信"></a>WEB 通信</h2><p>网站访问流程图：</p>
+<img src="/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-26/Web-penetration-World-Wide-Web/ceshi.jpg" class title="流程">
+
+<a id="more"></a>
+
+<h3 id="资源定位-–DNS"><a href="#资源定位-–DNS" class="headerlink" title="资源定位 –DNS"></a>资源定位 –DNS</h3><ul>
+<li><p>DNS (Domain Name System，域名系统)，因特网上作为域名和 IP 地址相互映射的一个分布式数据库，能够使用户更方便的访问互联网，而不用去记住能够被机器直接读取的 IP 数串。</p>
+</li>
+<li><p>通过主机名，最终得到该主机名对应的 IP 地址的过程叫做域名解析 (或主机名解析)。</p>
+</li>
+<li><p>DNS 协议运行在 UDP 协议之上，使用端口号 53.</p>
+</li>
+<li><p>访问网站的实质就是解析其域名得到 IP 地址，再转向其网站。</p>
+</li>
+</ul>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><p>参考：<a href="https://www.cnblogs.com/yihr/p/9720715.html" target="_blank" rel="noopener">用户访问网站的完整流程</a></p>
+<ul>
+<li><p>系统首先会查找本地的 DNS 缓存和 hosts ⽂件信息，确认其中是否有与域名 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 所对应的 IP 地址。如果有，就直接访问这个 IP 地址所对应的 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 域名服务器。</p>
+</li>
+<li><p>如果没有找到，系统将会把浏览器的解析请求发送给本地主机所指定的 DNS 服务器，称为 LDNS。如果 LDNS 服务器中有域名 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 所对应的 IP 地址，则返回给客户端的浏览器，如果没有，则继续请求其他 DNS 服务器。</p>
+</li>
+<li><p>LDNS 服务器会从 DNS 系统的根（.）开始请求对域名 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 的解析。根 DNS 服务器全球只有 13 台，根域名服务器是没有域名 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 解析记录的。但是它会有域名 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 所对应的顶级域.com 的解析记录，因此直接把顶级域.com 所对应的 DNS 地址返回给 LDNS 服务器。</p>
+</li>
+<li><p>LDNS 服务器获取到顶级域.com 对应的 DNS 服务器地址后，就会去.com 服务器请求对 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 域名的解析。在顶级域名服务器也不会有 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 的解析记录的。但是它有 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 的⽗级域名的解析记录，即 baidu.com。因此顶级域名.com 服务器又会把 baidu.com 所对应的 DNS 服务器的 IP 地址返回给 LDNS。</p>
+</li>
+<li><p>LDNS 服务器收到 baidu.com 所对应的 IP 地址后，就会去 baidu.com 域名服务器请求对 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 的域名解析。Baidu.com 域名对应的 DNS 服务器是该域名的授权 DNS 服务器。这个 DNS 服务器就是企业购买域名时用于管理解析的服务器。</p>
+</li>
+<li><p>baidu.com 域名 DNS 服务器会吧 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 域名所对应的 IP 地址给解析出来，然后发给 LDNS。</p>
+</li>
+<li><p>LDNS 把解析出来的结果，<a href="http://www.baudu.com" target="_blank" rel="noopener">www.baudu.com</a> 所对应的 IP 地址发送给客户端的浏览器。并且 LDNS 也会将其域名和对应的地址缓存到 cache 中。</p>
+</li>
+<li><p>客户端浏览器收到后，也会将其域名以及对应的 IP 地址缓存的到 DNS 缓存和 hosts ⽂件中。</p>
+</li>
+</ul>
+<h3 id="TCP-IP-协议"><a href="#TCP-IP-协议" class="headerlink" title="TCP/IP 协议"></a>TCP/IP 协议</h3><ul>
+<li><p>TCP/IP（Transmission Control Protocol/Internet Protocol，传输控制协议 / 网际协议）是指能够在多个不同网络间实现信息传输的协议簇。</p>
+</li>
+<li><p>TCP/IP 协议不仅仅指的是 TCP 和 IP 两个协议，而是指一个由 FTP、SMTP、TCP、UDP、IP 等协议构成的协议簇，只是因为在 TCP/IP 协议中 TCP 协议和 IP 协议最具代表性，所以被称为 TCP/IP 协议。</p>
+</li>
+<li><p>TCP/IP 协议在一定程度上参考了 OSI 的体系结构。OSI 模型共有七层，从下到上分别是物理层、数据链路层、网络层、运输层、会话层、表示层和应用层。但是这显然是有些复杂的，所以在 TCP/IP 协议中，它们被简化为了四个层次。</p>
+</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-26/Web-penetration-World-Wide-Web/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.jpg" class title="网络流程">
+
+<ul>
+<li><p>应用层、表示层、会话层三个层次提供的服务相差不是很大，所以在 TCP/IP 协议中，它们被合并为应用层一个层次。</p>
+</li>
+<li><p>由于运输层和网络层在网络协议中的地位十分重要，所以在 TCP/IP 协议中它们被作为独立的两个层次。</p>
+</li>
+<li><p>因为数据链路层和物理层的内容相差不多，所以在 TCP/IP 协议中它们被归并在网络接口层一个层次里。只有四层体系结构的 TCP/IP 协议，与有七层体系结构的 OSI 相比要简单了不少，也正是这样，TCP/IP 协议在实际的应用中效率更高，成本更低。</p>
+</li>
+</ul>
+<p>分别介绍 TCP/IP 协议中的四个层次。</p>
+<p>应用层：应用层是 TCP/IP 协议的第一层，是直接为应用进程提供服务的。</p>
+<ul>
+<li><p>对不同种类的应用程序它们会根据自己的需要来使用应用层的不同协议，邮件传输应用使用了 SMTP 协议、万维网应用使用了 HTTP 协议、远程登录服务应用使用了有 TELNET 协议。</p>
+</li>
+<li><p>应用层还能加密、解密、格式化数据。</p>
+</li>
+<li><p>应用层可以建立或解除与其他节点的联系，这样可以充分节省网络资源。</p>
+</li>
+</ul>
+<p>运输层：作为 TCP/IP 协议的第二层，运输层在整个 TCP/IP 协议中起到了中流砥柱的作用。且在运输层中，TCP 和 UDP 也同样起到了中流砥柱的作用。</p>
+<p>网络层：网络层在 TCP/IP 协议中的位于第三层。在 TCP/IP 协议中网络层可以进行网络连接的建立和终止以及 IP 地址的寻找等功能。</p>
+<p>网络接口层：在 TCP/IP 协议中，网络接口层位于第四层。由于网络接口层兼并了物理层和数据链路层所以，网络接口层既是传输数据的物理媒介，也可以为网络层提供一条准确无误的线路。</p>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+<li><p>TCP/IP 协议能够迅速发展起来并成为事实上的标准，是它恰好适应了世界范围内数据通信的需要。它有以下特点：</p>
+<ul>
+<li><p>协议标准是完全开放的，可以供用户免费使用，并且独立于特定的计算机硬件与操作系统。</p>
+</li>
+<li><p>独立于网络硬件系统，可以运行在广域网，更适合于互联网。</p>
+</li>
+<li><p>网络地址统一分配，网络中每一设备和终端都具有一个唯一地址。</p>
+</li>
+<li><p>高层协议标准化，可以提供多种多样可靠网络服务。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="三次握手简单理解"><a href="#三次握手简单理解" class="headerlink" title="三次握手简单理解"></a>三次握手简单理解</h4><ul>
+<li><p>A 问 B: 你听到了么，发确认信息</p>
+</li>
+<li><p>B 回答 A: 听到了，告诉 A 它能接收到 A 的消息</p>
+</li>
+<li><p>A 再回 B: 我能接收到你的消息，再发一次确认，然后建立连接</p>
+</li>
+</ul>
+<h3 id="URL-协议"><a href="#URL-协议" class="headerlink" title="URL 协议"></a>URL 协议</h3><ul>
+<li>url 是统⼀资源定位符，对可以从互联网上得到的资源的位置和访问方法的一种简洁的表示，是互联网上标准资源的地址。浏览器通过 url 定位资源。</li>
+</ul>
+<h4 id="URL-格式解析"><a href="#URL-格式解析" class="headerlink" title="URL 格式解析"></a>URL 格式解析</h4><p>schema://host [:port#]/path/…/[?query-string][#anchor]</p>
+<p><a href="http://www.dark5.com/dark/dark.php?id=1" target="_blank" rel="noopener">http://www.dark5.com/dark/dark.php?id=1</a></p>
+<ul>
+<li><p>schema 协议</p>
+</li>
+<li><p>host [:port] 域名或者 IP 端⼝</p>
+</li>
+<li><p>path/…/ 路径</p>
+</li>
+<li><p>[?query-string] 发送给 http 服务器的数据</p>
+</li>
+<li><p>[#anchor] 锚点</p>
+</li>
+</ul>
+<h2 id="web-前端"><a href="#web-前端" class="headerlink" title="web 前端"></a>web 前端</h2><h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><ul>
+<li><p>HTML，超文本标记语言，标准通用标记语言下的一个应用。包括 “头” 部分 (英语：Head)、和 “主体” 部分 (英语：Body)，其中 “头” 部提供关于网页的信息，“主体” 部分提供网页的具体内容。</p>
+</li>
+<li><p>JavaScript，一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。被广泛用于 Web 应用开发，常用来为网页添加各式各样的动态功能，为用户提供更流畅美观的浏览效果。通常 JavaScript 脚本是通过嵌入在 HTML 中来实现自身的功能。</p>
+</li>
+<li><p>CSS，层叠样式表，是一种用来表现 HTML (标准通用标记语言的一个应用) 或 XML (标准通用标记语言的一个子集) 等文件样式的计算机语言。</p>
+</li>
+</ul>
+<p>随着互联网时代的飞速发展以及企业需求变更，前端开发技术的三要素也演变成现今的 HTML5、CSS3、jQuery。</p>
+<h2 id="web-后端"><a href="#web-后端" class="headerlink" title="web 后端"></a>web 后端</h2><h3 id="组成-1"><a href="#组成-1" class="headerlink" title="组成"></a>组成</h3><ul>
+<li><p>web 服务器：Web 服务器一般指网站服务器，是指驻留于因特网上某种类型计算机的程序，可以向浏览器等 Web 客户端提供文档，也可以放置网站文件，让全世界浏览；可以放置数据⽂件，让全世界下载。目前最主流的三个 Web 服务器是 Apache、 Nginx 、 IIS。</p>
+</li>
+<li><p>脚本语言：脚本语言又被称为扩建的语言，或者动态语言，是一种编程语言，用来控制软件应用程序，脚本通常以文本（如 ASCII) 保存，只在被调用时进行解释或编译。</p>
+</li>
+<li><p>语言解释器：解释器（英语：Interpreter），又译为直译器，是一种电脑程序，能够把高级编程语言一行一行直接转译运行。解释器不会一次把整个程序转译出来，只像一位 “中间人”，每次运行程序时都要先转成另一种语言再作运行，因此解释器的程序运行速度比较缓慢。它每转译一行程序叙述就立刻运行，然后再转译下一行，再运行，如此不停地进行下去。</p>
+</li>
+<li><p>数据库：数据库是 “按照数据结构来组织、存储和管理数据的仓库”。是一个长期存储在计算机内的、有组织的、可共享的、统一管理的大量数据的集合。数据库是以一定方式储存在一起、能与多个用户共享、具有尽可能小的冗余度、与应用程序彼此独立的数据集合，可视为电子化的文件柜 —— 存储电子文件的处所，用户可以对文件中的数据进行新增、查询、更新、删除等操作。</p>
+</li>
+</ul>
+<h4 id="常见的组合"><a href="#常见的组合" class="headerlink" title="常见的组合"></a>常见的组合</h4><table>
+<thead>
+<tr>
+<th align="center">操作系统</th>
+<th align="center">WEB 服务器</th>
+<th align="center">解释器环境</th>
+<th align="center">数据库</th>
+<th align="center">脚本语言</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Windows server</td>
+<td align="center">iis</td>
+<td align="center">.net</td>
+<td align="center">Access/Mysql</td>
+<td align="center">asp</td>
+</tr>
+<tr>
+<td align="center">Linux</td>
+<td align="center">apache</td>
+<td align="center">php 解释器</td>
+<td align="center">Mysql</td>
+<td align="center">php</td>
+</tr>
+<tr>
+<td align="center">Unix/Windows</td>
+<td align="center">tomcat</td>
+<td align="center">Jsp 解释器</td>
+<td align="center">Oracle</td>
+<td align="center">jsp</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/WEB%E6%B8%97%E9%80%8F/" rel="tag"># WEB渗透</a>
+              <a href="/tags/%E7%BD%91%E7%BB%9C%E7%AF%87/" rel="tag"># 网络篇</a>
+              <a href="/tags/WEB%E9%80%9A%E4%BF%A1/" rel="tag"># WEB通信</a>
+              <a href="/tags/WEB%E5%89%8D%E7%AB%AF/" rel="tag"># WEB前端</a>
+              <a href="/tags/WEB%E5%90%8E%E7%AB%AF/" rel="tag"># WEB后端</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-26/Web-penetration-hypertext-transfer-protocol/" rel="prev" title="WEB 渗透 -- 网络篇 --http 协议">
+      <i class="fa fa-chevron-left"></i> WEB 渗透 -- 网络篇 --http 协议
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WEB-通信"><span class="nav-number">1.</span> <span class="nav-text">WEB 通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#资源定位-–DNS"><span class="nav-number">1.1.</span> <span class="nav-text">资源定位 –DNS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤"><span class="nav-number">1.1.1.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-IP-协议"><span class="nav-number">1.2.</span> <span class="nav-text">TCP&#x2F;IP 协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特点"><span class="nav-number">1.2.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三次握手简单理解"><span class="nav-number">1.2.2.</span> <span class="nav-text">三次握手简单理解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL-协议"><span class="nav-number">1.3.</span> <span class="nav-text">URL 协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#URL-格式解析"><span class="nav-number">1.3.1.</span> <span class="nav-text">URL 格式解析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web-前端"><span class="nav-number">2.</span> <span class="nav-text">web 前端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组成"><span class="nav-number">2.1.</span> <span class="nav-text">组成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web-后端"><span class="nav-number">3.</span> <span class="nav-text">web 后端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组成-1"><span class="nav-number">3.1.</span> <span class="nav-text">组成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的组合"><span class="nav-number">3.1.1.</span> <span class="nav-text">常见的组合</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="imkil"
+      src="/images/najiong.jpg#/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">imkil</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.dark5.net/" title="https:&#x2F;&#x2F;www.dark5.net" rel="noopener" target="_blank">5号黯区</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">imkil</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">24k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">22 分钟</span>
+</div>
+
+<div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    有<span id="busuanzi_value_site_uv"></span>人看过我的博客
+</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

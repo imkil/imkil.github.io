@@ -282,11 +282,11 @@
 </ul>
 <h2 id="字符串常用函数"><a href="#字符串常用函数" class="headerlink" title="字符串常用函数"></a>字符串常用函数</h2><h3 id="字符长度函数"><a href="#字符长度函数" class="headerlink" title="字符长度函数"></a>字符长度函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">strlen (<span class="variable">$string</span>);</span><br><span class="line">// 传入 string 类型，返回 int 型 </span><br><span class="line">//utf8 编码，中文占 3 个字节 </span><br><span class="line"></span><br><span class="line">mb_strlen (<span class="variable">$string</span>, <span class="string">'$encoding'</span>);</span><br><span class="line">// 传入 string，编码方式，返回 int 型 </span><br></pre></td></tr></table></figure>
 
-<h3 id="查找字符位置函数"><a href="#查找字符位置函数" class="headerlink" title="查找字符位置函数"></a>查找字符位置函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">strpos (<span class="variable">$str</span>, <span class="variable">$char</span>);</span><br><span class="line">// <span class="variable">$str</span > 中是否含有 < span class="variable">$char</span>，返回在字符串中第一次出现的位置 </span><br><span class="line"></span><br><span class="line">stripos (<span class="variable">$str</span>, <span class="variable">$char</span>);</span><br><span class="line">// <span class="variable">$str</span > 中是否含有 < span class="variable">$char</span>，返回在字符串中第一次出现的位置。该函数对大小写不敏感 </span><br><span class="line"></span><br><span class="line">strrpos (<span class="variable">$str</span>, <span class="variable">$char</span>);</span><br><span class="line">// <span class="variable">$str</span > 中是否含有 < span class="variable">$char</span>，返回在字符串中最后一次出现的位置 </span><br></pre></td></tr></table></figure>
+<h3 id="查找字符位置函数"><a href="#查找字符位置函数" class="headerlink" title="查找字符位置函数"></a>查找字符位置函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">strpos (<span class="variable">$str</span>, <span class="variable">$char</span>);</span><br><span class="line">// <span class="variable">$str</span> 中是否含有 < span class="variable">$char</span>，返回在字符串中第一次出现的位置 <br><span class="line"></span><br><span class="line">stripos (<span class="variable">$str</span>, <span class="variable">$char</span>);</span><br><span class="line">// <span class="variable">$str</span> 中是否含有 < span class="variable">$char</span>，返回在字符串中第一次出现的位置。该函数对大小写不敏感 <br><span class="line"></span><br><span class="line">strrpos (<span class="variable">$str</span>, <span class="variable">$char</span>);</span><br><span class="line">// <span class="variable">$str</span> 中是否含有 < span class="variable">$char</span>，返回在字符串中最后一次出现的位置 <br></pre></td></tr></table></figure>
 
-<h3 id="字符串替换函数"><a href="#字符串替换函数" class="headerlink" title="字符串替换函数"></a>字符串替换函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">str_replace (search, replace, <span class="variable">$str</span>);</span><br><span class="line">// 从 < span class="variable">$str</span > 中查找 search 用 replace 替换 </span><br><span class="line"></span><br><span class="line">strstr (<span class="variable">$str</span>, search, replace);</span><br><span class="line">//search，replace 可以是 array (<span class="string">'a'</span> =&gt; <span class="string">'b'</span>, <span class="string">'b'</span> =&gt; <span class="string">'a'</span>)</span><br><span class="line">// 从而同时替换多个字符 </span><br></pre></td></tr></table></figure>
+<h3 id="字符串替换函数"><a href="#字符串替换函数" class="headerlink" title="字符串替换函数"></a>字符串替换函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">str_replace (search, replace, <span class="variable">$str</span>);</span><br><span class="line">// 从 < span class="variable">$str</span> 中查找 search 用 replace 替换 <br><span class="line"></span><br><span class="line">strstr (<span class="variable">$str</span>, search, replace);</span><br><span class="line">//search，replace 可以是 array (<span class="string">'a'</span> =&gt; <span class="string">'b'</span>, <span class="string">'b'</span> =&gt; <span class="string">'a'</span>)</span><br><span class="line">// 从而同时替换多个字符 </span><br></pre></td></tr></table></figure>
 
-<h3 id="截取子字符串，分割，连接，反转函数"><a href="#截取子字符串，分割，连接，反转函数" class="headerlink" title="截取子字符串，分割，连接，反转函数"></a>截取子字符串，分割，连接，反转函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">substr (<span class="variable">$str</span>, start [, length]);</span><br><span class="line">//length 如果为负，代表结束位置，后往前数 </span><br><span class="line"></span><br><span class="line">str_split (<span class="variable">$str</span>, length);</span><br><span class="line">// 把 < span class="variable">$str</span > 按 length 长度进行分割返回数组 </span><br><span class="line"></span><br><span class="line">split (search, <span class="variable">$str</span>[, int]);</span><br><span class="line">// 把 < span class="variable">$str</span > 按 search 字符进行分割返回数组 int 是分割几次，后面的将不分割 </span><br><span class="line"></span><br><span class="line">explode (search, <span class="variable">$str</span>[, int]);</span><br><span class="line">// 把 < span class="variable">$str</span > 按 search 字符拆分成数组 </span><br><span class="line"></span><br><span class="line">implode (glue, pieces);</span><br><span class="line">// 把 glue 数组，用 pieces 拼接成字符串 </span><br></pre></td></tr></table></figure>
+<h3 id="截取子字符串，分割，连接，反转函数"><a href="#截取子字符串，分割，连接，反转函数" class="headerlink" title="截取子字符串，分割，连接，反转函数"></a>截取子字符串，分割，连接，反转函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">substr (<span class="variable">$str</span>, start [, length]);</span><br><span class="line">//length 如果为负，代表结束位置，后往前数 </span><br><span class="line"></span><br><span class="line">str_split (<span class="variable">$str</span>, length);</span><br><span class="line">// 把 < span class="variable">$str</span> 按 length 长度进行分割返回数组 <br><span class="line"></span><br><span class="line">split (search, <span class="variable">$str</span>[, int]);</span><br><span class="line">// 把 < span class="variable">$str</span> 按 search 字符进行分割返回数组 int 是分割几次，后面的将不分割 <br><span class="line"></span><br><span class="line">explode (search, <span class="variable">$str</span>[, int]);</span><br><span class="line">// 把 < span class="variable">$str</span> 按 search 字符拆分成数组 <br><span class="line"></span><br><span class="line">implode (glue, pieces);</span><br><span class="line">// 把 glue 数组，用 pieces 拼接成字符串 </span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -387,7 +387,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -400,7 +400,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -447,13 +447,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">20k</span>
+    <span title="站点总字数">24k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">18 分钟</span>
+    <span title="站点阅读时长">22 分钟</span>
 </div>
 
 <div>
