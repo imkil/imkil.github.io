@@ -1,6 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>WEB 渗透 -- 网络篇 -- 基础网站与本地靶场</title>
+    <url>/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-27/Web-penetration-web-range/</url>
+    <content><![CDATA[<h2 id="基础网站搭建"><a href="#基础网站搭建" class="headerlink" title="基础网站搭建"></a>基础网站搭建</h2><h3 id="AAWServer"><a href="#AAWServer" class="headerlink" title="AAWServer"></a>AAWServer</h3><ul>
+<li><p>AAWServer 安装简便免配置，可以快速建⽴ ASP+JSP+PHP+CGI+.NET+MYSQL 的 web 服务器环境。</p>
+</li>
+<li><p>AAWServer5.0 集成 Tomcat6 版全能 WEB 服务器是⼀款基于 Apache+TOMCAT, ⽀持 ASP+JSP+PHP+CGI+.NET+MYSQL 的全能服务器组合套件。</p>
+</li>
+<li><p>AAWServer5.0 可以很好的在 WINXP,NT,2000,VISTA,2003,2007,2008 系统上运⾏，独⽴不需要 IIS ⽀持。拥有安装简单。因 AAWServer5.0 上的 APACHE 服务会占⽤需要占⽤ 80 端⼝，建议您在安装之前，请停⽌ IIS, 迅雷或 Apache 服务。或者修改他们的端⼝。</p>
+</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="本地靶场搭建"><a href="#本地靶场搭建" class="headerlink" title="本地靶场搭建"></a>本地靶场搭建</h2><h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><h4 id="asp-环境搭建"><a href="#asp-环境搭建" class="headerlink" title="asp 环境搭建"></a>asp 环境搭建</h4><ul>
+<li><p>可以安装 ASPSweb Server (aps 服务器)– 不推荐</p>
+</li>
+<li><p>推荐使用 iis 部署 asp 网站</p>
+</li>
+<li><p>在 Windos Server 2003 中，开始→管理工具→管理您的服务器→添加或删除角色→服务器角色选择 IIS→下一步直到桌面出现 Internet 信息服务 (IIS) 后，按照参考中的步骤操作。</p>
+</li>
+</ul>
+<p>参考：<a href="https://blog.csdn.net/lansefly1990/article/details/84282952" target="_blank" rel="noopener">iis6.0 部署 aps 网站</a></p>
+<h4 id="php-环境搭建"><a href="#php-环境搭建" class="headerlink" title="php 环境搭建"></a>php 环境搭建</h4><ul>
+<li>推荐使用 phpstudy 搭建，稳定简单</li>
+</ul>
+<h4 id="常见靶场"><a href="#常见靶场" class="headerlink" title="常见靶场"></a>常见靶场</h4><h5 id="dvwa"><a href="#dvwa" class="headerlink" title="dvwa"></a>dvwa</h5><ul>
+<li><p>参考：<a href="http://www.dvwa.co.uk/" target="_blank" rel="noopener">DVWA 官网</a></p>
+</li>
+<li><p>DVWA（Damn Vulnerable Web Application）是⼀个用来进行安全脆弱性鉴定的 PHP/MySQL Web 应用，旨在为安全专业⼈员测试自己的专业技能和工具提供合法的环境，帮助 web 开发者更好的理解 web 应用安全防范的过程。</p>
+</li>
+<li><p>DVWA 共有⼗个模块，分别是：</p>
+<ul>
+<li><p>Brute Force (暴力 (破解))</p>
+</li>
+<li><p>Command Injection (命令行注入)</p>
+</li>
+<li><p>CSRF (跨站请求伪造)</p>
+</li>
+<li><p>File Inclusion (文件包含)</p>
+</li>
+<li><p>File Upload (文件上传)</p>
+</li>
+<li><p>Insecure CAPTCHA (不安全的验证码)</p>
+</li>
+<li><p>SQL Injection (SQL 注入)</p>
+</li>
+<li><p>SQL Injection (Blind) (SQL 盲注)</p>
+</li>
+<li><p>XSS (Reflected) (反射型跨站脚本)</p>
+</li>
+<li><p>XSS (Stored) (存储型跨站脚本)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="Pikachu"><a href="#Pikachu" class="headerlink" title="Pikachu"></a>Pikachu</h5><ul>
+<li><p>参考：<a href="https://github.com/zhuifengshaonianhanlu/pikachu" target="_blank" rel="noopener">Pikachu:github</a></p>
+</li>
+<li><p>Pikachu 是一个带有漏洞的 Web 应用系统，在这里包含了常见的 Web 安全漏洞。</p>
+</li>
+<li><p>如果你是一个 Web 渗透测试学习人员，且正发愁没有合适的靶场进行练习，那么 Pikachu 可能正合你意。</p>
+<ul>
+<li><p>Brute Force (暴力破解漏洞)</p>
+</li>
+<li><p>XSS (跨站脚本漏洞)</p>
+</li>
+<li><p>CSRF (跨站请求伪造)</p>
+</li>
+<li><p>SQL-Inject (SQL 注入漏洞)</p>
+</li>
+<li><p>RCE (远程命令 / 代码执行)</p>
+</li>
+<li><p>Files Inclusion (文件包含漏洞)</p>
+</li>
+<li><p>Unsafe file downloads (不安全的文件下载)</p>
+</li>
+<li><p>Unsafe file uploads (不安全的文件上传)</p>
+</li>
+<li><p>Over Permisson (越权漏洞)</p>
+</li>
+<li><p>../../../ (目录遍历)</p>
+</li>
+<li><p>I can see your ABC (敏感信息泄露)</p>
+</li>
+<li><p>PHP 反序列化漏洞</p>
+</li>
+<li><p>XXE (XML External Entity attack)</p>
+</li>
+<li><p>不安全的 URL 重定向</p>
+</li>
+<li><p>SSRF (Server-Side Request Forgery)</p>
+</li>
+<li><p>管理工具</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="Dorabox"><a href="#Dorabox" class="headerlink" title="Dorabox"></a>Dorabox</h5><ul>
+<li><p>参考：<a href="https://www.cnblogs.com/zhaijiahui/p/10789251.html" target="_blank" rel="noopener">DoraBox 漏洞练习平台</a></p>
+</li>
+<li><p>SQL 注入</p>
+<ul>
+<li><p>SQLi 数字型</p>
+</li>
+<li><p>SQLi 字符型</p>
+</li>
+<li><p>SQLi 搜索型</p>
+</li>
+</ul>
+</li>
+<li><p>XSS 跨站</p>
+<ul>
+<li><p>XSS 反射型</p>
+</li>
+<li><p>XSS 存储型</p>
+</li>
+<li><p>XSS DOM 型</p>
+</li>
+</ul>
+</li>
+<li><p>CSRF</p>
+<ul>
+<li><p>JSONP 劫持</p>
+</li>
+<li><p>CORS 跨域资源读取</p>
+</li>
+</ul>
+</li>
+<li><p>文件包含</p>
+<ul>
+<li><p>任意文件包含</p>
+</li>
+<li><p>目录限制文件包含</p>
+</li>
+</ul>
+</li>
+<li><p>文件上传</p>
+<ul>
+<li><p>任意文件上传</p>
+</li>
+<li><p>JS 限制文件上传</p>
+</li>
+<li><p>MIME 限制文件上传</p>
+</li>
+<li><p>扩展名限制文件上传</p>
+</li>
+<li><p>内容限制文件上传</p>
+</li>
+</ul>
+</li>
+<li><p>代码 / 命令执行</p>
+<ul>
+<li><p>任意代码执行</p>
+</li>
+<li><p>任意命令执行</p>
+</li>
+</ul>
+</li>
+<li><p>SSRF</p>
+</li>
+</ul>
+<h5 id="Webug"><a href="#Webug" class="headerlink" title="Webug"></a>Webug</h5><h5 id="Vulhub"><a href="#Vulhub" class="headerlink" title="Vulhub"></a>Vulhub</h5><ul>
+<li><p>参考：</p>
+<ul>
+<li><p><a href="https://vulhub.org/" target="_blank" rel="noopener">Vulhub 官网</a></p>
+</li>
+<li><p><a href="https://www.hetianlab.com/cour.do?w=1&c=CCIDee68-cedc-49cf-9d77-55bb6e417128" target="_blank" rel="noopener">VulnHub 渗透测试实战</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="SQLi-Labs"><a href="#SQLi-Labs" class="headerlink" title="SQLi-Labs"></a>SQLi-Labs</h5><ul>
+<li>参考：<a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">SQLi-Labs:github</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>WEB渗透网络篇</category>
+      </categories>
+      <tags>
+        <tag>WEB渗透</tag>
+        <tag>网络篇</tag>
+        <tag>基础网站</tag>
+        <tag>本地靶场</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>WEB 渗透 -- 网络篇 --WEB 通信及前后端的组成</title>
     <url>/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-26/Web-penetration-World-Wide-Web/</url>
     <content><![CDATA[<h2 id="WEB-通信"><a href="#WEB-通信" class="headerlink" title="WEB 通信"></a>WEB 通信</h2><p>网站访问流程图：</p>
