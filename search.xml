@@ -174,6 +174,14 @@
 <h5 id="SQLi-Labs"><a href="#SQLi-Labs" class="headerlink" title="SQLi-Labs"></a>SQLi-Labs</h5><ul>
 <li>参考：<a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">SQLi-Labs:github</a></li>
 </ul>
+<img src="/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-27/Web-penetration-web-range/SQLi-Labs.png" class title="SQLi-Labs">
+
+<h5 id="XSS-Labs"><a href="#XSS-Labs" class="headerlink" title="XSS-Labs"></a>XSS-Labs</h5><h5 id="Upload-labs"><a href="#Upload-labs" class="headerlink" title="Upload-labs"></a>Upload-labs</h5><ul>
+<li>参考：<a href="https://github.com/c0ny1/upload-labs" target="_blank" rel="noopener">Upload-labs:github</a></li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-27/Web-penetration-web-range/uoload-labs.png" class title="Upload-labs">
+
+<p>图片出处：<a href="https://www.cnblogs.com/hack404/p/10385049.html" target="_blank" rel="noopener">上传漏洞总结 - upload-labs</a></p>
 ]]></content>
       <categories>
         <category>WEB渗透网络篇</category>
