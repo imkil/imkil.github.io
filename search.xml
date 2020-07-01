@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>WEB 渗透 --BurpSuite1.7.x 安装</title>
+    <url>/WEB%E6%B8%97%E9%80%8F/2020-06-28/Web-penetration-BurpSuite/</url>
+    <content><![CDATA[<h3 id="安装-VMware-Workstation-虚拟机"><a href="#安装-VMware-Workstation-虚拟机" class="headerlink" title="安装 VMware Workstation 虚拟机"></a>安装 VMware Workstation 虚拟机</h3><ul>
+<li><p><a href="https://www.vmware.com/cn/products/workstation-pro.html" target="_blank" rel="noopener">vmware 官方下载</a></p>
+</li>
+<li><p><a href="https://www.ghpym.com/vmware15.html" target="_blank" rel="noopener">15.5 版本激活</a></p>
+</li>
+</ul>
+<a id="more"></a>
+
+<h3 id="在虚拟机中使用-iso-映像文件安装系统"><a href="#在虚拟机中使用-iso-映像文件安装系统" class="headerlink" title="在虚拟机中使用 iso 映像文件安装系统"></a>在虚拟机中使用 iso 映像文件安装系统</h3><ul>
+<li><p><a href="https://zhuanlan.zhihu.com/p/80305506" target="_blank" rel="noopener">vmware 简单教程</a></p>
+</li>
+<li><p><a href="http://msdn.itellyou.cn/" target="_blank" rel="noopener">iso 系统文件下载</a></p>
+</li>
+</ul>
+<h4 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h4><ul>
+<li>开启虚拟机时，遇到了下边的问题</li>
+</ul>
+<figure class="highlight gml"><table><tr><td class="code"><pre><span class="line"> 此主机支持 Intel VT-<span class="symbol">x</span>，但 Intel VT-<span class="symbol">x</span> 处于禁用状态。</span><br><span class="line"> 如果已在 BIOS / 固件设置中禁用 Intel VT-<span class="symbol">x</span>，或主机自更改此设置后从未重新启动，则 Intel VT-<span class="symbol">x</span> 可能被禁用。</span><br><span class="line">(<span class="number">1</span>) 确认 BIOS / 固件设置中启用了 Intel VT-<span class="symbol">x</span> 并禁用了 “可信执行”。</span><br><span class="line">(<span class="number">2</span>) 如果这两项 BIOS / 固件设置有一项已更改，请重新启动主机。</span><br><span class="line">(<span class="number">3</span>) 如果您在安装 VMware Workstation 之后从未重新启动主机，请重新启动。</span><br><span class="line">(<span class="number">4</span>) 将主机的 BIOS / 固件更新至最新版本。</span><br><span class="line"> 此主机不支持 “Intel EPT” 硬件辅助的 MMU 虚拟化。</span><br><span class="line"> 模块 “CPUIDEarly” 启动失败。</span><br><span class="line"> 未能启动虚拟机。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>解决方法，在 BIOS 中，开启 Intel VT，保存并退出后，即可打开虚拟机</p>
+</li>
+<li><p>华硕主板 Intel VT 位置：Advanced (高级设置)→CPU 设置→Intel VT</p>
+</li>
+</ul>
+<h4 id="安装-Java"><a href="#安装-Java" class="headerlink" title="安装 Java"></a>安装 Java</h4><ul>
+<li><p><a href="https://www.java.com/zh_CN/" target="_blank" rel="noopener">java 官方下载</a></p>
+</li>
+<li><p>在虚拟机系统中安装下载好的文件</p>
+</li>
+</ul>
+<h4 id="安装-BurpSuite1-7-x"><a href="#安装-BurpSuite1-7-x" class="headerlink" title="安装 BurpSuite1.7.x"></a>安装 BurpSuite1.7.x</h4><ul>
+<li><a href="https://www.jianshu.com/p/edbd68d7c341" target="_blank" rel="noopener">BurpSuite1.7 安装破解</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>WEB渗透</category>
+      </categories>
+      <tags>
+        <tag>WEB渗透</tag>
+        <tag>BurpSuite</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>WEB 渗透 -- 漏洞扫描器的意义和利用思维</title>
     <url>/WEB%E6%B8%97%E9%80%8F/2020-06-28/Web-penetration-vulnerability-scanner/</url>
     <content><![CDATA[<h2 id="漏洞扫描器"><a href="#漏洞扫描器" class="headerlink" title="漏洞扫描器"></a>漏洞扫描器</h2><h3 id="漏洞扫描器与作用"><a href="#漏洞扫描器与作用" class="headerlink" title="漏洞扫描器与作用"></a>漏洞扫描器与作用</h3><ul>
