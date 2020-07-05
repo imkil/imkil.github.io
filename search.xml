@@ -9,6 +9,8 @@
 <li><p>Proxy– 用于显示修改 HTTP 请求及响应内容，并可以将拦截的 HTTP 请求快速发送至其他模块处理。</p>
 </li>
 </ul>
+<a id="more"></a>
+
 <h3 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h3><ul>
 <li>在使用 Proxy 前，在 Proxy → Options → Proxy Listeners → Edit 修改端口。</li>
 </ul>
