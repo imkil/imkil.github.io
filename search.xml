@@ -1,16 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>WEB 渗透 --BurpSuite--Proxy</title>
+    <url>/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/</url>
+    <content><![CDATA[<h2 id="Proxy-模块"><a href="#Proxy-模块" class="headerlink" title="Proxy 模块"></a>Proxy 模块</h2><ul>
+<li><p>Proxy– 是一个拦截 HTTP/HTTPS 的代理服务器，作为一个在浏览器和目标应用程序之间的中间人，允许拦截，查看，修改请求与响应的原始数据流。</p>
+</li>
+<li><p>Proxy– 用于显示修改 HTTP 请求及响应内容，并可以将拦截的 HTTP 请求快速发送至其他模块处理。</p>
+</li>
+</ul>
+<h3 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h3><ul>
+<li>在使用 Proxy 前，在 Proxy → Options → Proxy Listeners → Edit 修改端口。</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE.png" class title="基本设置">
+
+<ul>
+<li>注意端口号注意不要与其他冲突。可以在 cmd 中使用 netstat -an 命令查看端口</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/cmd.png" class title="端口查看">
+
+<ul>
+<li><p>设置完 Proxy 后，设置浏览器代理，这里以 Firefox 为例：</p>
+<ul>
+<li>Firefox 右上角菜单 → 选项 → 常规 → 网络设置 → 设置 → 设置代理 IP 和端口与 Proxy 中一致</li>
+</ul>
+</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E8%AE%BE%E7%BD%AE.png" class title="设置">
+
+<ul>
+<li>弹出</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E4%BB%A3%E7%90%86.png" class title="代理设置">
+
+<ul>
+<li>设置完成</li>
+</ul>
+<h3 id="Intercept-模块"><a href="#Intercept-模块" class="headerlink" title="Intercept 模块"></a>Intercept 模块</h3><img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/Intercept.png" class title="模块 1">
+
+<ul>
+<li><p>Forward：用于发送数据。当把所需要的 HTTP 请求编辑完成后，手动发送数据。</p>
+</li>
+<li><p>Drop：将该请求包丢弃。</p>
+</li>
+<li><p>Intercept is on/off：拦截开关。当处于 off 状态时，BurpSuite 将不会拦截请求；当处于 on 状态时，BurpSuite 将拦截所有符合规则的请求并将它显示出来等待编级或者其他操作。</p>
+</li>
+<li><p>Action：功能菜单，与右键菜单内容相同。可以将请求包发送到其他模块和对数据包进行其他操作。</p>
+</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E6%B5%8B%E8%AF%95.png" class title="抓包测试">]]></content>
+      <categories>
+        <category>WEB渗透</category>
+      </categories>
+      <tags>
+        <tag>WEB渗透</tag>
+        <tag>BurpSuite</tag>
+        <tag>Proxy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>WEB 渗透 --BurpSuite1.7.x 安装</title>
     <url>/WEB%E6%B8%97%E9%80%8F/2020-06-28/Web-penetration-BurpSuite/</url>
-    <content><![CDATA[<h3 id="安装-VMware-Workstation-虚拟机"><a href="#安装-VMware-Workstation-虚拟机" class="headerlink" title="安装 VMware Workstation 虚拟机"></a>安装 VMware Workstation 虚拟机</h3><ul>
+    <content><![CDATA[<h2 id="BurpSuite-简单介绍"><a href="#BurpSuite-简单介绍" class="headerlink" title="BurpSuite 简单介绍"></a>BurpSuite 简单介绍</h2><ul>
+<li><p>Burp Suite 是用于攻击 web 应用程序的集成平台，包含了许多工具。</p>
+</li>
+<li><p>Burp Suite 为这些工具设计了许多接口，以加快攻击应用程序的过程。</p>
+</li>
+<li><p>所有工具都共享一个请求，并能处理对应的 HTTP 消息、持久性、认证、代理、日志、警报。</p>
+</li>
+</ul>
+<a id="more"></a>
+
+<h3 id="安装-VMware-Workstation-虚拟机"><a href="#安装-VMware-Workstation-虚拟机" class="headerlink" title="安装 VMware Workstation 虚拟机"></a>安装 VMware Workstation 虚拟机</h3><ul>
 <li><p><a href="https://www.vmware.com/cn/products/workstation-pro.html" target="_blank" rel="noopener">vmware 官方下载</a></p>
 </li>
 <li><p><a href="https://www.ghpym.com/vmware15.html" target="_blank" rel="noopener">15.5 版本激活</a></p>
 </li>
 </ul>
-<a id="more"></a>
-
 <h3 id="在虚拟机中使用-iso-映像文件安装系统"><a href="#在虚拟机中使用-iso-映像文件安装系统" class="headerlink" title="在虚拟机中使用 iso 映像文件安装系统"></a>在虚拟机中使用 iso 映像文件安装系统</h3><ul>
 <li><p><a href="https://zhuanlan.zhihu.com/p/80305506" target="_blank" rel="noopener">vmware 简单教程</a></p>
 </li>

@@ -189,6 +189,138 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/najiong.jpg#/images/avatar.gif">
+      <meta itemprop="name" content="imkil">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="道虽迩，不行不至">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/" class="post-title-link" itemprop="url">WEB 渗透 --BurpSuite--Proxy</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-02 18:18:29" itemprop="dateCreated datePublished" datetime="2020-07-02T18:18:29+08:00">2020-07-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-05 18:01:42" itemprop="dateModified" datetime="2020-07-05T18:01:42+08:00">2020-07-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WEB%E6%B8%97%E9%80%8F/" itemprop="url" rel="index"><span itemprop="name">WEB渗透</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>512</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Proxy-模块"><a href="#Proxy-模块" class="headerlink" title="Proxy 模块"></a>Proxy 模块</h2><ul>
+<li><p>Proxy– 是一个拦截 HTTP/HTTPS 的代理服务器，作为一个在浏览器和目标应用程序之间的中间人，允许拦截，查看，修改请求与响应的原始数据流。</p>
+</li>
+<li><p>Proxy– 用于显示修改 HTTP 请求及响应内容，并可以将拦截的 HTTP 请求快速发送至其他模块处理。</p>
+</li>
+</ul>
+<h3 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h3><ul>
+<li>在使用 Proxy 前，在 Proxy → Options → Proxy Listeners → Edit 修改端口。</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE.png" class title="基本设置">
+
+<ul>
+<li>注意端口号注意不要与其他冲突。可以在 cmd 中使用 netstat -an 命令查看端口</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/cmd.png" class title="端口查看">
+
+<ul>
+<li><p>设置完 Proxy 后，设置浏览器代理，这里以 Firefox 为例：</p>
+<ul>
+<li>Firefox 右上角菜单 → 选项 → 常规 → 网络设置 → 设置 → 设置代理 IP 和端口与 Proxy 中一致</li>
+</ul>
+</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E8%AE%BE%E7%BD%AE.png" class title="设置">
+
+<ul>
+<li>弹出</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E4%BB%A3%E7%90%86.png" class title="代理设置">
+
+<ul>
+<li>设置完成</li>
+</ul>
+<h3 id="Intercept-模块"><a href="#Intercept-模块" class="headerlink" title="Intercept 模块"></a>Intercept 模块</h3><img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/Intercept.png" class title="模块 1">
+
+<ul>
+<li><p>Forward：用于发送数据。当把所需要的 HTTP 请求编辑完成后，手动发送数据。</p>
+</li>
+<li><p>Drop：将该请求包丢弃。</p>
+</li>
+<li><p>Intercept is on/off：拦截开关。当处于 off 状态时，BurpSuite 将不会拦截请求；当处于 on 状态时，BurpSuite 将拦截所有符合规则的请求并将它显示出来等待编级或者其他操作。</p>
+</li>
+<li><p>Action：功能菜单，与右键菜单内容相同。可以将请求包发送到其他模块和对数据包进行其他操作。</p>
+</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E6%B5%8B%E8%AF%95.png" class title="抓包测试">
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-06-28/Web-penetration-BurpSuite/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -220,7 +352,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-01 19:55:25" itemprop="dateModified" datetime="2020-07-01T19:55:25+08:00">2020-07-01</time>
+                <time title="修改时间：2020-07-05 15:58:48" itemprop="dateModified" datetime="2020-07-05T15:58:48+08:00">2020-07-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -238,7 +370,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>526</span>
+              <span>651</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,10 +389,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="安装-VMware-Workstation-虚拟机"><a href="#安装-VMware-Workstation-虚拟机" class="headerlink" title="安装 VMware Workstation 虚拟机"></a>安装 VMware Workstation 虚拟机</h3><ul>
-<li><p><a href="https://www.vmware.com/cn/products/workstation-pro.html" target="_blank" rel="noopener">vmware 官方下载</a></p>
+          <h2 id="BurpSuite-简单介绍"><a href="#BurpSuite-简单介绍" class="headerlink" title="BurpSuite 简单介绍"></a>BurpSuite 简单介绍</h2><ul>
+<li><p>Burp Suite 是用于攻击 web 应用程序的集成平台，包含了许多工具。</p>
 </li>
-<li><p><a href="https://www.ghpym.com/vmware15.html" target="_blank" rel="noopener">15.5 版本激活</a></p>
+<li><p>Burp Suite 为这些工具设计了许多接口，以加快攻击应用程序的过程。</p>
+</li>
+<li><p>所有工具都共享一个请求，并能处理对应的 HTTP 消息、持久性、认证、代理、日志、警报。</p>
 </li>
 </ul>
           <!--noindex-->
@@ -1052,104 +1186,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://imkil.github.io/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-19/PHP-foundation-consolidation-str/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/najiong.jpg#/images/avatar.gif">
-      <meta itemprop="name" content="imkil">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="道虽迩，不行不至">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-19/PHP-foundation-consolidation-str/" class="post-title-link" itemprop="url">PHP 基础巩固 -- 字符串</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-19 18:38:00" itemprop="dateCreated datePublished" datetime="2020-06-19T18:38:00+08:00">2020-06-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-22 17:22:04" itemprop="dateModified" datetime="2020-06-22T17:22:04+08:00">2020-06-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/" itemprop="url" rel="index"><span itemprop="name">PHP基础巩固</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="字符串的定义方式"><a href="#字符串的定义方式" class="headerlink" title="字符串的定义方式"></a>字符串的定义方式</h2><ul>
-<li>除了单引号和双引号，可以使用 heredoc，nowdoc 定义大断文本</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; heredoc</span><br><span class="line">$str &#x3D; &lt;&lt;&lt;HTML</span><br><span class="line">hello</span><br><span class="line">world   abc</span><br><span class="line">    ok now;</span><br><span class="line">HTML;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; heredoc 和 nowdoc 的区别就是单引号 </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; nowdoc</span><br><span class="line">$str &#x3D; &lt;&lt;&lt;&#39;INTRO&#39;</span><br><span class="line"> 远看山有色，</span><br><span class="line"> 进听水无声 </span><br><span class="line">INTRO;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-19/PHP-foundation-consolidation-str/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1221,7 +1257,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1234,7 +1270,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1287,7 +1323,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">24 分钟</span>
+    <span title="站点阅读时长">25 分钟</span>
 </div>
 
 <div>

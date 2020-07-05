@@ -20,15 +20,29 @@
     var CONFIG = {"hostname":"imkil.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="道虽迩，不行不至">
-<meta property="og:url" content="https://imkil.github.io/categories/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/index.html">
+  <meta name="description" content="Proxy 模块 Proxy– 是一个拦截 HTTP&#x2F;HTTPS 的代理服务器，作为一个在浏览器和目标应用程序之间的中间人，允许拦截，查看，修改请求与响应的原始数据流。  Proxy– 用于显示修改 HTTP 请求及响应内容，并可以将拦截的 HTTP 请求快速发送至其他模块处理。   基本设置 在使用 Proxy 前，在 Proxy → Options → Proxy Listeners → Ed">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WEB 渗透 --BurpSuite--Proxy">
+<meta property="og:url" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/index.html">
 <meta property="og:site_name" content="道虽迩，不行不至">
+<meta property="og:description" content="Proxy 模块 Proxy– 是一个拦截 HTTP&#x2F;HTTPS 的代理服务器，作为一个在浏览器和目标应用程序之间的中间人，允许拦截，查看，修改请求与响应的原始数据流。  Proxy– 用于显示修改 HTTP 请求及响应内容，并可以将拦截的 HTTP 请求快速发送至其他模块处理。   基本设置 在使用 Proxy 前，在 Proxy → Options → Proxy Listeners → Ed">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE.png">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/cmd.png">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E8%AE%BE%E7%BD%AE.png">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E4%BB%A3%E7%90%86.png">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/Intercept.png">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E6%B5%8B%E8%AF%95.png">
+<meta property="article:published_time" content="2020-07-02T10:18:29.000Z">
+<meta property="article:modified_time" content="2020-07-05T10:01:42.231Z">
 <meta property="article:author" content="imkil">
+<meta property="article:tag" content="WEB渗透">
+<meta property="article:tag" content="BurpSuite">
+<meta property="article:tag" content="Proxy">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE.png">
 
-<link rel="canonical" href="https://imkil.github.io/categories/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/">
+<link rel="canonical" href="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/">
 
 
 <script id="page-configurations">
@@ -36,12 +50,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>分类: PHP基础巩固 | 道虽迩，不行不至</title>
+  <title>WEB 渗透 --BurpSuite--Proxy | 道虽迩，不行不至</title>
   
 
 
@@ -183,171 +197,155 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">PHP基础巩固
-          <small>分类</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/najiong.jpg#/images/avatar.gif">
+      <meta itemprop="name" content="imkil">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="道虽迩，不行不至">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          WEB 渗透 --BurpSuite--Proxy
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-02 18:18:29" itemprop="dateCreated datePublished" datetime="2020-07-02T18:18:29+08:00">2020-07-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-05 18:01:42" itemprop="dateModified" datetime="2020-07-05T18:01:42+08:00">2020-07-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WEB%E6%B8%97%E9%80%8F/" itemprop="url" rel="index"><span itemprop="name">WEB渗透</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>512</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <h2 id="Proxy-模块"><a href="#Proxy-模块" class="headerlink" title="Proxy 模块"></a>Proxy 模块</h2><ul>
+<li><p>Proxy– 是一个拦截 HTTP/HTTPS 的代理服务器，作为一个在浏览器和目标应用程序之间的中间人，允许拦截，查看，修改请求与响应的原始数据流。</p>
+</li>
+<li><p>Proxy– 用于显示修改 HTTP 请求及响应内容，并可以将拦截的 HTTP 请求快速发送至其他模块处理。</p>
+</li>
+</ul>
+<h3 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h3><ul>
+<li>在使用 Proxy 前，在 Proxy → Options → Proxy Listeners → Edit 修改端口。</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE.png" class title="基本设置">
+
+<ul>
+<li>注意端口号注意不要与其他冲突。可以在 cmd 中使用 netstat -an 命令查看端口</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/cmd.png" class title="端口查看">
+
+<ul>
+<li><p>设置完 Proxy 后，设置浏览器代理，这里以 Firefox 为例：</p>
+<ul>
+<li>Firefox 右上角菜单 → 选项 → 常规 → 网络设置 → 设置 → 设置代理 IP 和端口与 Proxy 中一致</li>
+</ul>
+</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E8%AE%BE%E7%BD%AE.png" class title="设置">
+
+<ul>
+<li>弹出</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E4%BB%A3%E7%90%86.png" class title="代理设置">
+
+<ul>
+<li>设置完成</li>
+</ul>
+<h3 id="Intercept-模块"><a href="#Intercept-模块" class="headerlink" title="Intercept 模块"></a>Intercept 模块</h3><img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/Intercept.png" class title="模块 1">
+
+<ul>
+<li><p>Forward：用于发送数据。当把所需要的 HTTP 请求编辑完成后，手动发送数据。</p>
+</li>
+<li><p>Drop：将该请求包丢弃。</p>
+</li>
+<li><p>Intercept is on/off：拦截开关。当处于 off 状态时，BurpSuite 将不会拦截请求；当处于 on 状态时，BurpSuite 将拦截所有符合规则的请求并将它显示出来等待编级或者其他操作。</p>
+</li>
+<li><p>Action：功能菜单，与右键菜单内容相同。可以将请求包发送到其他模块和对数据包进行其他操作。</p>
+</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E6%B5%8B%E8%AF%95.png" class title="抓包测试">
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-20T15:32:03+08:00"
-              content="2020-06-20">
-          06-20
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/WEB%E6%B8%97%E9%80%8F/" rel="tag"># WEB渗透</a>
+              <a href="/tags/BurpSuite/" rel="tag"># BurpSuite</a>
+              <a href="/tags/Proxy/" rel="tag"># Proxy</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-20/PHP-foundation-consolidation-array/" itemprop="url">
-            <span itemprop="name">PHP 基础巩固 -- 数组</span>
-          </a>
-      </div>
+        
 
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-19T18:38:00+08:00"
-              content="2020-06-19">
-          06-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-19/PHP-foundation-consolidation-str/" itemprop="url">
-            <span itemprop="name">PHP 基础巩固 -- 字符串</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-19T17:06:38+08:00"
-              content="2020-06-19">
-          06-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-19/PHP-foundation-consolidation-time/" itemprop="url">
-            <span itemprop="name">PHP 基础巩固 -- 时间戳函数</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-18T12:08:08+08:00"
-              content="2020-06-18">
-          06-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-18/PHP-foundation-consolidation-method/" itemprop="url">
-            <span itemprop="name">PHP 基础巩固 - 函数</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-14T22:26:41+08:00"
-              content="2020-06-14">
-          06-14
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-14/PHP-foundation-consolidation-control/" itemprop="url">
-            <span itemprop="name">PHP 基础巩固 - 控制结构</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-14T15:05:55+08:00"
-              content="2020-06-14">
-          06-14
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-14/PHP-foundation-consolidation-operator/" itemprop="url">
-            <span itemprop="name">PHP 基础巩固 -- 运算符</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-13T15:48:48+08:00"
-              content="2020-06-13">
-          06-13
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-13/PHP-foundation-consolidation-variable/" itemprop="url">
-            <span itemprop="name">PHP 基础巩固 -- 变量</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/WEB%E6%B8%97%E9%80%8F/2020-06-28/Web-penetration-BurpSuite/" rel="prev" title="WEB 渗透 --BurpSuite1.7.x 安装">
+      <i class="fa fa-chevron-left"></i> WEB 渗透 --BurpSuite1.7.x 安装
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-  </div>
+      </footer>
+    
+  </article>
   
   
-  
-
   
 
 
@@ -400,6 +398,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Proxy-模块"><span class="nav-number">1.</span> <span class="nav-text">Proxy 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本设置"><span class="nav-number">1.1.</span> <span class="nav-text">基本设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intercept-模块"><span class="nav-number">1.2.</span> <span class="nav-text">Intercept 模块</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
