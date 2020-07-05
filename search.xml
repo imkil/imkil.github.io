@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>WEB 渗透 --BurpSuite--Target</title>
-    <url>/WEB%E6%B8%97%E9%80%8F/2020-07-05/Web-penetration-BurpSuite-Target/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>WEB渗透</category>
-      </categories>
-      <tags>
-        <tag>WEB渗透</tag>
-        <tag>BurpSuite</tag>
-        <tag>Target</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>WEB 渗透 --BurpSuite--Proxy</title>
     <url>/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/</url>
     <content><![CDATA[<h2 id="Proxy-模块"><a href="#Proxy-模块" class="headerlink" title="Proxy 模块"></a>Proxy 模块</h2><ul>
