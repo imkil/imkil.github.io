@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>WEB 渗透 --BurpSuite--Target</title>
+    <url>/WEB%E6%B8%97%E9%80%8F/2020-07-05/Web-penetration-BurpSuite-Target/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>WEB渗透</category>
+      </categories>
+      <tags>
+        <tag>WEB渗透</tag>
+        <tag>BurpSuite</tag>
+        <tag>Target</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>WEB 渗透 --BurpSuite--Proxy</title>
     <url>/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/</url>
     <content><![CDATA[<h2 id="Proxy-模块"><a href="#Proxy-模块" class="headerlink" title="Proxy 模块"></a>Proxy 模块</h2><ul>
@@ -22,6 +35,14 @@
 <img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/cmd.png" class title="端口查看">
 
 <ul>
+<li><p>代理侦听器是侦听从您的浏览器传入的连接本地 HTTP 代理服务器。</p>
+</li>
+<li><p>它允许您监视和拦截所有的请求和响应，并且位于 BurpProxy 的工作流的心脏。</p>
+</li>
+<li><p>默认情况下，Burp 默认监听 12.0.0.1 地址，端口 8080。</p>
+</li>
+<li><p>此默认监听器是必需的测试几乎所有的基于浏览器的所有 Web 应用程序。</p>
+</li>
 <li><p>设置完 Proxy 后，设置浏览器代理，这里以 Firefox 为例：</p>
 <ul>
 <li>Firefox 右上角菜单 → 选项 → 常规 → 网络设置 → 设置 → 设置代理 IP 和端口与 Proxy 中一致</li>
@@ -45,12 +66,115 @@
 </li>
 <li><p>Drop：将该请求包丢弃。</p>
 </li>
-<li><p>Intercept is on/off：拦截开关。当处于 off 状态时，BurpSuite 将不会拦截请求；当处于 on 状态时，BurpSuite 将拦截所有符合规则的请求并将它显示出来等待编级或者其他操作。</p>
+<li><p>Intercept is on/off：拦截开关。当处于 off 状态时，BurpSuite 会自动转发所拦截的所有请求；当处于 on 状态时，BurpSuite 将拦截所有符合规则的请求并将它显示出来等待编级或者其他操作。</p>
 </li>
 <li><p>Action：功能菜单，与右键菜单内容相同。可以将请求包发送到其他模块和对数据包进行其他操作。</p>
 </li>
 </ul>
-<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E6%B5%8B%E8%AF%95.png" class title="抓包测试">]]></content>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E6%B5%8B%E8%AF%95.png" class title="抓包测试">
+
+<h3 id="HTTP-history"><a href="#HTTP-history" class="headerlink" title="HTTP history"></a>HTTP history</h3><ul>
+<li>这里将记录经过代理服务器访问的所有请求，即使当 Intercept is off 时也会记录。</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/history.png" class title="HTTP_history">
+
+<table>
+<thead>
+<tr>
+<th align="center">列名</th>
+<th align="center">释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">#</td>
+<td align="center">请求索引号</td>
+</tr>
+<tr>
+<td align="center">Host</td>
+<td align="center">主机</td>
+</tr>
+<tr>
+<td align="center">Method</td>
+<td align="center">请求方式</td>
+</tr>
+<tr>
+<td align="center">URL</td>
+<td align="center">请求地址</td>
+</tr>
+<tr>
+<td align="center">Params</td>
+<td align="center">参数</td>
+</tr>
+<tr>
+<td align="center">Edited</td>
+<td align="center">编辑</td>
+</tr>
+<tr>
+<td align="center">Status</td>
+<td align="center">状态</td>
+</tr>
+<tr>
+<td align="center">Length</td>
+<td align="center">响应字节长度</td>
+</tr>
+<tr>
+<td align="center">MIME type</td>
+<td align="center">响应的 MLME 类型</td>
+</tr>
+<tr>
+<td align="center">Extension</td>
+<td align="center">地址文件扩展名</td>
+</tr>
+<tr>
+<td align="center">Title</td>
+<td align="center">页面标题</td>
+</tr>
+<tr>
+<td align="center">Comment</td>
+<td align="center">注释</td>
+</tr>
+<tr>
+<td align="center">SSL</td>
+<td align="center">安全套接字协议</td>
+</tr>
+<tr>
+<td align="center">IP</td>
+<td align="center">目标 IP 地址</td>
+</tr>
+<tr>
+<td align="center">Cookies</td>
+<td align="center">小型文本文件</td>
+</tr>
+<tr>
+<td align="center">Time</td>
+<td align="center">发出请求时间</td>
+</tr>
+<tr>
+<td align="center">Listener port</td>
+<td align="center">监听端口</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>下方窗口可以显示请求的 Request (详细内容) 及其 Response (响应内容)，通过右键菜单也可以将请求发送至其他模块。</p>
+</li>
+<li><p>双击某个请求即可打开详情，通过 Previous/next 可以快速切换请求，并且 Action 也可以将请求发送至其他模块。</p>
+</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/history_d.png" class title="history_双击">
+
+<h3 id="WebSockets-history"><a href="#WebSockets-history" class="headerlink" title="WebSockets history"></a>WebSockets history</h3><ul>
+<li><p>这个版块用于记录 WebSockets 的数据包，是 HTML5 中最强大的通信功能。</p>
+</li>
+<li><p>定义了一个全双工的通信信道，只需 Web 上的一个 Socket 即可进行通信，能减少不必要的网络流量并降低网络延迟。</p>
+</li>
+</ul>
+<h3 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h3><ul>
+<li><p>该版块主要用于设置代理监听、请求和响应，拦截反应，匹配和替换，SSL 等。</p>
+</li>
+<li><p>参考：<a href="https://bbs.ichunqiu.com/thread-15806-1-1.html" target="_blank" rel="noopener">BurpSuite 基础教程第二发：Proxy 模块 (代理模块)</a></p>
+</li>
+</ul>
+]]></content>
       <categories>
         <category>WEB渗透</category>
       </categories>

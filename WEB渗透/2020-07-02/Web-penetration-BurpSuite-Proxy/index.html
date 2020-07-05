@@ -33,8 +33,10 @@
 <meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E4%BB%A3%E7%90%86.png">
 <meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/Intercept.png">
 <meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E6%B5%8B%E8%AF%95.png">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/history.png">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/history_d.png">
 <meta property="article:published_time" content="2020-07-02T10:18:29.000Z">
-<meta property="article:modified_time" content="2020-07-05T10:02:51.185Z">
+<meta property="article:modified_time" content="2020-07-05T10:55:57.988Z">
 <meta property="article:author" content="imkil">
 <meta property="article:tag" content="WEB渗透">
 <meta property="article:tag" content="BurpSuite">
@@ -234,7 +236,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-05 18:02:51" itemprop="dateModified" datetime="2020-07-05T18:02:51+08:00">2020-07-05</time>
+                <time title="修改时间：2020-07-05 18:55:57" itemprop="dateModified" datetime="2020-07-05T18:55:57+08:00">2020-07-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -252,7 +254,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>512</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -290,6 +292,14 @@
 <img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/cmd.png" class title="端口查看">
 
 <ul>
+<li><p>代理侦听器是侦听从您的浏览器传入的连接本地 HTTP 代理服务器。</p>
+</li>
+<li><p>它允许您监视和拦截所有的请求和响应，并且位于 BurpProxy 的工作流的心脏。</p>
+</li>
+<li><p>默认情况下，Burp 默认监听 12.0.0.1 地址，端口 8080。</p>
+</li>
+<li><p>此默认监听器是必需的测试几乎所有的基于浏览器的所有 Web 应用程序。</p>
+</li>
 <li><p>设置完 Proxy 后，设置浏览器代理，这里以 Firefox 为例：</p>
 <ul>
 <li>Firefox 右上角菜单 → 选项 → 常规 → 网络设置 → 设置 → 设置代理 IP 和端口与 Proxy 中一致</li>
@@ -313,12 +323,115 @@
 </li>
 <li><p>Drop：将该请求包丢弃。</p>
 </li>
-<li><p>Intercept is on/off：拦截开关。当处于 off 状态时，BurpSuite 将不会拦截请求；当处于 on 状态时，BurpSuite 将拦截所有符合规则的请求并将它显示出来等待编级或者其他操作。</p>
+<li><p>Intercept is on/off：拦截开关。当处于 off 状态时，BurpSuite 会自动转发所拦截的所有请求；当处于 on 状态时，BurpSuite 将拦截所有符合规则的请求并将它显示出来等待编级或者其他操作。</p>
 </li>
 <li><p>Action：功能菜单，与右键菜单内容相同。可以将请求包发送到其他模块和对数据包进行其他操作。</p>
 </li>
 </ul>
 <img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/%E6%B5%8B%E8%AF%95.png" class title="抓包测试">
+
+<h3 id="HTTP-history"><a href="#HTTP-history" class="headerlink" title="HTTP history"></a>HTTP history</h3><ul>
+<li>这里将记录经过代理服务器访问的所有请求，即使当 Intercept is off 时也会记录。</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/history.png" class title="HTTP_history">
+
+<table>
+<thead>
+<tr>
+<th align="center">列名</th>
+<th align="center">释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">#</td>
+<td align="center">请求索引号</td>
+</tr>
+<tr>
+<td align="center">Host</td>
+<td align="center">主机</td>
+</tr>
+<tr>
+<td align="center">Method</td>
+<td align="center">请求方式</td>
+</tr>
+<tr>
+<td align="center">URL</td>
+<td align="center">请求地址</td>
+</tr>
+<tr>
+<td align="center">Params</td>
+<td align="center">参数</td>
+</tr>
+<tr>
+<td align="center">Edited</td>
+<td align="center">编辑</td>
+</tr>
+<tr>
+<td align="center">Status</td>
+<td align="center">状态</td>
+</tr>
+<tr>
+<td align="center">Length</td>
+<td align="center">响应字节长度</td>
+</tr>
+<tr>
+<td align="center">MIME type</td>
+<td align="center">响应的 MLME 类型</td>
+</tr>
+<tr>
+<td align="center">Extension</td>
+<td align="center">地址文件扩展名</td>
+</tr>
+<tr>
+<td align="center">Title</td>
+<td align="center">页面标题</td>
+</tr>
+<tr>
+<td align="center">Comment</td>
+<td align="center">注释</td>
+</tr>
+<tr>
+<td align="center">SSL</td>
+<td align="center">安全套接字协议</td>
+</tr>
+<tr>
+<td align="center">IP</td>
+<td align="center">目标 IP 地址</td>
+</tr>
+<tr>
+<td align="center">Cookies</td>
+<td align="center">小型文本文件</td>
+</tr>
+<tr>
+<td align="center">Time</td>
+<td align="center">发出请求时间</td>
+</tr>
+<tr>
+<td align="center">Listener port</td>
+<td align="center">监听端口</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>下方窗口可以显示请求的 Request (详细内容) 及其 Response (响应内容)，通过右键菜单也可以将请求发送至其他模块。</p>
+</li>
+<li><p>双击某个请求即可打开详情，通过 Previous/next 可以快速切换请求，并且 Action 也可以将请求发送至其他模块。</p>
+</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-02/Web-penetration-BurpSuite-Proxy/history_d.png" class title="history_双击">
+
+<h3 id="WebSockets-history"><a href="#WebSockets-history" class="headerlink" title="WebSockets history"></a>WebSockets history</h3><ul>
+<li><p>这个版块用于记录 WebSockets 的数据包，是 HTML5 中最强大的通信功能。</p>
+</li>
+<li><p>定义了一个全双工的通信信道，只需 Web 上的一个 Socket 即可进行通信，能减少不必要的网络流量并降低网络延迟。</p>
+</li>
+</ul>
+<h3 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h3><ul>
+<li><p>该版块主要用于设置代理监听、请求和响应，拦截反应，匹配和替换，SSL 等。</p>
+</li>
+<li><p>参考：<a href="https://bbs.ichunqiu.com/thread-15806-1-1.html" target="_blank" rel="noopener">BurpSuite 基础教程第二发：Proxy 模块 (代理模块)</a></p>
+</li>
+</ul>
+
     </div>
 
     
@@ -341,7 +454,10 @@
     <a href="/WEB%E6%B8%97%E9%80%8F/2020-06-28/Web-penetration-BurpSuite/" rel="prev" title="WEB 渗透 --BurpSuite1.7.x 安装">
       <i class="fa fa-chevron-left"></i> WEB 渗透 --BurpSuite1.7.x 安装
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/WEB%E6%B8%97%E9%80%8F/2020-07-05/Web-penetration-BurpSuite-Target/" rel="next" title="WEB 渗透 --BurpSuite--Target">
+      WEB 渗透 --BurpSuite--Target <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -400,7 +516,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Proxy-模块"><span class="nav-number">1.</span> <span class="nav-text">Proxy 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本设置"><span class="nav-number">1.1.</span> <span class="nav-text">基本设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intercept-模块"><span class="nav-number">1.2.</span> <span class="nav-text">Intercept 模块</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Proxy-模块"><span class="nav-number">1.</span> <span class="nav-text">Proxy 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本设置"><span class="nav-number">1.1.</span> <span class="nav-text">基本设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intercept-模块"><span class="nav-number">1.2.</span> <span class="nav-text">Intercept 模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-history"><span class="nav-number">1.3.</span> <span class="nav-text">HTTP history</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebSockets-history"><span class="nav-number">1.4.</span> <span class="nav-text">WebSockets history</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Options"><span class="nav-number">1.5.</span> <span class="nav-text">Options</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -416,7 +532,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -429,7 +545,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -476,7 +592,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">27k</span>
+    <span title="站点总字数">28k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
