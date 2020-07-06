@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>WEB 渗透 --BurpSuite--Spider</title>
+    <url>/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/</url>
+    <content><![CDATA[<h2 id="Spider"><a href="#Spider" class="headerlink" title="Spider"></a>Spider</h2><ul>
+<li><p>Spider (爬虫) 模块用于自动爬取网站的每个页面内容，并生成完整的网站地图.</p>
+</li>
+<li><p>Spider 通过跟踪 HTML 和 JavaScript 以及提交的表单中的超链接来映射目标应用程序。</p>
+</li>
+<li><p>它还使用了一些其他的线索，如目录列表，资源类型的注释，以及 robots.txt 文件。</p>
+</li>
+<li><p>结果会在站点地图中以树和表的形式显示出来，提供了一个清楚并非常详细的目标应用程序视图。</p>
+</li>
+</ul>
+<a id="more"></a>
+
+<hr>
+<ul>
+<li><p>Spider 的好处：</p>
+<ul>
+<li><p>Burp Spider 能使你清楚地了解到一个 web 应用程序是怎样工作的，让你避免进行大量的手动任务而浪费时间，跟踪链接，提交表单，精简 HTML 源代码。</p>
+</li>
+<li><p>可以快速地确人应用程序的潜在的脆弱功能，还允许你指定特定的漏洞，如 SQL 注入，路径遍历。</p>
+</li>
+</ul>
+</li>
+<li><p>使用 Spider：</p>
+<ul>
+<li><p>在 Target 模块中鼠标右键 host，选择 Spider this host</p>
+</li>
+<li><p>在 Proxy 模块中的 Intercept 标签，鼠标右键选择 Send to Spider</p>
+</li>
+<li><p>在 Proxy 模块中的 HTTP history 标签，鼠标右键选择 Spider from here</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Control"><a href="#Control" class="headerlink" title="Control"></a>Control</h3><ul>
+<li><p>在 Control 界面中可以启动爬虫功能，查看爬虫状态，设置爬虫的作用域。</p>
+</li>
+<li><p>在使用爬虫功能之前，需要设置代理，并获取域名。然后关闭代理拦截。</p>
+</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/Control.png" class title="control">
+
+<h4 id="Spider-Status"><a href="#Spider-Status" class="headerlink" title="Spider Status"></a>Spider Status</h4><ul>
+<li><p>查看爬虫状态，显示了运行 / 暂停按钮与清空队列按钮。</p>
+</li>
+<li><p>其中 4 行英文分别表示已完成的请求数，已传递的字节数，未完成的请求数，未完成的表单数</p>
+</li>
+</ul>
+<h4 id="Spider-Scope"><a href="#Spider-Scope" class="headerlink" title="Spider Scope"></a>Spider Scope</h4><ul>
+<li><p>设置爬虫作用域范围。</p>
+</li>
+<li><p>可以选择使用 Target 中的 scope 范围。</p>
+</li>
+<li><p>还可以自定义范围。</p>
+</li>
+</ul>
+<h3 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h3><ul>
+<li><p>Spider 可选项设置由抓取设置、抓取代理设置、表单提交设置、应用登陆设置、蜘蛛引擎设置、请求消息头设置六个部分组成。</p>
+</li>
+<li><p>详情查看：<a href="https://t0data.gitbooks.io/burpsuite/content/chapter6.html" target="_blank" rel="noopener">如何使用 Burp Spider</a></p>
+</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/Options.png" class title="options">]]></content>
+      <categories>
+        <category>WEB渗透</category>
+      </categories>
+      <tags>
+        <tag>WEB渗透</tag>
+        <tag>BurpSuite</tag>
+        <tag>Spider</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>WEB 渗透 --BurpSuite--Target</title>
     <url>/WEB%E6%B8%97%E9%80%8F/2020-07-05/Web-penetration-BurpSuite-Target/</url>
     <content><![CDATA[<h2 id="Target-模块"><a href="#Target-模块" class="headerlink" title="Target 模块"></a>Target 模块</h2><ul>
