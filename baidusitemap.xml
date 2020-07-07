@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/</loc>
+    <lastmod>2020-07-07</lastmod>
+  </url>  <url>
     <loc>https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/</loc>
-    <lastmod>2020-07-06</lastmod>
+    <lastmod>2020-07-07</lastmod>
   </url>  <url>
     <loc>https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-05/Web-penetration-BurpSuite-Target/</loc>
     <lastmod>2020-07-05</lastmod>

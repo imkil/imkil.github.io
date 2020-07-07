@@ -20,25 +20,28 @@
     var CONFIG = {"hostname":"imkil.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Spider Spider (爬虫) 模块用于自动爬取网站的每个页面内容，并生成完整的网站地图。  Spider 通过跟踪 HTML 和 JavaScript 以及提交的表单中的超链接来映射目标应用程序。  它还使用了一些其他的线索，如目录列表，资源类型的注释，以及 robots.txt 文件。  结果会在站点地图中以树和表的形式显示出来，提供了一个清楚并非常详细的目标应用程序视图。">
+  <meta name="description" content="Scanner 是一个进行自动发现 web 应用程序的安全漏洞的工具。  它是为渗透测试人员设计的，并且它和你现有的手动执行进行的 web 应用程序半自动渗透测试的技术方法很相似。  在攻击一个应用程序时它和你执行的操作紧紧的结合在一起。  让你细微控制着每一个扫描的请求，并直接反馈回结果。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WEB 渗透 --BurpSuite--Spider">
-<meta property="og:url" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/index.html">
+<meta property="og:title" content="WEB 渗透 --BurpSuite--Scanner">
+<meta property="og:url" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/index.html">
 <meta property="og:site_name" content="道虽迩，不行不至">
-<meta property="og:description" content="Spider Spider (爬虫) 模块用于自动爬取网站的每个页面内容，并生成完整的网站地图。  Spider 通过跟踪 HTML 和 JavaScript 以及提交的表单中的超链接来映射目标应用程序。  它还使用了一些其他的线索，如目录列表，资源类型的注释，以及 robots.txt 文件。  结果会在站点地图中以树和表的形式显示出来，提供了一个清楚并非常详细的目标应用程序视图。">
+<meta property="og:description" content="Scanner 是一个进行自动发现 web 应用程序的安全漏洞的工具。  它是为渗透测试人员设计的，并且它和你现有的手动执行进行的 web 应用程序半自动渗透测试的技术方法很相似。  在攻击一个应用程序时它和你执行的操作紧紧的结合在一起。  让你细微控制着每一个扫描的请求，并直接反馈回结果。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/Control.png">
-<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/Options.png">
-<meta property="article:published_time" content="2020-07-06T06:51:01.000Z">
-<meta property="article:modified_time" content="2020-07-07T10:34:34.670Z">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Issue_activity.jpg">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Scan_queue.png">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Live_scanning.png">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Issue_Definitions.png">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Options.png">
+<meta property="article:published_time" content="2020-07-07T02:24:37.000Z">
+<meta property="article:modified_time" content="2020-07-07T13:47:57.109Z">
 <meta property="article:author" content="imkil">
 <meta property="article:tag" content="WEB渗透">
 <meta property="article:tag" content="BurpSuite">
-<meta property="article:tag" content="Spider">
+<meta property="article:tag" content="Scanner">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/Control.png">
+<meta name="twitter:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Issue_activity.jpg">
 
-<link rel="canonical" href="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/">
+<link rel="canonical" href="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/">
 
 
 <script id="page-configurations">
@@ -51,7 +54,7 @@
   };
 </script>
 
-  <title>WEB 渗透 --BurpSuite--Spider | 道虽迩，不行不至</title>
+  <title>WEB 渗透 --BurpSuite--Scanner | 道虽迩，不行不至</title>
   
 
 
@@ -200,7 +203,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/">
+    <link itemprop="mainEntityOfPage" href="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/najiong.jpg#/images/avatar.gif">
@@ -213,7 +216,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          WEB 渗透 --BurpSuite--Spider
+          WEB 渗透 --BurpSuite--Scanner
         </h1>
 
         <div class="post-meta">
@@ -222,16 +225,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-07-06 14:51:01" itemprop="dateCreated datePublished" datetime="2020-07-06T14:51:01+08:00">2020-07-06</time>
+              <time title="创建时间：2020-07-07 10:24:37 / 修改时间：21:47:57" itemprop="dateCreated datePublished" datetime="2020-07-07T10:24:37+08:00">2020-07-07</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-07 18:34:34" itemprop="dateModified" datetime="2020-07-07T18:34:34+08:00">2020-07-07</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -248,7 +245,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>723</span>
+              <span>982</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -267,68 +264,105 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Spider"><a href="#Spider" class="headerlink" title="Spider"></a>Spider</h2><ul>
-<li><p>Spider (爬虫) 模块用于自动爬取网站的每个页面内容，并生成完整的网站地图。</p>
+        <h2 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h2><ul>
+<li><p>是一个进行自动发现 web 应用程序的安全漏洞的工具。</p>
 </li>
-<li><p>Spider 通过跟踪 HTML 和 JavaScript 以及提交的表单中的超链接来映射目标应用程序。</p>
+<li><p>它是为渗透测试人员设计的，并且它和你现有的手动执行进行的 web 应用程序半自动渗透测试的技术方法很相似。</p>
 </li>
-<li><p>它还使用了一些其他的线索，如目录列表，资源类型的注释，以及 robots.txt 文件。</p>
+<li><p>在攻击一个应用程序时它和你执行的操作紧紧的结合在一起。</p>
 </li>
-<li><p>结果会在站点地图中以树和表的形式显示出来，提供了一个清楚并非常详细的目标应用程序视图。</p>
+<li><p>让你细微控制着每一个扫描的请求，并直接反馈回结果。</p>
 </li>
 </ul>
 <a id="more"></a>
 
 <hr>
+<p>使用 Scanner：</p>
 <ul>
-<li><p>Spider 的好处：</p>
-<ul>
-<li><p>Burp Spider 能使你清楚地了解到一个 web 应用程序是怎样工作的，让你避免进行大量的手动任务而浪费时间，跟踪链接，提交表单，精简 HTML 源代码。</p>
+<li><p>首先使用 proxy 模块，拦截请求，得到目标域名。</p>
 </li>
-<li><p>可以快速地确人应用程序的潜在的脆弱功能，还允许你指定特定的漏洞，如 SQL 注入，路径遍历。</p>
+<li><p>然后将目标域名添加到 scope 中，关闭 proxy 拦截功能，开启 spider 模块。</p>
 </li>
-</ul>
-</li>
-<li><p>使用 Spider：</p>
-<ul>
-<li><p>在 Target 模块中鼠标右键 host，选择 Spider this host</p>
-</li>
-<li><p>在 Proxy 模块中的 Intercept 标签，鼠标右键选择 Send to Spider</p>
-</li>
-<li><p>在 Proxy 模块中的 HTTP history 标签，鼠标右键选择 Spider from here</p>
+<li><p>完成域名的详细目录信息之后就可以开始扫描功能了。</p>
 </li>
 </ul>
-</li>
+<h3 id="Issue-activity"><a href="#Issue-activity" class="headerlink" title="Issue activity"></a>Issue activity</h3><ul>
+<li>查看扫描到的漏洞具体信息，可以对内容进行自定义标记，导出报告等操作。</li>
 </ul>
-<h3 id="Control"><a href="#Control" class="headerlink" title="Control"></a>Control</h3><ul>
-<li><p>在 Control 界面中可以启动爬虫功能，查看爬虫状态，设置爬虫的作用域。</p>
-</li>
-<li><p>在使用爬虫功能之前，需要设置代理，并获取域名。然后关闭代理拦截。</p>
-</li>
-</ul>
-<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/Control.png" class title="control">
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Issue_activity.jpg" class title="issue_activity">
 
-<h4 id="Spider-Status"><a href="#Spider-Status" class="headerlink" title="Spider Status"></a>Spider Status</h4><ul>
-<li><p>查看爬虫状态，显示了运行 / 暂停按钮与清空队列按钮。</p>
+<h3 id="Scan-queue"><a href="#Scan-queue" class="headerlink" title="Scan queue"></a>Scan queue</h3><ul>
+<li><p>显示扫描进度的详情，可以显示漏洞详情、队列状态、进度、结果。</p>
 </li>
-<li><p>其中 4 行英文分别表示已完成的请求数，已传递的字节数，未完成的请求数，未完成的表单数</p>
-</li>
-</ul>
-<h4 id="Spider-Scope"><a href="#Spider-Scope" class="headerlink" title="Spider Scope"></a>Spider Scope</h4><ul>
-<li><p>设置爬虫作用域范围。</p>
-</li>
-<li><p>可以选择使用 Target 中的 scope 范围。</p>
-</li>
-<li><p>还可以自定义范围。</p>
+<li><p>还可以将扫描信息发送至其他模块。</p>
 </li>
 </ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Scan_queue.png" class title="scan_queue">
+
+<p>主要包含内容：</p>
+<ul>
+<li><p>索引号的项目，反映该项目的添加顺序。</p>
+</li>
+<li><p>目的地协议，主机和 URL 。</p>
+</li>
+<li><p>Status 当前状态，包括完成百分比。</p>
+</li>
+<li><p>项目扫描问题的数量（这是根据所附的最严重问题的重要性和彩色化） 。</p>
+</li>
+<li><p>在扫描项目的请求数量进行。</p>
+</li>
+<li><p>网络错误的数目遇到的问题。</p>
+</li>
+<li><p>为项目创建的插入点的数量。</p>
+</li>
+</ul>
+<h3 id="Live-scanning"><a href="#Live-scanning" class="headerlink" title="Live scanning"></a>Live scanning</h3><ul>
+<li>Scanner 提供两种漏洞扫描方式：主动扫描 (Active Scanning)、被动扫描 (Passive Scanning)</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Live_scanning.png" class title="live_scanning">
+
+<h5 id="Active-Scanning-主动扫描"><a href="#Active-Scanning-主动扫描" class="headerlink" title="Active Scanning (主动扫描)"></a>Active Scanning (主动扫描)</h5><ul>
+<li><p>主动扫描会向得到的所有域名，发起大量带有攻击探测信息的请求，可以获得精准性高且详细的信息。</p>
+</li>
+<li><p>但是会对目标站点造成较大影响，所用时间和资源也较多。</p>
+</li>
+<li><p>适合在网站离线时做测试。</p>
+</li>
+<li><p>可以在 Scan queue 中查看主动扫描的进度。</p>
+</li>
+</ul>
+<h5 id="Passive-Scanning-被动扫描"><a href="#Passive-Scanning-被动扫描" class="headerlink" title="Passive Scanning (被动扫描)"></a>Passive Scanning (被动扫描)</h5><ul>
+<li><p>在 Target 的 Site map 模块中需要扫描的网站，右键点击 Passively scan this host (发送到被动扫描模块)。</p>
+</li>
+<li><p>被动扫描只会根据爬虫获得的内容上进行分析，不会重新对域名进行请求攻击，可以得到比较具体的信息。</p>
+</li>
+<li><p>当服务器正在运作时，可以使用该方式扫描，不会对网站造成损害。</p>
+</li>
+<li><p>该方式精准度低于主动扫描，但是时间短，消耗资源小，影响小。</p>
+</li>
+</ul>
+<h3 id="Issue-definitions"><a href="#Issue-definitions" class="headerlink" title="Issue definitions"></a>Issue definitions</h3><ul>
+<li>漏洞列表，列出了 Burp Suite 中可以扫描到的漏洞，与漏洞详情。</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Issue_Definitions.png" class title="issue_definitions">
+
 <h3 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h3><ul>
-<li><p>Spider 可选项设置由抓取设置、抓取代理设置、表单提交设置、应用登陆设置、蜘蛛引擎设置、请求消息头设置六个部分组成。</p>
+<li><p>Scanner 设置。</p>
 </li>
-<li><p>详情查看：<a href="https://t0data.gitbooks.io/burpsuite/content/chapter6.html" target="_blank" rel="noopener">如何使用 Burp Spider</a></p>
+<li><p>设置扫描的规则选项、攻击插入点，检测敏感字段。</p>
+</li>
+<li><p>设置扫描的引擎，设置主动和被动扫描的选项。</p>
+</li>
+<li><p>详情查看：</p>
+<ul>
+<li><p><a href="https://blog.csdn.net/u011781521/article/details/54561341" target="_blank" rel="noopener">Scanner 模块</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/lynnlinlin/article/details/77480726" target="_blank" rel="noopener">Scanner</a></p>
 </li>
 </ul>
-<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/Options.png" class title="options">
+</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Options.png" class title="options">
     </div>
 
     
@@ -339,7 +373,7 @@
           <div class="post-tags">
               <a href="/tags/WEB%E6%B8%97%E9%80%8F/" rel="tag"># WEB渗透</a>
               <a href="/tags/BurpSuite/" rel="tag"># BurpSuite</a>
-              <a href="/tags/Spider/" rel="tag"># Spider</a>
+              <a href="/tags/Scanner/" rel="tag"># Scanner</a>
           </div>
 
         
@@ -348,13 +382,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/WEB%E6%B8%97%E9%80%8F/2020-07-05/Web-penetration-BurpSuite-Target/" rel="prev" title="WEB 渗透 --BurpSuite--Target">
-      <i class="fa fa-chevron-left"></i> WEB 渗透 --BurpSuite--Target
+    <a href="/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/" rel="prev" title="WEB 渗透 --BurpSuite--Spider">
+      <i class="fa fa-chevron-left"></i> WEB 渗透 --BurpSuite--Spider
     </a></div>
-      <div class="post-nav-item">
-    <a href="/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/" rel="next" title="WEB 渗透 --BurpSuite--Scanner">
-      WEB 渗透 --BurpSuite--Scanner <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -413,7 +444,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spider"><span class="nav-number">1.</span> <span class="nav-text">Spider</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Control"><span class="nav-number">1.1.</span> <span class="nav-text">Control</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Spider-Status"><span class="nav-number">1.1.1.</span> <span class="nav-text">Spider Status</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spider-Scope"><span class="nav-number">1.1.2.</span> <span class="nav-text">Spider Scope</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Options"><span class="nav-number">1.2.</span> <span class="nav-text">Options</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scanner"><span class="nav-number">1.</span> <span class="nav-text">Scanner</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Issue-activity"><span class="nav-number">1.1.</span> <span class="nav-text">Issue activity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scan-queue"><span class="nav-number">1.2.</span> <span class="nav-text">Scan queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Live-scanning"><span class="nav-number">1.3.</span> <span class="nav-text">Live scanning</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Active-Scanning-主动扫描"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">Active Scanning (主动扫描)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Passive-Scanning-被动扫描"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">Passive Scanning (被动扫描)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Issue-definitions"><span class="nav-number">1.4.</span> <span class="nav-text">Issue definitions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Options"><span class="nav-number">1.5.</span> <span class="nav-text">Options</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
