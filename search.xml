@@ -1,6 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>软件测试面试记录</title>
+    <url>/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E9%9D%A2%E8%AF%95/2020-07-09/software-testing-recording/</url>
+    <content><![CDATA[<p>随时不定期更新</p>
+<a id="more"></a>
+
+<p>答案有时间再补</p>
+<h3 id="基本类"><a href="#基本类" class="headerlink" title="基本类"></a>基本类</h3><ul>
+<li><p>上家公司离职原因</p>
+</li>
+<li><p>期望薪资</p>
+</li>
+<li><p>对于加班的看法</p>
+</li>
+<li><p>近期 / 长期职业规划是什么</p>
+</li>
+</ul>
+<h3 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h3><ul>
+<li><p>介绍下上家公司的测试流程</p>
+</li>
+<li><p>挑一个熟悉的项目，介绍下你在其中的工作职责</p>
+</li>
+<li><p>如果发现一个 BUG，开发坚持说不是 BUG，怎么办</p>
+</li>
+<li><p>如果遇到紧急的需要上线的需求，怎么办</p>
+</li>
+<li><p>BUG 的生命周期是什么</p>
+</li>
+</ul>
+<h3 id="SQL-类"><a href="#SQL-类" class="headerlink" title="SQL 类"></a>SQL 类</h3><ul>
+<li><p>SQL 中视图是什么，如何创建</p>
+</li>
+<li><p>SQL 中索引是什么，有哪几类</p>
+</li>
+<li><p>排序后输出前 5 行用什么命令</p>
+</li>
+<li><p>SQL 万能的学生表及相关 SQL 语句</p>
+</li>
+</ul>
+<h3 id="Python-类"><a href="#Python-类" class="headerlink" title="Python 类"></a>Python 类</h3><ul>
+<li><p>介绍下 Python 内存控制</p>
+</li>
+<li><p>什么是 Python 的浅拷贝与深拷贝</p>
+</li>
+<li><p>Python 的全局变量与局部变量是如何定义的</p>
+</li>
+<li><p>Python 修饰器是什么</p>
+</li>
+<li><p>Python 中 break、continue、pass 的分别</p>
+</li>
+<li><p>如何使用 Python 删除文件</p>
+</li>
+<li><p>说下 Python 中，平时经常使用的内置 / 导入模块</p>
+</li>
+<li><p>介绍下 Python 的列表 / 元组 / 字典 / 集合</p>
+</li>
+<li><p>使用 Python 编写，输出列表中的偶数元素，或者偶数索引</p>
+</li>
+</ul>
+<h3 id="Jmeter-类"><a href="#Jmeter-类" class="headerlink" title="Jmeter 类"></a>Jmeter 类</h3><ul>
+<li><p>Jmeter 中关联是什么，如何使用</p>
+</li>
+<li><p>Jmeter 断言，以及使用</p>
+</li>
+<li><p>做性能测试时，如何确定性能指标</p>
+</li>
+<li><p>使用 Jmeter 做接口测试步骤</p>
+</li>
+<li><p>实际项目的性能参考了哪些性能指标</p>
+</li>
+<li><p>Jmeter 中同时释放用户 (线程) 应该怎么做</p>
+</li>
+</ul>
+<h3 id="Linux-类"><a href="#Linux-类" class="headerlink" title="Linux 类"></a>Linux 类</h3><ul>
+<li><p>说下 Linux 的常用命令</p>
+</li>
+<li><p>Linux 查看日志用什么命令</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>软件测试面试</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>WEB 渗透 --BurpSuite--Scanner</title>
     <url>/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/</url>
     <content><![CDATA[<h2 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h2><ul>
