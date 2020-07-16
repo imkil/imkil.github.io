@@ -1,323 +1,727 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>软件测试面试记录</title>
-    <url>/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E9%9D%A2%E8%AF%95/2020-07-09/software-testing-recording/</url>
-    <content><![CDATA[<p>随时不定期更新</p>
+    <title>PHP 基础巩固 - 函数</title>
+    <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-18/PHP-foundation-consolidation-method/</url>
+    <content><![CDATA[<h2 id="函数概念"><a href="#函数概念" class="headerlink" title="函数概念"></a>函数概念</h2><ul>
+<li>一段封装好的代码，可以随时调用</li>
+</ul>
+<p>定义格式：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> 函数名 (参数 1, 参数..N) &#123;</span><br><span class="line">    // 执行语句 </span><br><span class="line">    // <span class="built_in">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
 
-<p>答案有时间再补</p>
-<h3 id="基本类"><a href="#基本类" class="headerlink" title="基本类"></a>基本类</h3><ul>
-<li><p>上家公司离职原因</p>
+<h2 id="函数的命名规范"><a href="#函数的命名规范" class="headerlink" title="函数的命名规范"></a>函数的命名规范</h2><ul>
+<li><p>对于函数，命名规则和变量是一样的，但是函数不区分大小写</p>
 </li>
-<li><p>期望薪资</p>
+<li><p>函数名称应该提示出它的功能</p>
 </li>
-<li><p>对于加班的看法</p>
-</li>
-<li><p>近期 / 长期职业规划是什么</p>
+<li><p>函数名称以字母或下划线开头 (不能以数字开头)</p>
 </li>
 </ul>
-<h3 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h3><ul>
-<li><p>介绍下上家公司的测试流程</p>
+<h2 id="函数的调用过程与返回值"><a href="#函数的调用过程与返回值" class="headerlink" title="函数的调用过程与返回值"></a>函数的调用过程与返回值</h2><ul>
+<li><p>函数调用时，代码执行权进入函数</p>
 </li>
-<li><p>挑一个熟悉的项目，介绍下你在其中的工作职责</p>
+<li><p>当函数所有语句执行完毕，函数返回，交回执行权</p>
 </li>
-<li><p>如果发现一个 BUG，开发坚持说不是 BUG，怎么办</p>
-</li>
-<li><p>如果遇到紧急的需要上线的需求，怎么办</p>
-</li>
-<li><p>BUG 的生命周期是什么</p>
+<li><p>或者函数碰到 return 语句时，函数返回，交回执行权</p>
 </li>
 </ul>
-<h3 id="SQL-类"><a href="#SQL-类" class="headerlink" title="SQL 类"></a>SQL 类</h3><ul>
-<li><p>SQL 中视图是什么，如何创建</p>
+<h2 id="函数参数的传值方式"><a href="#函数参数的传值方式" class="headerlink" title="函数参数的传值方式"></a>函数参数的传值方式</h2><ul>
+<li><p>函数外部的值 $b，传入到函数内部 $a，相当于把 $b 的值，赋给 $a，而 $a 是函数内部的值，怎么变，和外界无关</p>
 </li>
-<li><p>SQL 中索引是什么，有哪几类</p>
-</li>
-<li><p>排序后输出前 5 行用什么命令</p>
-</li>
-<li><p>SQL 万能的学生表及相关 SQL 语句</p>
+<li><p>使用动态变量名时，$a 与 $b 指向了同一个地址，这种传参方式是不推荐的，因为函数内部的语句，影响到了外部的变量，破坏了函数的封装性</p>
 </li>
 </ul>
-<h3 id="Python-类"><a href="#Python-类" class="headerlink" title="Python 类"></a>Python 类</h3><ul>
-<li><p>介绍下 Python 内存控制</p>
+<h2 id="函数中变量的作用域"><a href="#函数中变量的作用域" class="headerlink" title="函数中变量的作用域"></a>函数中变量的作用域</h2><ul>
+<li><p>在 PHP 的页面中声明的变量，叫 “全局变量”</p>
 </li>
-<li><p>什么是 Python 的浅拷贝与深拷贝</p>
+<li><p>函数内的变量，叫 “局部变量”</p>
 </li>
-<li><p>Python 的全局变量与局部变量是如何定义的</p>
+<li><p>函数内生命全局变量，变量前增加 global</p>
 </li>
-<li><p>Python 修饰器是什么</p>
-</li>
-<li><p>Python 中 break、continue、pass 的分别</p>
-</li>
-<li><p>如何使用 Python 删除文件</p>
-</li>
-<li><p>说下 Python 中，平时经常使用的内置 / 导入模块</p>
-</li>
-<li><p>介绍下 Python 的列表 / 元组 / 字典 / 集合</p>
-</li>
-<li><p>使用 Python 编写，输出列表中的偶数元素，或者偶数索引</p>
+<li><p>超级全局变量，在页面的任何部分，包括函数，方法等，都可以直接访问</p>
 </li>
 </ul>
-<h3 id="Jmeter-类"><a href="#Jmeter-类" class="headerlink" title="Jmeter 类"></a>Jmeter 类</h3><ul>
-<li><p>Jmeter 中关联是什么，如何使用</p>
+<h2 id="动态调用函数"><a href="#动态调用函数" class="headerlink" title="动态调用函数"></a>动态调用函数</h2><ul>
+<li>可以用变量的值当作函数，并调用函数</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> a (<span class="variable">$c</span>) &#123;</span><br><span class="line">    <span class="variable">$c</span> += 1;</span><br><span class="line">    <span class="built_in">return</span> <span class="variable">$c</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">b = <span class="string">'a'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> b (3);</span><br><span class="line"></span><br><span class="line">//--------------------</span><br><span class="line"></span><br><span class="line">4</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PHP基础巩固</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+        <tag>基础</tag>
+        <tag>函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PHP 基础巩固 -- 字符串</title>
+    <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-19/PHP-foundation-consolidation-str/</url>
+    <content><![CDATA[<h2 id="字符串的定义方式"><a href="#字符串的定义方式" class="headerlink" title="字符串的定义方式"></a>字符串的定义方式</h2><ul>
+<li>除了单引号和双引号，可以使用 heredoc，nowdoc 定义大断文本</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; heredoc</span><br><span class="line">$str &#x3D; &lt;&lt;&lt;HTML</span><br><span class="line">hello</span><br><span class="line">world   abc</span><br><span class="line">    ok now;</span><br><span class="line">HTML;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; heredoc 和 nowdoc 的区别就是单引号 </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; nowdoc</span><br><span class="line">$str &#x3D; &lt;&lt;&lt;&#39;INTRO&#39;</span><br><span class="line"> 远看山有色，</span><br><span class="line"> 进听水无声 </span><br><span class="line">INTRO;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="单双引号对比、转义、解析、速度"><a href="#单双引号对比、转义、解析、速度" class="headerlink" title="单双引号对比、转义、解析、速度"></a>单双引号对比、转义、解析、速度</h2><ul>
+<li><p>转义符 \ </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$str1</span> = <span class="string">'\'</span> \\ \n \t \v \$ <span class="string">';</span></span><br><span class="line"><span class="string">// '</span> \ \n \t \v \$</span><br><span class="line"></span><br><span class="line"><span class="variable">$str2</span> = <span class="string">"\" \\ \n \t \v \$"</span>;</span><br><span class="line">// 双引号里的变量能解析 </span><br><span class="line"><span class="variable">$age</span> = 30;</span><br><span class="line"><span class="variable">$str3</span> = <span class="string">' 今年 $age 岁 '</span>;</span><br><span class="line"><span class="variable">$str4</span> = <span class="string">" 今年 <span class="variable">$age</span> 岁 "</span>;</span><br><span class="line">//str3 今年 <span class="variable">$age</span> 岁 </span><br><span class="line">//str4 今年 30 岁 </span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Jmeter 断言，以及使用</p>
+<li><p>单引号不需要分析串内有没有变量，需要转义的内容也少，速度比双引号要快</p>
 </li>
-<li><p>做性能测试时，如何确定性能指标</p>
-</li>
-<li><p>使用 Jmeter 做接口测试步骤</p>
-</li>
-<li><p>实际项目的性能参考了哪些性能指标</p>
-</li>
-<li><p>Jmeter 中同时释放用户 (线程) 应该怎么做</p>
+<li><p>优先使用单引号</p>
 </li>
 </ul>
-<h3 id="Linux-类"><a href="#Linux-类" class="headerlink" title="Linux 类"></a>Linux 类</h3><ul>
-<li><p>说下 Linux 的常用命令</p>
+<h2 id="字符串常用函数"><a href="#字符串常用函数" class="headerlink" title="字符串常用函数"></a>字符串常用函数</h2><h3 id="字符长度函数"><a href="#字符长度函数" class="headerlink" title="字符长度函数"></a>字符长度函数</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">strlen (<span class="variable">$string</span>);</span><br><span class="line">// 传入 string 类型，返回 int 型 </span><br><span class="line">//utf8 编码，中文占 3 个字节 </span><br><span class="line"></span><br><span class="line">mb_strlen (<span class="variable">$string</span>, <span class="string">'$encoding'</span>);</span><br><span class="line">// 传入 string，编码方式，返回 int 型 </span><br></pre></td></tr></table></figure>
+
+<h3 id="查找字符位置函数"><a href="#查找字符位置函数" class="headerlink" title="查找字符位置函数"></a>查找字符位置函数</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">strpos (<span class="variable">$str</span>, <span class="variable">$char</span>);</span><br><span class="line">// <span class="variable">$str</span> 中是否含有 < span class="variable">$char</span>，返回在字符串中第一次出现的位置 <br><span class="line"></span><br><span class="line">stripos (<span class="variable">$str</span>, <span class="variable">$char</span>);</span><br><span class="line">// <span class="variable">$str</span> 中是否含有 < span class="variable">$char</span>，返回在字符串中第一次出现的位置。该函数对大小写不敏感 <br><span class="line"></span><br><span class="line">strrpos (<span class="variable">$str</span>, <span class="variable">$char</span>);</span><br><span class="line">// <span class="variable">$str</span> 中是否含有 < span class="variable">$char</span>，返回在字符串中最后一次出现的位置 <br></pre></td></tr></table></figure>
+
+<h3 id="字符串替换函数"><a href="#字符串替换函数" class="headerlink" title="字符串替换函数"></a>字符串替换函数</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">str_replace (search, replace, <span class="variable">$str</span>);</span><br><span class="line">// 从 < span class="variable">$str</span> 中查找 search 用 replace 替换 <br><span class="line"></span><br><span class="line">strstr (<span class="variable">$str</span>, search, replace);</span><br><span class="line">//search，replace 可以是 array (<span class="string">'a'</span> =&gt; <span class="string">'b'</span>, <span class="string">'b'</span> =&gt; <span class="string">'a'</span>)</span><br><span class="line">// 从而同时替换多个字符 </span><br></pre></td></tr></table></figure>
+
+<h3 id="截取子字符串，分割，连接，反转函数"><a href="#截取子字符串，分割，连接，反转函数" class="headerlink" title="截取子字符串，分割，连接，反转函数"></a>截取子字符串，分割，连接，反转函数</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">substr (<span class="variable">$str</span>, start [, length]);</span><br><span class="line">//length 如果为负，代表结束位置，后往前数 </span><br><span class="line"></span><br><span class="line">str_split (<span class="variable">$str</span>, length);</span><br><span class="line">// 把 < span class="variable">$str</span> 按 length 长度进行分割返回数组 <br><span class="line"></span><br><span class="line">split (search, <span class="variable">$str</span>[, int]);</span><br><span class="line">// 把 < span class="variable">$str</span> 按 search 字符进行分割返回数组 int 是分割几次，后面的将不分割 <br><span class="line"></span><br><span class="line">explode (search, <span class="variable">$str</span>[, int]);</span><br><span class="line">// 把 < span class="variable">$str</span> 按 search 字符拆分成数组 <br><span class="line"></span><br><span class="line">implode (glue, pieces);</span><br><span class="line">// 把 glue 数组，用 pieces 拼接成字符串 </span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PHP基础巩固</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+        <tag>基础</tag>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PHP 基础巩固 -- 变量</title>
+    <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-13/PHP-foundation-consolidation-variable/</url>
+    <content><![CDATA[<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><ul>
+<li><p>变量以 $ 符号开始，后面跟着变量的名称</p>
 </li>
-<li><p>Linux 查看日志用什么命令</p>
+<li><p>变量名必须以字母或者下划线字符开始</p>
+</li>
+<li><p>变量名只能包含字母数字字符以及下划线（A-z、0-9 和 _ ）</p>
+</li>
+<li><p>变量名不能包含空格</p>
+</li>
+<li><p>变量名是区分大小写的（$y 和 $Y 是两个不同的变量）</p>
+</li>
+</ul>
+<p>参考：<a href="https://www.runoob.com/php/php-datatypes.html" target="_blank" rel="noopener">菜鸟教程 PHP 数据类型</a></p>
+<a id="more"></a>
+
+<h3 id="Integer-整形"><a href="#Integer-整形" class="headerlink" title="Integer 整形"></a>Integer 整形</h3><ul>
+<li><p>整数必须至少有一个数字 (0-9)</p>
+</li>
+<li><p>整数不能包含逗号或空格</p>
+</li>
+<li><p>整数是没有小数点的</p>
+</li>
+<li><p>整数可以是正数或负数</p>
+</li>
+<li><p>整型可以用三种格式来指定：十进制， 十六进制（ 以 0x 为前缀）或八进制（前缀为 0）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$x</span> = 5985;</span><br><span class="line">var_dump (<span class="variable">$x</span>);    //int (5985)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;br&gt;"</span>; </span><br><span class="line"><span class="variable">$x</span> = -345;       // 负数 </span><br><span class="line">var_dump (<span class="variable">$x</span>);    //int (-345)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="variable">$x</span> = 0x8C;       // 十六进制数 </span><br><span class="line">var_dump (<span class="variable">$x</span>);    //int (140)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="variable">$x</span> = 047;        // 八进制数 </span><br><span class="line">var_dump (<span class="variable">$x</span>);    //int (39)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="Float-浮点型"><a href="#Float-浮点型" class="headerlink" title="Float 浮点型"></a>Float 浮点型</h3><ul>
+<li>浮点数是带小数部分的数字，或是指数形式</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$x</span> = 10.365;</span><br><span class="line">var_dump (<span class="variable">$x</span>);    // <span class="built_in">float</span>(10.365)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;br&gt;"</span>; </span><br><span class="line"><span class="variable">$x</span> = 2.4e3;</span><br><span class="line">var_dump (<span class="variable">$x</span>);    // <span class="built_in">float</span>(2400)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;br&gt;"</span>; </span><br><span class="line"><span class="variable">$x</span> = 8E-5;</span><br><span class="line">var_dump (<span class="variable">$x</span>);    // <span class="built_in">float</span>(8.0E-5)</span><br></pre></td></tr></table></figure>
+
+<h3 id="String-字符串"><a href="#String-字符串" class="headerlink" title="String 字符串"></a>String 字符串</h3><ul>
+<li><p>一个字符串是一串字符的序列，就像 “Hello world!”</p>
+</li>
+<li><p>你可以将任何文本放在单引号和双引号中</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$x</span> = <span class="string">"Hello world!"</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$x</span>;         // Hello world!</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;br&gt;"</span>; </span><br><span class="line"><span class="variable">$x</span> = <span class="string">'Hello world!'</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$x</span>;         // Hello world!</span><br></pre></td></tr></table></figure>
+
+<h3 id="Boolean-布尔型"><a href="#Boolean-布尔型" class="headerlink" title="Boolean 布尔型"></a>Boolean 布尔型</h3><ul>
+<li>布尔型可以是 TRUE 或 FALSE</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$x</span>=<span class="literal">true</span>;</span><br><span class="line"><span class="variable">$y</span>=<span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>布尔型通常是用于条件判断</li>
+</ul>
+<h3 id="Array-数组"><a href="#Array-数组" class="headerlink" title="Array 数组"></a>Array 数组</h3><ul>
+<li>数组可以在一个变量中存储多个值</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span>=array (<span class="string">"Volvo"</span>,<span class="string">"BMW"</span>,<span class="string">"Toyota"</span>);</span><br><span class="line">var_dump (<span class="variable">$arr</span>);  //array (3)&#123;[0]=&gt;string (5)<span class="string">"Volvo"</span> [1]=&gt;string (3)<span class="string">"BMW"</span> [2]=&gt;string (6)<span class="string">"Toyota"</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Object-对象"><a href="#Object-对象" class="headerlink" title="Object 对象"></a>Object 对象</h3><ul>
+<li><p>对象数据类型也可以用于存储数据</p>
+</li>
+<li><p>在 PHP 中，对象必须声明</p>
+</li>
+<li><p>首先，你必须使用 class 关键字声明类对象。类是可以包含属性和方法的结构</p>
+</li>
+<li><p>然后我们在类中定义数据类型，然后在实例化的类中使用数据类型</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">class Car</span><br><span class="line">&#123;</span><br><span class="line">  var <span class="variable">$color</span>;</span><br><span class="line">  <span class="keyword">function</span> __construct (<span class="variable">$color</span>=<span class="string">"green"</span>) &#123;</span><br><span class="line">    <span class="variable">$this</span>-&gt;color = <span class="variable">$color</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">function</span> <span class="function"><span class="title">what_color</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> <span class="variable">$this</span>-&gt;color;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> print_vars (<span class="variable">$obj</span>) &#123;</span><br><span class="line">   foreach (get_object_vars (<span class="variable">$obj</span>) as <span class="variable">$prop</span> =&gt; <span class="variable">$val</span>) &#123;</span><br><span class="line">     <span class="built_in">echo</span> <span class="string">"\t<span class="variable">$prop</span> = <span class="variable">$val</span>\n"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 实例一个对象 </span><br><span class="line"><span class="variable">$herbie</span> = new Car (<span class="string">"white"</span>);</span><br><span class="line"></span><br><span class="line">// 显示 herbie 属性 </span><br><span class="line"><span class="built_in">echo</span> <span class="string">"\therbie: Properties\n"</span>;</span><br><span class="line">print_vars (<span class="variable">$herbie</span>);</span><br><span class="line"></span><br><span class="line">//herbie: Properties color = white</span><br></pre></td></tr></table></figure>
+
+<h3 id="NULL-空值"><a href="#NULL-空值" class="headerlink" title="NULL 空值"></a>NULL 空值</h3><ul>
+<li><p>NULL 值表示变量没有值。NULL 是数据类型为 NULL 的值</p>
+</li>
+<li><p>NULL 值指明一个变量是否为空值。 同样可用于数据空值和 NULL 值的区别</p>
+</li>
+<li><p>可以通过设置变量值为 NULL 来清空变量数据</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$x</span>=<span class="string">"Hello world!"</span>;</span><br><span class="line"><span class="variable">$x</span>=null;</span><br><span class="line">var_dump (<span class="variable">$x</span>);    // NULL</span><br></pre></td></tr></table></figure>
+
+<h2 id="变量检测"><a href="#变量检测" class="headerlink" title="变量检测"></a>变量检测</h2><ul>
+<li><p>isset — 检测变量是否已设置并且非 NULL</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">isset ( mixed <span class="variable">$var</span> [, mixed $... ] ) : bool</span><br></pre></td></tr></table></figure></li>
+<li><p>检测变量是否设置，并且不是 NULL</p>
+</li>
+<li><p>如果已经使用 unset () 释放 / 销毁了一个变量之后。若使用 isset () 测试一个被设置成 NULL 的变量，将返回 FALSE。同时要注意的是 null 字符（”\0”）并不等同于 PHP 的 NULL 常量</p>
+</li>
+<li><p>如果一次传入多个参数，那么 isset () 只有在全部参数都以被设置时返回 TRUE 计算过程从左至右，中途遇到没有设置的变量时就会立即停止</p>
+</li>
+</ul>
+<p>参考：<a href="https://www.php.net/manual/zh/function.isset.php" target="_blank" rel="noopener">PHP 手册 isset</a></p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$var</span> = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">// 结果为 TRUE，所以后边的文本将被打印出来。</span><br><span class="line"><span class="keyword">if</span> (isset (<span class="variable">$var</span>)) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"This var is set so I will print."</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 在后边的例子中，我们将使用 var_dump 输出 isset () 的返回值。</span><br><span class="line">//the <span class="built_in">return</span> value of isset ().</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span> = <span class="string">"test"</span>;</span><br><span class="line"><span class="variable">$b</span> = <span class="string">"anothertest"</span>;</span><br><span class="line"></span><br><span class="line">var_dump (isset (<span class="variable">$a</span>))       // TRUE</span><br><span class="line">var_dump (isset (<span class="variable">$a</span>, <span class="variable">$b</span>));  // TRUE</span><br><span class="line"></span><br><span class="line"><span class="built_in">unset</span> (<span class="variable">$a</span>);</span><br><span class="line"></span><br><span class="line">var_dump (isset (<span class="variable">$a</span>));      // FALSE</span><br><span class="line">var_dump (isset (<span class="variable">$a</span>, <span class="variable">$b</span>));  // FALSE</span><br><span class="line"></span><br><span class="line"><span class="variable">$foo</span> = NULL;</span><br><span class="line">var_dump (isset (<span class="variable">$foo</span>));    // FALSE</span><br></pre></td></tr></table></figure>
+
+<h2 id="类型检测"><a href="#类型检测" class="headerlink" title="类型检测"></a>类型检测</h2><h3 id="gettype"><a href="#gettype" class="headerlink" title="gettype"></a>gettype</h3><ul>
+<li>gettype — 获取变量的类型<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ettype ( mixed <span class="variable">$var</span> ) : string</span><br><span class="line"></span><br><span class="line">Warning</span><br><span class="line"> 不要使用 gettype () 来测试某种类型，因为其返回的字符串在未来的版本中可能需要改变。此外，由于包含了字符串的比较，它的运行也是较慢的。</span><br><span class="line"> 可以使用 is_* 函数代替。</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$a</span> = <span class="string">'1'</span>;</span><br><span class="line"><span class="built_in">echo</span> gettype (<span class="variable">$a</span>);  //string</span><br></pre></td></tr></table></figure>
+<p>返回的字符串的可能值为：</p>
+<ul>
+<li><p>“boolean”（从 PHP 4 起）</p>
+</li>
+<li><p>“integer”</p>
+</li>
+<li><p>“double”（由于历史原因，如果是 float 则返回 “double”，而不是 “float”）</p>
+</li>
+<li><p>“string”</p>
+</li>
+<li><p>“array”</p>
+</li>
+<li><p>“object”</p>
+</li>
+<li><p>“resource”（从 PHP 4 起）</p>
+</li>
+<li><p>“NULL”（从 PHP 4 起）</p>
+</li>
+<li><p>“user function”（只用于 PHP 3，现已停用）</p>
+</li>
+<li><p>“unknown type”</p>
+</li>
+</ul>
+<p>参考：<a href="https://www.php.net/manual/zh/function.gettype.php" target="_blank" rel="noopener">PHP 手册 gettype</a></p>
+<h3 id="is"><a href="#is" class="headerlink" title="is_*"></a>is_*</h3><ul>
+<li><p>is_* — 判断是否是想要的类型</p>
+</li>
+<li><p>is_int，is_float，is_array，is_integer ()，is_string ()，is_object ()</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$a</span> = <span class="string">'1'</span>;</span><br><span class="line"><span class="keyword">if</span>(is_int (<span class="variable">$a</span>))&#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'a 是整形 '</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'a 不是整形 '</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//a 不是整形 </span><br></pre></td></tr></table></figure>
+
+<h2 id="变量打印"><a href="#变量打印" class="headerlink" title="变量打印"></a>变量打印</h2><ul>
+<li><p>echo，print，var_dump</p>
+<ul>
+<li><p>echo — 可以输出一个或多个字符串</p>
+</li>
+<li><p>print_r — 以易于理解的格式打印变量</p>
+</li>
+<li><p>var_dump — 打印变量的相关信息</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>参考：<a href="https://www.php.net/manual/zh/function.print-r.php" target="_blank" rel="noopener">PHP 手册 print_r</a></p>
+<p>参考：<a href="https://www.php.net/manual/zh/function.var-dump.php" target="_blank" rel="noopener">PHP 手册 var_dump</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$a</span> = 1;</span><br><span class="line"><span class="variable">$b</span> = array (<span class="string">'a'</span> =&gt; <span class="string">'apple'</span>, <span class="string">'b'</span> =&gt; <span class="string">'banana'</span>, <span class="string">'c'</span> =&gt; array (<span class="string">'x'</span>, <span class="string">'y'</span>, <span class="string">'z'</span>))</span><br><span class="line"><span class="variable">$c</span> = array (1, 2, array (<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>));</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span>;           // 1</span><br><span class="line"></span><br><span class="line">print_r (<span class="variable">$b</span>);       // 输出结果 </span><br><span class="line">                   // Array</span><br><span class="line">                   // (</span><br><span class="line">                   //     [a] =&gt; apple</span><br><span class="line">                   //     [b] =&gt; banana</span><br><span class="line">                   //     [c] =&gt; Array</span><br><span class="line">                   //         (</span><br><span class="line">                   //             [0] =&gt; x</span><br><span class="line">                   //             [1] =&gt; y</span><br><span class="line">                   //             [2] =&gt; z</span><br><span class="line">                   //         )</span><br><span class="line">                   // )</span><br><span class="line"></span><br><span class="line">var_dump (<span class="variable">$b</span>);      // 输出结果 </span><br><span class="line">                   //array (3) &#123;</span><br><span class="line">                   //     [0]=&gt;</span><br><span class="line">                   //     int (1)</span><br><span class="line">                   //     [1]=&gt;</span><br><span class="line">                   //     int (2)</span><br><span class="line">                   //     [2]=&gt;</span><br><span class="line">                   //     array (3) &#123;</span><br><span class="line">                   //         [0] =&gt; </span><br><span class="line">                   //         string (1) <span class="string">"a"</span></span><br><span class="line">                   //         [1] =&gt; </span><br><span class="line">                   //         string (1) <span class="string">"b"</span></span><br><span class="line">                   //         [2] =&gt; </span><br><span class="line">                   //         string (1) <span class="string">"c"</span></span><br><span class="line">                   //     &#125;</span><br><span class="line">                   // &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><ul>
+<li>PHP 中，变量的类型是可以随时转变的，最常见的是字符串与数字的转换，或是数字 / 字符串 -&gt; 布尔值的转换</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 字符串到数字的转换，从左到右截取，直到碰到不合法的数字，截取出来的部分转成数字 </span><br><span class="line"><span class="variable">$a</span> = <span class="string">'12'</span>;</span><br><span class="line"><span class="variable">$a</span> = <span class="variable">$a</span> + 3;</span><br><span class="line">var_dump (<span class="variable">$a</span>);      //int (15)</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span> = 123;</span><br><span class="line"><span class="variable">$a</span> = <span class="variable">$a</span> . <span class="string">'hello'</span>; </span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span>;           // 123hello</span><br><span class="line"></span><br><span class="line">// 到布尔值的转换，以下值，都被当成布尔值的假，而其他值，都被当成布尔值的真 </span><br><span class="line">// <span class="string">''</span>, <span class="string">'0'</span>, 0, 0.0, NULL, FALSE, array (), var <span class="variable">$var</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><ul>
+<li>传值赋值与引用赋值</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 传值赋值 </span><br><span class="line"><span class="variable">$li</span> = 29;</span><br><span class="line"><span class="variable">$wang</span> = 23;</span><br><span class="line"><span class="variable">$wang</span> = <span class="variable">$li</span>;</span><br><span class="line"></span><br><span class="line">var_dump (<span class="variable">$li</span>, <span class="variable">$wang</span>);    //29, 29</span><br><span class="line"><span class="variable">$wang</span> = <span class="string">'w'</span>;</span><br><span class="line">var_dump (<span class="variable">$li</span>, <span class="variable">$wang</span>);    //29, w</span><br><span class="line"></span><br><span class="line">// 引用赋值 </span><br><span class="line"><span class="variable">$li</span> = 29;</span><br><span class="line"><span class="variable">$wang</span> = 23;</span><br><span class="line"><span class="variable">$wang</span> = &amp;<span class="variable">$li</span>;</span><br><span class="line"></span><br><span class="line">var_dump (<span class="variable">$li</span>, <span class="variable">$wang</span>);    //29, 29</span><br><span class="line"><span class="variable">$wang</span> = <span class="string">'w'</span>;</span><br><span class="line">var_dump (<span class="variable">$li</span>, <span class="variable">$wang</span>);    //w, w</span><br></pre></td></tr></table></figure>
+
+<h2 id="释放-销毁"><a href="#释放-销毁" class="headerlink" title="释放 / 销毁"></a>释放 / 销毁</h2><ul>
+<li><p>unset — 释放给定的变量</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">unset</span> ( mixed <span class="variable">$var</span> [, mixed $... ] ) : void</span><br></pre></td></tr></table></figure></li>
+<li><p>unset () 销毁指定的变量</p>
+</li>
+<li><p>unset () 在函数中的行为会依赖于想要销毁的变量的类型而有所不同</p>
+</li>
+<li><p>如果在函数中 unset () 一个全局变量，则只是局部变量被销毁，而在调用环境中的变量将保持调用 unset () 之前一样的值</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$a</span> = 99;</span><br><span class="line"><span class="built_in">unset</span>(<span class="variable">$a</span>);</span><br><span class="line"><span class="keyword">if</span>(isset (<span class="variable">$a</span>))&#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'a 存在 '</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'a 不存在 '</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//a 不存在 </span><br><span class="line"></span><br><span class="line"><span class="variable">$li</span> = 29;</span><br><span class="line"><span class="variable">$wang</span> = &amp;<span class="variable">$li</span>;</span><br><span class="line">var_dump (<span class="variable">$li</span>, <span class="variable">$wang</span>);    //29, 29</span><br><span class="line"><span class="variable">$wang</span> = 20;</span><br><span class="line">var_dump (<span class="variable">$li</span>, <span class="variable">$wang</span>);    //20, 20</span><br><span class="line"><span class="built_in">unset</span>(<span class="variable">$li</span>);</span><br><span class="line">var_dump (<span class="variable">$li</span>, <span class="variable">$wang</span>);    //null, 20</span><br><span class="line">// 销毁后会提示 Notice: Undefined variable: li <span class="keyword">in</span> xxxxxx</span><br></pre></td></tr></table></figure>
+
+<h2 id="动态变量名"><a href="#动态变量名" class="headerlink" title="动态变量名"></a>动态变量名</h2><ul>
+<li>用变量的值再做变量的名，如 $$a;</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 动态变量名 </span><br><span class="line"><span class="variable">$liubei</span> = <span class="string">' 河北人 '</span>;</span><br><span class="line"><span class="variable">$laoda</span> = <span class="string">'liubei'</span>;</span><br><span class="line"><span class="variable">$paihang</span> = <span class="string">'laoda'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$laoda</span>, $<span class="variable">$laoda</span>, $$<span class="variable">$paihang</span>;     //liubei, 河北人，河北人 </span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PHP基础巩固</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+        <tag>基础</tag>
+        <tag>变量</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PHP 基础巩固 -- 数组</title>
+    <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-20/PHP-foundation-consolidation-array/</url>
+    <content><![CDATA[<h2 id="数组特点及声明方式"><a href="#数组特点及声明方式" class="headerlink" title="数组特点及声明方式"></a>数组特点及声明方式</h2><ul>
+<li>数组是一种复合数据，可以装下多个值，每个值用不同的键来区分</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = array (<span class="string">'001'</span>=&gt;<span class="string">'a'</span>, <span class="string">'002'</span>=&gt;<span class="string">'b'</span>, <span class="string">'003'</span>=&gt;<span class="string">'c'</span>, <span class="string">'004'</span>=&gt;<span class="string">'d'</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="索引数组，关联数组，多维数组"><a href="#索引数组，关联数组，多维数组" class="headerlink" title="索引数组，关联数组，多维数组"></a>索引数组，关联数组，多维数组</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = array (0=&gt;<span class="string">' 东 '</span>,1=&gt;<span class="string">' 西 '</span>,2=&gt;<span class="string">' 南 '</span>);   </span><br><span class="line">// 键不必有特殊意义，纯数字，这种叫 < span class="string">"索引数组"</span><br><span class="line"></span><br><span class="line"><span class="variable">$stu</span> = array (<span class="string">'name'</span>=&gt;<span class="string">' 东 '</span>,<span class="string">'age'</span>=&gt;30);</span><br><span class="line">// 字符串做键，一般能体现该单元的内容，如 age-&gt; 年龄，这种叫 < span class="string">"关联数组"</span><br><span class="line"></span><br><span class="line"><span class="variable">$arr</span> = array (0=&gt;<span class="string">'a'</span>, 1=&gt;array (<span class="string">'stu'</span>=&gt;<span class="string">'li'</span>,<span class="string">'bag'</span>=&gt;array (<span class="string">'yuwen'</span>,<span class="string">'shuxue'</span>)));</span><br><span class="line">// 多维数组 </span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="键的规则"><a href="#键的规则" class="headerlink" title="键的规则"></a>键的规则</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = array (<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>);</span><br><span class="line">// 如果不声明键，会从 0 1 2 3... 递增来生成键 </span><br><span class="line"></span><br><span class="line"><span class="variable">$arr</span> = array (3=&gt;<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>);</span><br><span class="line">// 如果已经存在某 1 个或几个数字键，则从最大的数字键，递增生成数字键 </span><br><span class="line"></span><br><span class="line"><span class="variable">$arr</span> = array (3=&gt;<span class="string">'a'</span>,3=&gt;<span class="string">'b'</span>,<span class="string">'c'</span>);</span><br><span class="line">// 如果键生命重复了，后面的值覆盖前面的值 </span><br><span class="line"></span><br><span class="line"><span class="variable">$arr</span> = array (2=&gt;<span class="string">'a'</span>,2.5=&gt;<span class="string">'b'</span>,<span class="string">'2.5'</span>=&gt;<span class="string">'c'</span>,<span class="string">'2'</span>=&gt;<span class="string">'d'</span>);</span><br><span class="line">// 键可以是整数，也可以是字符串 </span><br><span class="line">// 浮点数转成整数，如果字符串内容恰好是整数，也理解为整数 </span><br></pre></td></tr></table></figure>
+
+<h2 id="操作数组单元"><a href="#操作数组单元" class="headerlink" title="操作数组单元"></a>操作数组单元</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = array (<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>);</span><br><span class="line"></span><br><span class="line">// 增 1 个单元 </span><br><span class="line"><span class="variable">$arr</span>[] = <span class="string">'d'</span>;</span><br><span class="line"><span class="variable">$arr</span>[99] = <span class="string">'e'</span>;</span><br><span class="line"><span class="variable">$arr</span>[<span class="string">'stu'</span>] = array (<span class="string">'li'</span>, <span class="string">'wang'</span>);</span><br><span class="line"></span><br><span class="line">// 读取单元值 </span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$arr</span>[3];</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$arr</span>[<span class="string">'stu'</span>][1];</span><br><span class="line"></span><br><span class="line">// 改单元的值 </span><br><span class="line"><span class="variable">$arr</span>[0] = <span class="string">'A'</span>;</span><br><span class="line"></span><br><span class="line">// 删除某个单元 </span><br><span class="line"><span class="built_in">unset</span>(<span class="variable">$arr</span>[1]);</span><br></pre></td></tr></table></figure>
+
+<h2 id="循环数组"><a href="#循环数组" class="headerlink" title="循环数组"></a>循环数组</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// <span class="keyword">for</span> 循环，对于 0 1 2... 递增的索引数组 </span><br><span class="line"><span class="variable">$arr</span> = array (<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>,<span class="string">'g'</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$key</span> = 0; % key&lt;count (<span class="variable">$arr</span>); % key++) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$arr</span>[<span class="variable">$key</span>], <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$arr</span> = array (<span class="string">'age'</span>=&gt;28,<span class="string">'height'</span>=&gt;180,<span class="string">'name'</span>=&gt;<span class="string">'lisi'</span>);</span><br><span class="line">foreach (% arr as % key =&gt; <span class="variable">$value</span>) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$key</span> , <span class="string">'~'</span> , <span class="variable">$value</span> , <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foreach (% arr as <span class="variable">$value</span>) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$value</span> , <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="游标操作"><a href="#游标操作" class="headerlink" title="游标操作"></a>游标操作</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">current ();  // 取当前游标指向的数组单元的值 </span><br><span class="line">next ();     // 把数组游标往后移 </span><br><span class="line">prec ();     // 把数组的游标前移一位 </span><br><span class="line">end ();      // 把数组游标移到最后 </span><br><span class="line">reset ();    // 把数组游标复位，重新指向第一个 </span><br><span class="line"></span><br><span class="line">//----------------------------------------</span><br><span class="line"></span><br><span class="line"><span class="variable">$arr</span> = array (<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>);</span><br><span class="line"><span class="built_in">echo</span> current (<span class="variable">$arr</span>);    //a</span><br><span class="line"></span><br><span class="line">next (<span class="variable">$arr</span>);</span><br><span class="line"><span class="built_in">echo</span> current (<span class="variable">$arr</span>);    //b</span><br><span class="line"></span><br><span class="line">end (<span class="variable">$arr</span>);</span><br><span class="line"><span class="built_in">echo</span> current (<span class="variable">$arr</span>);    //c</span><br><span class="line"></span><br><span class="line">prev (<span class="variable">$arr</span>);</span><br><span class="line"><span class="built_in">echo</span> current (<span class="variable">$arr</span>);    //b</span><br><span class="line"></span><br><span class="line">reset (<span class="variable">$arr</span>);</span><br><span class="line"><span class="built_in">echo</span> current (<span class="variable">$arr</span>);    //a</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = array (<span class="string">'a'</span>=&gt;<span class="string">' 张三 '</span>, <span class="string">'b'</span>=&gt;<span class="string">' 李四 '</span>, <span class="string">'c'</span>=&gt;NULL);</span><br><span class="line"></span><br><span class="line">// 判断是否存在 </span><br><span class="line">//isest 无法判断 NULL</span><br><span class="line"><span class="keyword">if</span> (isset (<span class="variable">$arr</span>[<span class="string">'c'</span>])) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'c 号单元存在 '</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'c 号单元不存在 '</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 当值为 NULL 时，判断键是否存在 array_key_exists ();</span><br><span class="line"><span class="keyword">if</span> (array_key_exists (<span class="string">'c'</span>, % arr)) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'c 号单元存在 '</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'c 号单元不存在 '</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 搜索值是否存在 </span><br><span class="line"><span class="keyword">if</span> (in_array (<span class="string">' 李四 '</span>, <span class="variable">$arr</span>)) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">' 李四存在 '</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">' 李四不存在 '</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PHP基础巩固</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+        <tag>基础</tag>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PHP 基础巩固 - 控制结构</title>
+    <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-14/PHP-foundation-consolidation-control/</url>
+    <content><![CDATA[<h2 id="控制结构"><a href="#控制结构" class="headerlink" title="控制结构"></a>控制结构</h2><h3 id="if-else"><a href="#if-else" class="headerlink" title="if else"></a>if else</h3><ul>
+<li><p>if 语句 - 在条件成立时执行代码</p>
+</li>
+<li><p>if…else 语句 - 在条件成立时执行一块代码，条件不成立时执行另一块代码</p>
+</li>
+<li><p>if…else if….else 语句 - 在若干条件之一成立时执行一个代码块</p>
+</li>
+</ul>
+<a id="more"></a>
+
+<h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><ul>
+<li>if 语句用于仅当指定条件成立时执行代码</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (条件) &#123;</span><br><span class="line">    条件成立时要执行的代码；</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//-----------------------------</span><br><span class="line"></span><br><span class="line"><span class="variable">$t</span>=date (<span class="string">"H"</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$t</span>&lt;<span class="string">"20"</span>) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Have a good day!"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="if…else"><a href="#if…else" class="headerlink" title="if…else"></a>if…else</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (条件) &#123;</span><br><span class="line">    条件成立时执行的代码；</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    条件不成立时执行的代码；</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//-----------------------------</span><br><span class="line"></span><br><span class="line"><span class="variable">$t</span>=date (<span class="string">"H"</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$t</span>&lt;<span class="string">"20"</span>) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Have a good day!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Have a good night!"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="if…else-if…-else"><a href="#if…else-if…-else" class="headerlink" title="if…else if….else"></a>if…else if….else</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (条件) &#123;</span><br><span class="line">    <span class="keyword">if</span> 条件成立时执行的代码；</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (条件) &#123;</span><br><span class="line">    elseif 条件成立时执行的代码；</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    条件不成立时执行的代码；</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//-----------------------------</span><br><span class="line"></span><br><span class="line"><span class="variable">$t</span>=date (<span class="string">"H"</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$t</span>&lt;<span class="string">"10"</span>) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Have a good morning!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (<span class="variable">$t</span>&lt;<span class="string">"20"</span>) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Have a good day!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Have a good night!"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="switch-case"><a href="#switch-case" class="headerlink" title="switch case"></a>switch case</h3><ul>
+<li><p>switch 语句 - 在若干条件之一成立时执行一个代码块</p>
+</li>
+<li><p>switch case 适合用在验证多个可能的值时使用，不适合用在判断范围</p>
+<ul>
+<li>比如 60 - 80 及格， 0 - 59 不及格， 81 - 100 优</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">switch (n) &#123;</span><br><span class="line">    <span class="keyword">case</span> label1:</span><br><span class="line">        如果 n=label1，此处代码将执行；</span><br><span class="line">        <span class="built_in">break</span>;</span><br><span class="line">    <span class="keyword">case</span> label2:</span><br><span class="line">        如果 n=label2，此处代码将执行；</span><br><span class="line">        <span class="built_in">break</span>;</span><br><span class="line">    default:</span><br><span class="line">        如果 n 既不等于 label1 也不等于 label2，此处代码将执行；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>原理：首先对一个简单的表达式 n（通常是变量）进行一次计算。将表达式的值与结构中每个 case 的值进行比较。如果存在匹配，则执行与 case 关联的代码。代码执行后，使用 break 来阻止代码跳入下一个 case 中继续执行。default 语句用于不存在匹配（即没有 case 为真）时执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$favcolor</span>=<span class="string">"red"</span>;</span><br><span class="line">switch (<span class="variable">$favcolor</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"red"</span>:</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"你喜欢的颜色是红色！"</span>;</span><br><span class="line">        <span class="built_in">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"blue"</span>:</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"你喜欢的颜色是蓝色！"</span>;</span><br><span class="line">        <span class="built_in">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"green"</span>:</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"你喜欢的颜色是绿色！"</span>;</span><br><span class="line">        <span class="built_in">break</span>;</span><br><span class="line">    default:</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"你喜欢的颜色不是 红，蓝，或绿色！"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><ul>
+<li>while 循环将重复执行代码块，直到指定的条件不成立</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (条件) &#123;</span><br><span class="line">    要执行的代码；</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//-----------------------------</span><br><span class="line"></span><br><span class="line"><span class="variable">$i</span>=1;</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$i</span>&lt;=5) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"The number is"</span> . <span class="variable">$i</span> . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">    <span class="variable">$i</span>++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// The number is 1</span><br><span class="line">// The number is 2</span><br><span class="line">// The number is 3</span><br><span class="line">// The number is 4</span><br><span class="line">// The number is 5</span><br></pre></td></tr></table></figure>
+
+<h3 id="do-while"><a href="#do-while" class="headerlink" title="do while"></a>do while</h3><ul>
+<li>do…while 语句会至少执行一次代码，然后检查条件，只要条件成立，就会重复进行循环</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    要执行的代码；</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> (条件);</span><br><span class="line"></span><br><span class="line">//-----------------------------</span><br><span class="line"></span><br><span class="line"><span class="variable">$i</span>=1;</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="variable">$i</span>++;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"The number is"</span> . <span class="variable">$i</span> . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> (<span class="variable">$i</span>&lt;=5);</span><br><span class="line"></span><br><span class="line">// The number is 2</span><br><span class="line">// The number is 3</span><br><span class="line">// The number is 4</span><br><span class="line">// The number is 5</span><br><span class="line">// The number is 6</span><br></pre></td></tr></table></figure>
+
+<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><h4 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h4><ul>
+<li>for 循环用于预先知道脚本需要运行次数的情况</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (初始值；条件；增量) &#123;</span><br><span class="line">    要执行的代码；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ul>
+<li><p>初始值：主要是初始化一个变量值，用于设置一个计数器（但可以是任何在循环的开始被执行一次的代码）</p>
+</li>
+<li><p>条件：循环执行的限制条件。如果为 TRUE，则循环继续。如果为 FALSE，则循环结束</p>
+</li>
+<li><p>增量：主要用于递增计数器（但可以是任何在循环的结束被执行的代码）</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="variable">$i</span>=1; <span class="variable">$i</span>&lt;=5; <span class="variable">$i</span>++) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"The number is"</span> . <span class="variable">$i</span> . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//-----------------------------</span><br><span class="line"></span><br><span class="line">// The number is 1</span><br><span class="line">// The number is 2</span><br><span class="line">// The number is 3</span><br><span class="line">// The number is 4</span><br><span class="line">// The number is 5</span><br></pre></td></tr></table></figure>
+
+<h4 id="foreach-循环"><a href="#foreach-循环" class="headerlink" title="foreach 循环"></a>foreach 循环</h4><ul>
+<li>foreach 循环用于遍历数组</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">foreach (<span class="variable">$array</span> as <span class="variable">$value</span>) &#123;</span><br><span class="line">    要执行代码；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>每进行一次循环，当前数组元素的值就会被赋值给 $value 变量（数组指针会逐一地移动），在进行下一次循环时，将看到数组中的下一个值</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$x</span>=array (<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>);</span><br><span class="line">foreach (<span class="variable">$x</span> as <span class="variable">$value</span>) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$value</span> . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//-----------------------------</span><br><span class="line"></span><br><span class="line">//one</span><br><span class="line">//two</span><br><span class="line">//three</span><br></pre></td></tr></table></figure>
+
+<h3 id="break-continue"><a href="#break-continue" class="headerlink" title="break/continue"></a>break/continue</h3><h4 id="break"><a href="#break" class="headerlink" title="break"></a>break</h4><ul>
+<li><p>break 是被用在各种循环和 switch 语句中的</p>
+</li>
+<li><p>他的作用是跳出当前的语法结构，执行下面的语句</p>
+</li>
+</ul>
+<h4 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h4><ul>
+<li><p>continue 是用来用在循环结构中，控制程序放弃本次循环 continue 语句之后的代码并转而进行下一次循环</p>
+</li>
+<li><p>continue 本身并不跳出循环结构，只是放弃这一次循环</p>
+</li>
+<li><p>如果在非循环结构中 (例如 if 语句中，switch 语句中) 使用 continue，程序将会出错</p>
 </li>
 </ul>
 ]]></content>
       <categories>
-        <category>软件测试面试</category>
+        <category>PHP基础巩固</category>
       </categories>
       <tags>
-        <tag>测试</tag>
-        <tag>面试</tag>
+        <tag>PHP</tag>
+        <tag>基础</tag>
+        <tag>控制结构</tag>
       </tags>
   </entry>
   <entry>
-    <title>WEB 渗透 --BurpSuite--Scanner</title>
-    <url>/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/</url>
-    <content><![CDATA[<h2 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h2><ul>
-<li><p>是一个进行自动发现 web 应用程序的安全漏洞的工具。</p>
-</li>
-<li><p>它是为渗透测试人员设计的，并且它和你现有的手动执行进行的 web 应用程序半自动渗透测试的技术方法很相似。</p>
-</li>
-<li><p>在攻击一个应用程序时它和你执行的操作紧紧的结合在一起。</p>
-</li>
-<li><p>让你细微控制着每一个扫描的请求，并直接反馈回结果。</p>
-</li>
+    <title>PHP 基础巩固 -- 时间戳函数</title>
+    <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-19/PHP-foundation-consolidation-time/</url>
+    <content><![CDATA[<h2 id="获取时间戳"><a href="#获取时间戳" class="headerlink" title="获取时间戳"></a>获取时间戳</h2><ul>
+<li>时间戳是指自 1970 01 01 00:00:00 到现在这一瞬间经过的秒数。</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">time ()</span><br><span class="line">microtime ()</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;----------------------------------------</span><br><span class="line"></span><br><span class="line">echo time ();       &#x2F;&#x2F; 获取时间戳 </span><br><span class="line"></span><br><span class="line">print_r (microtime ());       &#x2F;&#x2F; 获取秒与微秒 </span><br><span class="line"></span><br><span class="line">print_r (microtime (true));   &#x2F;&#x2F; 获取秒。微妙 </span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
 
-<hr>
-<p>使用 Scanner：</p>
-<ul>
-<li><p>首先使用 proxy 模块，拦截请求，得到目标域名。</p>
-</li>
-<li><p>然后将目标域名添加到 scope 中，关闭 proxy 拦截功能，开启 spider 模块。</p>
-</li>
-<li><p>完成域名的详细目录信息之后就可以开始扫描功能了。</p>
-</li>
-</ul>
-<h3 id="Issue-activity"><a href="#Issue-activity" class="headerlink" title="Issue activity"></a>Issue activity</h3><ul>
-<li>查看扫描到的漏洞具体信息，可以对内容进行自定义标记，导出报告等操作。</li>
-</ul>
-<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Issue_activity.jpg" class title="issue_activity">
+<h2 id="时间戳格式化"><a href="#时间戳格式化" class="headerlink" title="时间戳格式化"></a>时间戳格式化</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">date ()</span><br><span class="line">gmdate ()</span><br><span class="line"></span><br><span class="line">//----------------------------------------</span><br><span class="line"></span><br><span class="line"><span class="variable">$time</span> = time ();</span><br><span class="line"><span class="built_in">echo</span> deta (<span class="string">'Y-m-d 星期 N h:i:s'</span> , <span class="variable">$time</span>);</span><br><span class="line"></span><br><span class="line">// YYYY-mm-dd 星期 N hh:ii:ss</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> deta (<span class="string">'Y-m-d 星期 N h:i:s'</span>);   // 表示当前时间 </span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> deta (<span class="string">'Y-m-d 星期 N h:i:s'</span>, 0);   // 表示 1970 01 01 08:00:00</span><br><span class="line">//h 为 12 小时时间制，H 为 24 小时时间制 </span><br><span class="line"><span class="built_in">echo</span> gmdate (<span class="string">'Y-m-d 星期 N H:i:s'</span>, 0);   // 表示格林威治时间，不考虑时区 1970 01 01 00:00:00</span><br></pre></td></tr></table></figure>
 
-<h3 id="Scan-queue"><a href="#Scan-queue" class="headerlink" title="Scan queue"></a>Scan queue</h3><ul>
-<li><p>显示扫描进度的详情，可以显示漏洞详情、队列状态、进度、结果。</p>
-</li>
-<li><p>还可以将扫描信息发送至其他模块。</p>
-</li>
-</ul>
-<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Scan_queue.png" class title="scan_queue">
-
-<p>主要包含内容：</p>
-<ul>
-<li><p>索引号的项目，反映该项目的添加顺序。</p>
-</li>
-<li><p>目的地协议，主机和 URL 。</p>
-</li>
-<li><p>Status 当前状态，包括完成百分比。</p>
-</li>
-<li><p>项目扫描问题的数量（这是根据所附的最严重问题的重要性和彩色化） 。</p>
-</li>
-<li><p>在扫描项目的请求数量进行。</p>
-</li>
-<li><p>网络错误的数目遇到的问题。</p>
-</li>
-<li><p>为项目创建的插入点的数量。</p>
-</li>
-</ul>
-<h3 id="Live-scanning"><a href="#Live-scanning" class="headerlink" title="Live scanning"></a>Live scanning</h3><ul>
-<li>Scanner 提供两种漏洞扫描方式：主动扫描 (Active Scanning)、被动扫描 (Passive Scanning)</li>
-</ul>
-<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Live_scanning.png" class title="live_scanning">
-
-<h5 id="Active-Scanning-主动扫描"><a href="#Active-Scanning-主动扫描" class="headerlink" title="Active Scanning (主动扫描)"></a>Active Scanning (主动扫描)</h5><ul>
-<li><p>主动扫描会向得到的所有域名，发起大量带有攻击探测信息的请求，可以获得精准性高且详细的信息。</p>
-</li>
-<li><p>但是会对目标站点造成较大影响，所用时间和资源也较多。</p>
-</li>
-<li><p>适合在网站离线时做测试。</p>
-</li>
-<li><p>可以在 Scan queue 中查看主动扫描的进度。</p>
-</li>
-</ul>
-<h5 id="Passive-Scanning-被动扫描"><a href="#Passive-Scanning-被动扫描" class="headerlink" title="Passive Scanning (被动扫描)"></a>Passive Scanning (被动扫描)</h5><ul>
-<li><p>在 Target 的 Site map 模块中需要扫描的网站，右键点击 Passively scan this host (发送到被动扫描模块)。</p>
-</li>
-<li><p>被动扫描只会根据爬虫获得的内容上进行分析，不会重新对域名进行请求攻击，可以得到比较具体的信息。</p>
-</li>
-<li><p>当服务器正在运作时，可以使用该方式扫描，不会对网站造成损害。</p>
-</li>
-<li><p>该方式精准度低于主动扫描，但是时间短，消耗资源小，影响小。</p>
-</li>
-</ul>
-<h3 id="Issue-definitions"><a href="#Issue-definitions" class="headerlink" title="Issue definitions"></a>Issue definitions</h3><ul>
-<li>漏洞列表，列出了 Burp Suite 中可以扫描到的漏洞，与漏洞详情。</li>
-</ul>
-<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Issue_Definitions.png" class title="issue_definitions">
-
-<h3 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h3><ul>
-<li><p>Scanner 设置。</p>
-</li>
-<li><p>设置扫描的规则选项、攻击插入点，检测敏感字段。</p>
-</li>
-<li><p>设置扫描的引擎，设置主动和被动扫描的选项。</p>
-</li>
-<li><p>详情查看：</p>
-<ul>
-<li><p><a href="https://blog.csdn.net/u011781521/article/details/54561341" target="_blank" rel="noopener">Scanner 模块</a></p>
-</li>
-<li><p><a href="https://blog.csdn.net/lynnlinlin/article/details/77480726" target="_blank" rel="noopener">Scanner</a></p>
-</li>
-</ul>
-</li>
-</ul>
-<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Options.png" class title="options">]]></content>
-      <categories>
-        <category>WEB渗透</category>
-      </categories>
-      <tags>
-        <tag>WEB渗透</tag>
-        <tag>BurpSuite</tag>
-        <tag>Scanner</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>WEB 渗透 --BurpSuite--Spider</title>
-    <url>/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/</url>
-    <content><![CDATA[<h2 id="Spider"><a href="#Spider" class="headerlink" title="Spider"></a>Spider</h2><ul>
-<li><p>Spider (爬虫) 模块用于自动爬取网站的每个页面内容，并生成完整的网站地图。</p>
-</li>
-<li><p>Spider 通过跟踪 HTML 和 JavaScript 以及提交的表单中的超链接来映射目标应用程序。</p>
-</li>
-<li><p>它还使用了一些其他的线索，如目录列表，资源类型的注释，以及 robots.txt 文件。</p>
-</li>
-<li><p>结果会在站点地图中以树和表的形式显示出来，提供了一个清楚并非常详细的目标应用程序视图。</p>
-</li>
-</ul>
-<a id="more"></a>
-
-<hr>
-<ul>
-<li><p>Spider 的好处：</p>
-<ul>
-<li><p>Burp Spider 能使你清楚地了解到一个 web 应用程序是怎样工作的，让你避免进行大量的手动任务而浪费时间，跟踪链接，提交表单，精简 HTML 源代码。</p>
-</li>
-<li><p>可以快速地确人应用程序的潜在的脆弱功能，还允许你指定特定的漏洞，如 SQL 注入，路径遍历。</p>
-</li>
-</ul>
-</li>
-<li><p>使用 Spider：</p>
-<ul>
-<li><p>在 Target 模块中鼠标右键 host，选择 Spider this host</p>
-</li>
-<li><p>在 Proxy 模块中的 Intercept 标签，鼠标右键选择 Send to Spider</p>
-</li>
-<li><p>在 Proxy 模块中的 HTTP history 标签，鼠标右键选择 Spider from here</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Control"><a href="#Control" class="headerlink" title="Control"></a>Control</h3><ul>
-<li><p>在 Control 界面中可以启动爬虫功能，查看爬虫状态，设置爬虫的作用域。</p>
-</li>
-<li><p>在使用爬虫功能之前，需要设置代理，并获取域名。然后关闭代理拦截。</p>
-</li>
-</ul>
-<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/Control.png" class title="control">
-
-<h4 id="Spider-Status"><a href="#Spider-Status" class="headerlink" title="Spider Status"></a>Spider Status</h4><ul>
-<li><p>查看爬虫状态，显示了运行 / 暂停按钮与清空队列按钮。</p>
-</li>
-<li><p>其中 4 行英文分别表示已完成的请求数，已传递的字节数，未完成的请求数，未完成的表单数</p>
-</li>
-</ul>
-<h4 id="Spider-Scope"><a href="#Spider-Scope" class="headerlink" title="Spider Scope"></a>Spider Scope</h4><ul>
-<li><p>设置爬虫作用域范围。</p>
-</li>
-<li><p>可以选择使用 Target 中的 scope 范围。</p>
-</li>
-<li><p>还可以自定义范围。</p>
-</li>
-</ul>
-<h3 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h3><ul>
-<li><p>Spider 可选项设置由抓取设置、抓取代理设置、表单提交设置、应用登陆设置、蜘蛛引擎设置、请求消息头设置六个部分组成。</p>
-</li>
-<li><p>详情查看：<a href="https://t0data.gitbooks.io/burpsuite/content/chapter6.html" target="_blank" rel="noopener">如何使用 Burp Spider</a></p>
-</li>
-</ul>
-<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/Options.png" class title="options">]]></content>
-      <categories>
-        <category>WEB渗透</category>
-      </categories>
-      <tags>
-        <tag>WEB渗透</tag>
-        <tag>BurpSuite</tag>
-        <tag>Spider</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>WEB 渗透 --BurpSuite--Target</title>
-    <url>/WEB%E6%B8%97%E9%80%8F/2020-07-05/Web-penetration-BurpSuite-Target/</url>
-    <content><![CDATA[<h2 id="Target-模块"><a href="#Target-模块" class="headerlink" title="Target 模块"></a>Target 模块</h2><ul>
-<li><p>Target 模块用于生成站点地图（sitemap）、设置作用域（target scope）、Target 工具三部分组成。</p>
-</li>
-<li><p>他们帮助渗透测试人员更好地了解目标应用的整体状况、当前的工作涉及哪些目标域、分析可能存在的攻击面等信息。</p>
-</li>
-<li><p>各部分含义参考：<a href="https://blog.csdn.net/u011781521/article/details/54463637" target="_blank" rel="noopener">Target 模块 (目标模块)</a></p>
-</li>
-</ul>
-<a id="more"></a>
-
-<h3 id="Site-map"><a href="#Site-map" class="headerlink" title="Site map"></a>Site map</h3><ul>
-<li><p>左边网站地图信息栏中，会根据 proxy 模块信息和网页访问，自动生成站点地图，以树状结构表示该站点的简单目录结构。</p>
-</li>
-<li><p>可点击地图中任意一个网站，查看该网站访问过的网站连接，与连接中的内容。</p>
-</li>
-<li><p>右边的安全信息和安全建议会在使用其他模块后生成。</p>
-</li>
-</ul>
-<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-05/Web-penetration-BurpSuite-Target/Sitemap.png" class title="sitemap">
-
-<h3 id="Scope"><a href="#Scope" class="headerlink" title="Scope"></a>Scope</h3><ul>
-<li><p>Scope 用于设置 Target Scope (目标范围)，包括 include in scope (包含在范围中) 和 Exclude in scope (不包含在范围中)。</p>
-</li>
-<li><p>简单来说就是用于设置作用域。</p>
-</li>
-</ul>
-<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-05/Web-penetration-BurpSuite-Target/scope.png" class title="scope">
-
-<ul>
-<li><p>在 Proxy 中的 HTTP history 或者 Target 中的 Contents 使用鼠标右键 Add to Scope 添加到作用域。</p>
-</li>
-<li><p>再在 Site map 中的 Filter 过滤器里勾选 Show only in-scope items ，就可以只显示作用域中的内容了。</p>
-</li>
-</ul>
+<h2 id="解析检测日期"><a href="#解析检测日期" class="headerlink" title="解析检测日期"></a>解析检测日期</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mktime ();</span><br><span class="line">strtotime ();</span><br><span class="line">checkdate ();</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> mktime (14, 35, 20, 11, 27, 2013);     // 日期转换为时间戳 </span><br><span class="line">          // 时，分，秒，月，日，年 </span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> strtotime (<span class="string">'now'</span>);    // 字符串转换为时间戳 </span><br><span class="line"><span class="built_in">echo</span> strtotime (<span class="string">'now +1 day'</span>);</span><br><span class="line"><span class="built_in">echo</span> strtotime (<span class="string">'now -1 day'</span>);</span><br><span class="line"></span><br><span class="line">var_dump (checkdate (2, 29, 2000));    // 检测日期是否合法 </span><br><span class="line">var_dump (checkdate (2, 29, 100));</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>WEB渗透</category>
+        <category>PHP基础巩固</category>
       </categories>
       <tags>
-        <tag>WEB渗透</tag>
-        <tag>BurpSuite</tag>
-        <tag>Target</tag>
+        <tag>PHP</tag>
+        <tag>基础</tag>
+        <tag>时间戳函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PHP 基础巩固 -- 运算符</title>
+    <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-14/PHP-foundation-consolidation-operator/</url>
+    <content><![CDATA[<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>参考：<a href="https://www.runoob.com/php/php-operators.html" target="_blank" rel="noopener">PHP 菜鸟教程</a></p>
+<h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><ul>
+<li><p>在 PHP 中，赋值运算符 = 用于给变量赋值</p>
+</li>
+<li><p>在 PHP 中，算术运算符 + 用于把值加在一起</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">名称</th>
+<th align="center">描述</th>
+<th align="center">实例</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">x + y</td>
+<td align="center">加</td>
+<td align="center">x 和 y 的和</td>
+<td align="center">2 + 2</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">x - y</td>
+<td align="center">减</td>
+<td align="center">x 和 y 的差</td>
+<td align="center">5 - 2</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">x * y</td>
+<td align="center">乘</td>
+<td align="center">x 和 y 的积</td>
+<td align="center">5 * 2</td>
+<td align="center">10</td>
+</tr>
+<tr>
+<td align="center">x /y</td>
+<td align="center">除</td>
+<td align="center">x 和 y 的商</td>
+<td align="center">15 / 5</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">x % y</td>
+<td align="center">模</td>
+<td align="center">x 除以 y 的余数</td>
+<td align="center">5 % 2</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">-x</td>
+<td align="center">取反</td>
+<td align="center">x 取反</td>
+<td align="center">$x = 2; echo -x;</td>
+<td align="center">-2</td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+
+<p>注意：</p>
+<ul>
+<li><p>如果 int 型，运算后数据过大，会转换成 float 型</p>
+</li>
+<li><p>去摸算法时，结果的正负仅取决于被除数</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$a</span> = 10            // 使用 10 或 - 10</span><br><span class="line"><span class="variable">$b</span> = 3             // 使用 3 或 - 3</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span> / <span class="variable">$b</span>       //a=-10 时，均为 - 1</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><ul>
+<li><p>比较运算符可以比较两个值</p>
+</li>
+<li><p>比较运算符的结果是布尔型的值</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">名称</th>
+<th align="center">描述</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">x == y</td>
+<td align="center">等于</td>
+<td align="center">如果 x 等于 y，则返回 true</td>
+<td align="center">5==8 返回 false</td>
+</tr>
+<tr>
+<td align="center">x === y</td>
+<td align="center">绝对等于</td>
+<td align="center">如果 x 等于 y，且它们类型相同，则返回 true</td>
+<td align="center">5===”5” 返回 false</td>
+</tr>
+<tr>
+<td align="center">x != y</td>
+<td align="center">不等于</td>
+<td align="center">如果 x 不等于 y，则返回 true</td>
+<td align="center">5!=8 返回 true</td>
+</tr>
+<tr>
+<td align="center">x &lt;&gt; y</td>
+<td align="center">不等于</td>
+<td align="center">如果 x 不等于 y，则返回 true</td>
+<td align="center">5&lt;&gt;8 返回 true</td>
+</tr>
+<tr>
+<td align="center">x !== y</td>
+<td align="center">绝对不等于</td>
+<td align="center">如果 x 不等于 y，或它们类型不相同，则返回 true</td>
+<td align="center">5!==”5” 返回 true</td>
+</tr>
+<tr>
+<td align="center">x &gt; y</td>
+<td align="center">大于</td>
+<td align="center">如果 x 大于 y，则返回 true</td>
+<td align="center">5&gt;8 返回 false</td>
+</tr>
+<tr>
+<td align="center">x &lt; y</td>
+<td align="center">小于</td>
+<td align="center">如果 x 小于 y，则返回 true</td>
+<td align="center">5&lt;8 返回 true</td>
+</tr>
+<tr>
+<td align="center">x &gt;= y</td>
+<td align="center">大于等于</td>
+<td align="center">如果 x 大于或者等于 y，则返回 true</td>
+<td align="center">5&gt;=8 返回 false</td>
+</tr>
+<tr>
+<td align="center">x &lt;= y</td>
+<td align="center">小于等于</td>
+<td align="center">如果 x 小于或者等于 y，则返回 true</td>
+<td align="center">5&lt;=8 返回 true</td>
+</tr>
+</tbody></table>
+<ul>
+<li>全等于 / 绝对等于，要求类型相同，且值相等</li>
+</ul>
+<h3 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h3><ul>
+<li>另一个条件运算符是 “?:”</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">(expr1) ? (expr2) : (expr3)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>对 expr1 求值为 TRUE 时的值为 expr2，在 expr1 求值为 false 时的值为 expr3。</p>
+</li>
+<li><p>自 PHP 5.3 起，可以省略三元运算符中间那部分。表达式 expr1 ?: expr3 在 expr1 求值为 TRUE 时返回 expr1，否则返回 expr3。</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$test</span> = <span class="string">'PHP 基础 '</span>;</span><br><span class="line">// 普通写法 </span><br><span class="line"><span class="variable">$username</span> = isset (<span class="variable">$test</span>) ? <span class="variable">$test</span> : <span class="string">'nobody'</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$username</span>, PHP_EOL;     // PHP 基础 </span><br><span class="line"></span><br><span class="line">// PHP 5.3+ 版本写法 </span><br><span class="line"><span class="variable">$username</span> = <span class="variable">$test</span> ?: <span class="string">'nobody'</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$username</span>, PHP_EOL;     // PHP 基础 </span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li><p>PHP_EOL 是一个换行符，兼容更大平台</p>
+</li>
+<li><p>在 PHP7+ 版本多了一个 NULL 合并运算符？？</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 如果 <span class="variable">$_GET</span>[<span class="string">'user'</span>] 不存在返回 <span class="string">'nobody'</span>，否则返回 <span class="variable">$_GET</span>[<span class="string">'user'</span>] 的值 </span><br><span class="line"><span class="variable">$username</span> = <span class="variable">$_GET</span>[<span class="string">'user'</span>] ?? <span class="string">'nobody'</span>;</span><br><span class="line">// 类似的三元运算符 </span><br><span class="line"><span class="variable">$username</span> = isset (<span class="variable">$_GET</span>[<span class="string">'user'</span>]) ? <span class="variable">$_GET</span>[<span class="string">'user'</span>] : <span class="string">'nobody'</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$x</span> = 10</span><br><span class="line"><span class="variable">$y</span> = 5</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">名称</th>
+<th align="center">描述</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">x and y</td>
+<td align="center">与</td>
+<td align="center">如果 x 和 y 都为 true，则返回 true</td>
+<td align="center">(x &lt; 15 and y &gt; 1) 返回 true</td>
+</tr>
+<tr>
+<td align="center">x or y</td>
+<td align="center">或</td>
+<td align="center">如果 x 和 y 至少有一个为 true，则返回 true</td>
+<td align="center">(x &lt; 5 or y &gt; 1) 返回 true</td>
+</tr>
+<tr>
+<td align="center">x xor y</td>
+<td align="center">异或</td>
+<td align="center">如果 x 和 y 有且仅有一个为 true，则返回 true</td>
+<td align="center">(x == 10 xor y == 1) 返回 true</td>
+</tr>
+<tr>
+<td align="center">x &amp;&amp; y</td>
+<td align="center">与</td>
+<td align="center">如果 x 和 y 都为 true，则返回 true</td>
+<td align="center">(x &lt; 15 and y &gt; 1) 返回 true</td>
+</tr>
+<tr>
+<td align="center">x &#124;&#124; y</td>
+<td align="center">或</td>
+<td align="center">如果 x 和 y 至少有一个为 true，则返回 true</td>
+<td align="center">(x &lt; 5 or y &gt; 1) 返回 true</td>
+</tr>
+<tr>
+<td align="center">!x</td>
+<td align="center">非</td>
+<td align="center">如果 x 不为 true，则返回 true</td>
+<td align="center">!(x == y) 返回 true</td>
+</tr>
+</tbody></table>
+<h3 id="递增-递减运算符"><a href="#递增-递减运算符" class="headerlink" title="递增 / 递减运算符"></a>递增 / 递减运算符</h3><ul>
+<li>++/- - 符号在后，先赋值再 ++/- -</li>
+<li>++/- - 符号在前，先 ++/- - 再赋值</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$x</span>=10; </span><br><span class="line"><span class="built_in">echo</span> ++<span class="variable">$x</span>;         // 输出 11</span><br><span class="line"> </span><br><span class="line"><span class="variable">$y</span>=10; </span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$y</span>++;         // 输出 10</span><br><span class="line"> </span><br><span class="line"><span class="variable">$z</span>=5;</span><br><span class="line"><span class="built_in">echo</span> --<span class="variable">$z</span>;         // 输出 4</span><br><span class="line"> </span><br><span class="line"><span class="variable">$i</span>=5;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$i</span>--;         // 输出 5</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h3><ul>
+<li>字符串符</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">名称</th>
+<th align="center">描述</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">a . b</td>
+<td align="center">并置</td>
+<td align="center">连接两个字符串</td>
+<td align="center">‘hello’ + ‘world’ = ‘helloworld’</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$a</span> = <span class="string">'hello'</span>;</span><br><span class="line"><span class="variable">$b</span> = <span class="string">'world'</span>;</span><br><span class="line"><span class="variable">$c</span> = <span class="variable">$a</span> . <span class="variable">$b</span>;</span><br><span class="line">var_dump (<span class="variable">$c</span>);      // <span class="string">'helloworld'</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$d</span> = 112;</span><br><span class="line"><span class="variable">$c</span> = <span class="variable">$c</span> . <span class="variable">$112</span></span><br><span class="line">var_dump (<span class="variable">$c</span>)       // <span class="string">'helloworld112'</span></span><br><span class="line"></span><br><span class="line">// 下面哪个运行速度快？</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span> , <span class="variable">$b</span>;      // 更快 </span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span> . <span class="variable">$b</span>;      // 如果仅仅需要 <span class="built_in">echo</span> 结果，使用上边的更快 </span><br></pre></td></tr></table></figure>
+
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><ul>
+<li>基本的赋值运算符是 “=”。它意味着左操作数被设置为右侧表达式的值。也就是说，”$x = 5” 的值是 5</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">等同于</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">x = y</td>
+<td align="center">x = y</td>
+<td align="center">左操作变量被设置成右侧表达式的值</td>
+</tr>
+<tr>
+<td align="center">x += y</td>
+<td align="center">x = x + y</td>
+<td align="center">加</td>
+</tr>
+<tr>
+<td align="center">x -= y</td>
+<td align="center">x = x - y</td>
+<td align="center">减</td>
+</tr>
+<tr>
+<td align="center">x *= y</td>
+<td align="center">x = x * y</td>
+<td align="center">乘</td>
+</tr>
+<tr>
+<td align="center">x /= y</td>
+<td align="center">x = x /y</td>
+<td align="center">除</td>
+</tr>
+<tr>
+<td align="center">x %= y</td>
+<td align="center">x = x % y</td>
+<td align="center">模</td>
+</tr>
+<tr>
+<td align="center">a .= b</td>
+<td align="center">a = a . b</td>
+<td align="center">连接两个字符串</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>PHP基础巩固</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+        <tag>基础</tag>
+        <tag>运算符</tag>
       </tags>
   </entry>
   <entry>
@@ -494,6 +898,53 @@
       </tags>
   </entry>
   <entry>
+    <title>WEB 渗透 --BurpSuite--Target</title>
+    <url>/WEB%E6%B8%97%E9%80%8F/2020-07-05/Web-penetration-BurpSuite-Target/</url>
+    <content><![CDATA[<h2 id="Target-模块"><a href="#Target-模块" class="headerlink" title="Target 模块"></a>Target 模块</h2><ul>
+<li><p>Target 模块用于生成站点地图（sitemap）、设置作用域（target scope）、Target 工具三部分组成。</p>
+</li>
+<li><p>他们帮助渗透测试人员更好地了解目标应用的整体状况、当前的工作涉及哪些目标域、分析可能存在的攻击面等信息。</p>
+</li>
+<li><p>各部分含义参考：<a href="https://blog.csdn.net/u011781521/article/details/54463637" target="_blank" rel="noopener">Target 模块 (目标模块)</a></p>
+</li>
+</ul>
+<a id="more"></a>
+
+<h3 id="Site-map"><a href="#Site-map" class="headerlink" title="Site map"></a>Site map</h3><ul>
+<li><p>左边网站地图信息栏中，会根据 proxy 模块信息和网页访问，自动生成站点地图，以树状结构表示该站点的简单目录结构。</p>
+</li>
+<li><p>可点击地图中任意一个网站，查看该网站访问过的网站连接，与连接中的内容。</p>
+</li>
+<li><p>右边的安全信息和安全建议会在使用其他模块后生成。</p>
+</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-05/Web-penetration-BurpSuite-Target/Sitemap.png" class title="sitemap">
+
+<h3 id="Scope"><a href="#Scope" class="headerlink" title="Scope"></a>Scope</h3><ul>
+<li><p>Scope 用于设置 Target Scope (目标范围)，包括 include in scope (包含在范围中) 和 Exclude in scope (不包含在范围中)。</p>
+</li>
+<li><p>简单来说就是用于设置作用域。</p>
+</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-05/Web-penetration-BurpSuite-Target/scope.png" class title="scope">
+
+<ul>
+<li><p>在 Proxy 中的 HTTP history 或者 Target 中的 Contents 使用鼠标右键 Add to Scope 添加到作用域。</p>
+</li>
+<li><p>再在 Site map 中的 Filter 过滤器里勾选 Show only in-scope items ，就可以只显示作用域中的内容了。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>WEB渗透</category>
+      </categories>
+      <tags>
+        <tag>WEB渗透</tag>
+        <tag>BurpSuite</tag>
+        <tag>Target</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>WEB 渗透 --BurpSuite1.7.x 安装</title>
     <url>/WEB%E6%B8%97%E9%80%8F/2020-06-28/Web-penetration-BurpSuite/</url>
     <content><![CDATA[<h2 id="BurpSuite-简单介绍"><a href="#BurpSuite-简单介绍" class="headerlink" title="BurpSuite 简单介绍"></a>BurpSuite 简单介绍</h2><ul>
@@ -609,187 +1060,99 @@
       </tags>
   </entry>
   <entry>
-    <title>WEB 渗透 -- 网络篇 -- 基础网站与本地靶场</title>
-    <url>/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-27/Web-penetration-web-range/</url>
-    <content><![CDATA[<h2 id="基础网站搭建"><a href="#基础网站搭建" class="headerlink" title="基础网站搭建"></a>基础网站搭建</h2><h3 id="AAWServer"><a href="#AAWServer" class="headerlink" title="AAWServer"></a>AAWServer</h3><ul>
-<li><p>AAWServer 安装简便免配置，可以快速建⽴ ASP+JSP+PHP+CGI+.NET+MYSQL 的 web 服务器环境。</p>
-</li>
-<li><p>AAWServer5.0 集成 Tomcat6 版全能 WEB 服务器是⼀款基于 Apache+TOMCAT, ⽀持 ASP+JSP+PHP+CGI+.NET+MYSQL 的全能服务器组合套件。</p>
-</li>
-<li><p>AAWServer5.0 可以很好的在 WINXP,NT,2000,VISTA,2003,2007,2008 系统上运⾏，独⽴不需要 IIS ⽀持。拥有安装简单。因 AAWServer5.0 上的 APACHE 服务会占⽤需要占⽤ 80 端⼝，建议您在安装之前，请停⽌ IIS, 迅雷或 Apache 服务。或者修改他们的端⼝。</p>
-</li>
+    <title>WEB 渗透 -- 网络篇 --IP 相关及常见网络设备</title>
+    <url>/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-23/Web-penetration-ip/</url>
+    <content><![CDATA[<h2 id="IP-相关"><a href="#IP-相关" class="headerlink" title="IP 相关"></a>IP 相关</h2><ul>
+<li>IP 地址 (Internet Protocol Address) 是指互联网协议地址，又译为网际协议地址。IP 地址是 IP 协议提供的一种统一的地址格式，它为互联网上的每一个网络和每一台主机分配了一个逻辑地址，以此来屏蔽物理地址的差异。</li>
 </ul>
 <a id="more"></a>
 
-<h2 id="本地靶场搭建"><a href="#本地靶场搭建" class="headerlink" title="本地靶场搭建"></a>本地靶场搭建</h2><h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><h4 id="asp-环境搭建"><a href="#asp-环境搭建" class="headerlink" title="asp 环境搭建"></a>asp 环境搭建</h4><ul>
-<li><p>可以安装 ASPSweb Server (aps 服务器)– 不推荐</p>
-</li>
-<li><p>推荐使用 iis 部署 asp 网站</p>
-</li>
-<li><p>在 Windos Server 2003 中，开始→管理工具→管理您的服务器→添加或删除角色→服务器角色选择 IIS→下一步直到桌面出现 Internet 信息服务 (IIS) 后，按照参考中的步骤操作。</p>
-</li>
-</ul>
-<p>参考：<a href="https://blog.csdn.net/lansefly1990/article/details/84282952" target="_blank" rel="noopener">iis6.0 部署 aps 网站</a></p>
-<h4 id="php-环境搭建"><a href="#php-环境搭建" class="headerlink" title="php 环境搭建"></a>php 环境搭建</h4><ul>
-<li>推荐使用 phpstudy 搭建，稳定简单</li>
-</ul>
-<h4 id="常见靶场"><a href="#常见靶场" class="headerlink" title="常见靶场"></a>常见靶场</h4><h5 id="dvwa"><a href="#dvwa" class="headerlink" title="dvwa"></a>dvwa</h5><ul>
-<li><p>参考：<a href="http://www.dvwa.co.uk/" target="_blank" rel="noopener">DVWA 官网</a></p>
-</li>
-<li><p>DVWA（Damn Vulnerable Web Application）是⼀个用来进行安全脆弱性鉴定的 PHP/MySQL Web 应用，旨在为安全专业⼈员测试自己的专业技能和工具提供合法的环境，帮助 web 开发者更好的理解 web 应用安全防范的过程。</p>
-</li>
-<li><p>DVWA 共有⼗个模块，分别是：</p>
 <ul>
-<li><p>Brute Force (暴力 (破解))</p>
-</li>
-<li><p>Command Injection (命令行注入)</p>
-</li>
-<li><p>CSRF (跨站请求伪造)</p>
-</li>
-<li><p>File Inclusion (文件包含)</p>
-</li>
-<li><p>File Upload (文件上传)</p>
-</li>
-<li><p>Insecure CAPTCHA (不安全的验证码)</p>
-</li>
-<li><p>SQL Injection (SQL 注入)</p>
-</li>
-<li><p>SQL Injection (Blind) (SQL 盲注)</p>
-</li>
-<li><p>XSS (Reflected) (反射型跨站脚本)</p>
-</li>
-<li><p>XSS (Stored) (存储型跨站脚本)</p>
-</li>
-</ul>
-</li>
-</ul>
-<h5 id="Pikachu"><a href="#Pikachu" class="headerlink" title="Pikachu"></a>Pikachu</h5><ul>
-<li><p>参考：<a href="https://github.com/zhuifengshaonianhanlu/pikachu" target="_blank" rel="noopener">Pikachu:github</a></p>
-</li>
-<li><p>Pikachu 是一个带有漏洞的 Web 应用系统，在这里包含了常见的 Web 安全漏洞。</p>
-</li>
-<li><p>如果你是一个 Web 渗透测试学习人员，且正发愁没有合适的靶场进行练习，那么 Pikachu 可能正合你意。</p>
+<li><p>IP 地址分类</p>
 <ul>
-<li><p>Brute Force (暴力破解漏洞)</p>
+<li><p>IP 地址根据⽹络号和主机号来分，分为 A、B、C 三类及特殊地址 D、E。 全 0 和全 1 的都保留不⽤。</p>
 </li>
-<li><p>XSS (跨站脚本漏洞)</p>
+<li><p>A 类：(1.0.0.0-126.0.0.0)(默认子网掩码：255.0.0.0 或 0xFF000000) 第一个字节为网络号，后三个字节为主机号。该类 IP 地址的最前面为 “10”，所以地址的网络号取值于 1~126 之间。一般用于大型网络。</p>
 </li>
-<li><p>CSRF (跨站请求伪造)</p>
+<li><p>B 类：(128.0.0.0-191.255.0.0)(默认⼦⽹掩码：255.255.0.0 或 0xFFFF0000) 前两个字节为⽹络号，后两个字节为主机号。该类 IP 地址的最前⾯为 “10”，所以地址的⽹络号取值于 128~191 之间。⼀般⽤于中等规模⽹络</p>
 </li>
-<li><p>SQL-Inject (SQL 注入漏洞)</p>
+<li><p>C 类：(192.0.0.0-223.255.255.0)(⼦⽹掩码：255.255.255.0 或 0xFFFFFF00) 前三个字节为⽹络号，最后⼀个字节为主机号。该类 IP 地址的最前⾯为 “110”，所以地址的⽹络号取值于 192~223 之间。⼀般⽤于⼩型⽹络。</p>
 </li>
-<li><p>RCE (远程命令 / 代码执行)</p>
+<li><p>D 类：是多播地址。该类 IP 地址的最前⾯为 “1110”，所以地址的⽹络号取值于 224~239 之间。⼀般⽤于多路⼴播⽤户。</p>
 </li>
-<li><p>Files Inclusion (文件包含漏洞)</p>
-</li>
-<li><p>Unsafe file downloads (不安全的文件下载)</p>
-</li>
-<li><p>Unsafe file uploads (不安全的文件上传)</p>
-</li>
-<li><p>Over Permisson (越权漏洞)</p>
-</li>
-<li><p>../../../ (目录遍历)</p>
-</li>
-<li><p>I can see your ABC (敏感信息泄露)</p>
-</li>
-<li><p>PHP 反序列化漏洞</p>
-</li>
-<li><p>XXE (XML External Entity attack)</p>
-</li>
-<li><p>不安全的 URL 重定向</p>
-</li>
-<li><p>SSRF (Server-Side Request Forgery)</p>
-</li>
-<li><p>管理工具</p>
-</li>
-</ul>
-</li>
-</ul>
-<h5 id="Dorabox"><a href="#Dorabox" class="headerlink" title="Dorabox"></a>Dorabox</h5><ul>
-<li><p>参考：<a href="https://www.cnblogs.com/zhaijiahui/p/10789251.html" target="_blank" rel="noopener">DoraBox 漏洞练习平台</a></p>
-</li>
-<li><p>SQL 注入</p>
+<li><p>E 类：是保留地址。该类 IP 地址的最前⾯为 “1111”，所以地址的⽹络号取值于 240~255 之间。</p>
 <ul>
-<li><p>SQLi 数字型</p>
+<li><p>IP 地址 3 种主要类型里，各保留了 3 个区域作为私有地址，其地址范围：       </p>
 </li>
-<li><p>SQLi 字符型</p>
+<li><p>A 类地址：10.0.0.0~10.255.255.255</p>
 </li>
-<li><p>SQLi 搜索型</p>
+<li><p>B 类地址：172.16.0.0~172.31.255.255</p>
+</li>
+<li><p>C 类地址：192.168.0.0~192.168.255.255</p>
+</li>
+<li><p>回送地址：127.0.0.1   也是本机地址，等效于 localhost 或本机 IP。一般用于测试使用。例如：ping 127.0.0.1 来测试本机 TCP/IP 是否正常。</p>
 </li>
 </ul>
 </li>
-<li><p>XSS 跨站</p>
+</ul>
+</li>
+</ul>
 <ul>
-<li><p>XSS 反射型</p>
+<li><p>子网划分</p>
+<p>  详见：<a href="https://jingyan.baidu.com/article/ae97a646d936ddbbfd461d02.html" target="_blank" rel="noopener">百度经验</a></p>
 </li>
-<li><p>XSS 存储型</p>
-</li>
-<li><p>XSS DOM 型</p>
-</li>
-</ul>
-</li>
-<li><p>CSRF</p>
-<ul>
-<li><p>JSONP 劫持</p>
-</li>
-<li><p>CORS 跨域资源读取</p>
+<li><p>网关</p>
+<p>  详见：<a href="https://blog.csdn.net/qiuzhongweiwei/article/details/80172529" target="_blank" rel="noopener">什么是网关及网关的作用</a></p>
+<p>  简单释义：一个出口，相对于几条河流汇集后进入海的入口</p>
 </li>
 </ul>
+<h2 id="常见网络设备"><a href="#常见网络设备" class="headerlink" title="常见网络设备"></a>常见网络设备</h2><h3 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h3><ul>
+<li><p>服务器，也称伺服器，是提供计算服务的设备。</p>
 </li>
-<li><p>文件包含</p>
-<ul>
-<li><p>任意文件包含</p>
-</li>
-<li><p>目录限制文件包含</p>
+<li><p>由于服务器需要响应服务请求，并进⾏处理，因此⼀般来说服务器应具备承担服务并且保障服务的能⼒。</p>
 </li>
 </ul>
+<h3 id="VPS"><a href="#VPS" class="headerlink" title="VPS"></a>VPS</h3><ul>
+<li><p>Virtual Private Server 虚拟专⽤服务器技术，将⼀台服务器分割成多个虚拟专享服务器的优质服务。</p>
 </li>
-<li><p>文件上传</p>
-<ul>
-<li><p>任意文件上传</p>
-</li>
-<li><p>JS 限制文件上传</p>
-</li>
-<li><p>MIME 限制文件上传</p>
-</li>
-<li><p>扩展名限制文件上传</p>
-</li>
-<li><p>内容限制文件上传</p>
+<li><p>我们⼀般⼈通常说的 VPS 就是⼀台⼈家虚拟出来的服务器，这台服务器有外⽹ IP，我们可以装好系统并直接连接。</p>
 </li>
 </ul>
+<h3 id="ECS"><a href="#ECS" class="headerlink" title="ECS"></a>ECS</h3><ul>
+<li><p>ECS 是阿⾥的云服务器的名字，不同云服务器的供应商名字叫法不⼀样，例如百度的云服务器好像叫 BCC。</p>
 </li>
-<li><p>代码 / 命令执行</p>
-<ul>
-<li><p>任意代码执行</p>
+<li><p>云服务器简单粗暴的可以理解为就是⼀台电脑，⽐你说的主机空间好⼀点。</p>
 </li>
-<li><p>任意命令执行</p>
-</li>
-</ul>
-</li>
-<li><p>SSRF</p>
+<li><p>空间相当于电脑的⼀部分，通常只能⽤来上传⽹站。电脑你就可以⾃⼰装程序了。想怎么折腾都可以，关键的是这台电脑永不关机还不耗⾃⼰家的电。</p>
 </li>
 </ul>
-<h5 id="Webug"><a href="#Webug" class="headerlink" title="Webug"></a>Webug</h5><h5 id="Vulhub"><a href="#Vulhub" class="headerlink" title="Vulhub"></a>Vulhub</h5><ul>
-<li><p>参考：</p>
-<ul>
-<li><p><a href="https://vulhub.org/" target="_blank" rel="noopener">Vulhub 官网</a></p>
+<h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><ul>
+<li>防⽕墙技术是通过有机结合各类⽤于安全管理与筛选的软软件件和硬硬件件设备，帮助计算机⽹络于其内、外⽹之间构建⼀道相对隔绝的保护屏障，以保护⽤户资料与信息安全性的⼀种技术。</li>
+</ul>
+<h3 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h3><ul>
+<li><p>连接两个或多个⽹络的硬件设备，在⽹络间起⽹关的作⽤，读取每⼀个数据包中的地址然后决定如何传送的专⽤智能性的⽹络设备。</p>
 </li>
-<li><p><a href="https://www.hetianlab.com/cour.do?w=1&c=CCIDee68-cedc-49cf-9d77-55bb6e417128" target="_blank" rel="noopener">VulnHub 渗透测试实战</a></p>
+<li><p>通常是⼀个计算机，它能够理解不同的协议，例如某个局域⽹使⽤的以太协议，因特⽹ 使⽤的 TCP/IP 协议。</p>
+</li>
+<li><p>这样，路由器可以分析各种不同类型⽹络传来的数据包的⽬的地址，把⾮ TCP/IP ⽹络的地 址转换成 TCP/IP 地址，或者反之；再根据选定的路由算法把各数据包按最佳路线传送到指定位置。</p>
+</li>
+<li><p>所以路由器可以把⾮ TCP/ IP ⽹络连接到因特⽹上。</p>
 </li>
 </ul>
+<h3 id="交换机"><a href="#交换机" class="headerlink" title="交换机"></a>交换机</h3><ul>
+<li><p>交换机（Switch）意为 “开关” 是⼀种⽤于电（光）信号转发的⽹络设备。</p>
+</li>
+<li><p>它可以为接⼊交换机的任意两个⽹络节点提供独享的电信号通路。</p>
+</li>
+<li><p>最常见的交换机是以太⽹交换机。其他常见的还有电话语⾳交换机、光纤交换机等。</p>
 </li>
 </ul>
-<h5 id="SQLi-Labs"><a href="#SQLi-Labs" class="headerlink" title="SQLi-Labs"></a>SQLi-Labs</h5><ul>
-<li>参考：<a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">SQLi-Labs:github</a></li>
+<h3 id="集线器"><a href="#集线器" class="headerlink" title="集线器"></a>集线器</h3><ul>
+<li><p>集线器的英⽂称为 “Hub”，是 “中心” 的意思。</p>
+</li>
+<li><p>集线器的主要功能是对接收到的信号进⾏再⽣整形放⼤，以扩⼤⽹络的传输距离，同时把所有节点集中在以它为中⼼的节点上。</p>
+</li>
 </ul>
-<img src="/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-27/Web-penetration-web-range/SQLi-Labs.png" class title="SQLi-Labs">
-
-<h5 id="XSS-Labs"><a href="#XSS-Labs" class="headerlink" title="XSS-Labs"></a>XSS-Labs</h5><h5 id="Upload-labs"><a href="#Upload-labs" class="headerlink" title="Upload-labs"></a>Upload-labs</h5><ul>
-<li>参考：<a href="https://github.com/c0ny1/upload-labs" target="_blank" rel="noopener">Upload-labs:github</a></li>
-</ul>
-<img src="/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-27/Web-penetration-web-range/uoload-labs.png" class title="Upload-labs">
-
-<p>图片出处：<a href="https://www.cnblogs.com/hack404/p/10385049.html" target="_blank" rel="noopener">上传漏洞总结 - upload-labs</a></p>
 ]]></content>
       <categories>
         <category>WEB渗透网络篇</category>
@@ -797,8 +1160,8 @@
       <tags>
         <tag>WEB渗透</tag>
         <tag>网络篇</tag>
-        <tag>基础网站</tag>
-        <tag>本地靶场</tag>
+        <tag>IP</tag>
+        <tag>网络设备</tag>
       </tags>
   </entry>
   <entry>
@@ -1106,55 +1469,187 @@
       </tags>
   </entry>
   <entry>
-    <title>WEB 渗透 -- 网络篇 -- 端口</title>
-    <url>/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-26/Web-penetration-port/</url>
-    <content><![CDATA[<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><ul>
-<li><p>“端口” 是英⽂ port 的意译，可以认为是设备与外界通讯交流的出口。</p>
+    <title>WEB 渗透 -- 网络篇 -- 基础网站与本地靶场</title>
+    <url>/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-27/Web-penetration-web-range/</url>
+    <content><![CDATA[<h2 id="基础网站搭建"><a href="#基础网站搭建" class="headerlink" title="基础网站搭建"></a>基础网站搭建</h2><h3 id="AAWServer"><a href="#AAWServer" class="headerlink" title="AAWServer"></a>AAWServer</h3><ul>
+<li><p>AAWServer 安装简便免配置，可以快速建⽴ ASP+JSP+PHP+CGI+.NET+MYSQL 的 web 服务器环境。</p>
 </li>
-<li><p>端口可分为虚拟端口和物理端口，其中虚拟端口指计算机内部或交换机路由器内的端口，不可见。例如计算机中的 80 端口、21 端口、23 端口等。</p>
+<li><p>AAWServer5.0 集成 Tomcat6 版全能 WEB 服务器是⼀款基于 Apache+TOMCAT, ⽀持 ASP+JSP+PHP+CGI+.NET+MYSQL 的全能服务器组合套件。</p>
 </li>
-<li><p>物理端口又称为口接口，是可见端口，计算机背板的 RJ45 网口，交换机路由器集线器等 RJ45 端口。电话使用 RJ11 插口也属于物理端口的范畴。</p>
-</li>
-<li><p>可以使用 netstat -ano 命令在 cmd 中查看 Windows 中的端口。</p>
-</li>
-<li><p>每个端口对应不用的服务。每一种都有可能出现不同的漏洞情况。</p>
+<li><p>AAWServer5.0 可以很好的在 WINXP,NT,2000,VISTA,2003,2007,2008 系统上运⾏，独⽴不需要 IIS ⽀持。拥有安装简单。因 AAWServer5.0 上的 APACHE 服务会占⽤需要占⽤ 80 端⼝，建议您在安装之前，请停⽌ IIS, 迅雷或 Apache 服务。或者修改他们的端⼝。</p>
 </li>
 </ul>
 <a id="more"></a>
 
-<h2 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h2><h3 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h3><ul>
-<li><p>nmap 是一个网络连接端扫描软件，用来扫描网上电脑开放的网络连接端。</p>
+<h2 id="本地靶场搭建"><a href="#本地靶场搭建" class="headerlink" title="本地靶场搭建"></a>本地靶场搭建</h2><h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><h4 id="asp-环境搭建"><a href="#asp-环境搭建" class="headerlink" title="asp 环境搭建"></a>asp 环境搭建</h4><ul>
+<li><p>可以安装 ASPSweb Server (aps 服务器)– 不推荐</p>
 </li>
-<li><p>确定哪些服务运行在哪些连接端，并且推断计算机运行哪个操作系统（这是亦称 fingerprinting）。</p>
+<li><p>推荐使用 iis 部署 asp 网站</p>
 </li>
-<li><p>它是网络管理员必用的软件之一，以及用以评估网络系统安全。</p>
-</li>
-<li><p>正如大多数被用于网络安全的工具，nmap 也是不少黑客及骇客（又称脚本小子）爱用的工具。</p>
-</li>
-<li><p>系统管理员可以利用 nmap 来探测工作环境中未经批准使用的服务器，但是黑客会利用 nmap 来搜集目标电脑的网络设定，从而计划攻击的方法。</p>
-</li>
-<li><p>Nmap 常被跟评估系统漏洞软件 Nessus 混为一谈。Nmap 以隐秘的手法，避开闯入检测系统的监视，并尽可能不影响目标系统的日常操作。</p>
+<li><p>在 Windos Server 2003 中，开始→管理工具→管理您的服务器→添加或删除角色→服务器角色选择 IIS→下一步直到桌面出现 Internet 信息服务 (IIS) 后，按照参考中的步骤操作。</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nmap &lt;IP&gt;</span><br><span class="line">nmap -sS --open -Pn &lt;IP&gt;</span><br></pre></td></tr></table></figure>
+<p>参考：<a href="https://blog.csdn.net/lansefly1990/article/details/84282952" target="_blank" rel="noopener">iis6.0 部署 aps 网站</a></p>
+<h4 id="php-环境搭建"><a href="#php-环境搭建" class="headerlink" title="php 环境搭建"></a>php 环境搭建</h4><ul>
+<li>推荐使用 phpstudy 搭建，稳定简单</li>
+</ul>
+<h4 id="常见靶场"><a href="#常见靶场" class="headerlink" title="常见靶场"></a>常见靶场</h4><h5 id="dvwa"><a href="#dvwa" class="headerlink" title="dvwa"></a>dvwa</h5><ul>
+<li><p>参考：<a href="http://www.dvwa.co.uk/" target="_blank" rel="noopener">DVWA 官网</a></p>
+</li>
+<li><p>DVWA（Damn Vulnerable Web Application）是⼀个用来进行安全脆弱性鉴定的 PHP/MySQL Web 应用，旨在为安全专业⼈员测试自己的专业技能和工具提供合法的环境，帮助 web 开发者更好的理解 web 应用安全防范的过程。</p>
+</li>
+<li><p>DVWA 共有⼗个模块，分别是：</p>
+<ul>
+<li><p>Brute Force (暴力 (破解))</p>
+</li>
+<li><p>Command Injection (命令行注入)</p>
+</li>
+<li><p>CSRF (跨站请求伪造)</p>
+</li>
+<li><p>File Inclusion (文件包含)</p>
+</li>
+<li><p>File Upload (文件上传)</p>
+</li>
+<li><p>Insecure CAPTCHA (不安全的验证码)</p>
+</li>
+<li><p>SQL Injection (SQL 注入)</p>
+</li>
+<li><p>SQL Injection (Blind) (SQL 盲注)</p>
+</li>
+<li><p>XSS (Reflected) (反射型跨站脚本)</p>
+</li>
+<li><p>XSS (Stored) (存储型跨站脚本)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="Pikachu"><a href="#Pikachu" class="headerlink" title="Pikachu"></a>Pikachu</h5><ul>
+<li><p>参考：<a href="https://github.com/zhuifengshaonianhanlu/pikachu" target="_blank" rel="noopener">Pikachu:github</a></p>
+</li>
+<li><p>Pikachu 是一个带有漏洞的 Web 应用系统，在这里包含了常见的 Web 安全漏洞。</p>
+</li>
+<li><p>如果你是一个 Web 渗透测试学习人员，且正发愁没有合适的靶场进行练习，那么 Pikachu 可能正合你意。</p>
+<ul>
+<li><p>Brute Force (暴力破解漏洞)</p>
+</li>
+<li><p>XSS (跨站脚本漏洞)</p>
+</li>
+<li><p>CSRF (跨站请求伪造)</p>
+</li>
+<li><p>SQL-Inject (SQL 注入漏洞)</p>
+</li>
+<li><p>RCE (远程命令 / 代码执行)</p>
+</li>
+<li><p>Files Inclusion (文件包含漏洞)</p>
+</li>
+<li><p>Unsafe file downloads (不安全的文件下载)</p>
+</li>
+<li><p>Unsafe file uploads (不安全的文件上传)</p>
+</li>
+<li><p>Over Permisson (越权漏洞)</p>
+</li>
+<li><p>../../../ (目录遍历)</p>
+</li>
+<li><p>I can see your ABC (敏感信息泄露)</p>
+</li>
+<li><p>PHP 反序列化漏洞</p>
+</li>
+<li><p>XXE (XML External Entity attack)</p>
+</li>
+<li><p>不安全的 URL 重定向</p>
+</li>
+<li><p>SSRF (Server-Side Request Forgery)</p>
+</li>
+<li><p>管理工具</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="Dorabox"><a href="#Dorabox" class="headerlink" title="Dorabox"></a>Dorabox</h5><ul>
+<li><p>参考：<a href="https://www.cnblogs.com/zhaijiahui/p/10789251.html" target="_blank" rel="noopener">DoraBox 漏洞练习平台</a></p>
+</li>
+<li><p>SQL 注入</p>
+<ul>
+<li><p>SQLi 数字型</p>
+</li>
+<li><p>SQLi 字符型</p>
+</li>
+<li><p>SQLi 搜索型</p>
+</li>
+</ul>
+</li>
+<li><p>XSS 跨站</p>
+<ul>
+<li><p>XSS 反射型</p>
+</li>
+<li><p>XSS 存储型</p>
+</li>
+<li><p>XSS DOM 型</p>
+</li>
+</ul>
+</li>
+<li><p>CSRF</p>
+<ul>
+<li><p>JSONP 劫持</p>
+</li>
+<li><p>CORS 跨域资源读取</p>
+</li>
+</ul>
+</li>
+<li><p>文件包含</p>
+<ul>
+<li><p>任意文件包含</p>
+</li>
+<li><p>目录限制文件包含</p>
+</li>
+</ul>
+</li>
+<li><p>文件上传</p>
+<ul>
+<li><p>任意文件上传</p>
+</li>
+<li><p>JS 限制文件上传</p>
+</li>
+<li><p>MIME 限制文件上传</p>
+</li>
+<li><p>扩展名限制文件上传</p>
+</li>
+<li><p>内容限制文件上传</p>
+</li>
+</ul>
+</li>
+<li><p>代码 / 命令执行</p>
+<ul>
+<li><p>任意代码执行</p>
+</li>
+<li><p>任意命令执行</p>
+</li>
+</ul>
+</li>
+<li><p>SSRF</p>
+</li>
+</ul>
+<h5 id="Webug"><a href="#Webug" class="headerlink" title="Webug"></a>Webug</h5><h5 id="Vulhub"><a href="#Vulhub" class="headerlink" title="Vulhub"></a>Vulhub</h5><ul>
+<li><p>参考：</p>
+<ul>
+<li><p><a href="https://vulhub.org/" target="_blank" rel="noopener">Vulhub 官网</a></p>
+</li>
+<li><p><a href="https://www.hetianlab.com/cour.do?w=1&c=CCIDee68-cedc-49cf-9d77-55bb6e417128" target="_blank" rel="noopener">VulnHub 渗透测试实战</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="SQLi-Labs"><a href="#SQLi-Labs" class="headerlink" title="SQLi-Labs"></a>SQLi-Labs</h5><ul>
+<li>参考：<a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">SQLi-Labs:github</a></li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-27/Web-penetration-web-range/SQLi-Labs.png" class title="SQLi-Labs">
 
-<p>参考：<a href="https://www.freebuf.com/news/141607.html" target="_blank" rel="noopener">nmap 使用指南</a></p>
-<h3 id="Metasploit"><a href="#Metasploit" class="headerlink" title="Metasploit"></a>Metasploit</h3><ul>
-<li><p>Metasploit 是一款开源的安全漏洞检测工具，可以帮助安全和 IT 专业人士识别安全性问题，验证漏洞的缓解措施，并管理专家驱动的安全性进行评估，提供真正的安全风险情报。</p>
-</li>
-<li><p>这些功能包括智能开发，代码审计，Web 应用程序扫描，社会工程。团队合作，在 Metasploit 和综合报告提出了他们的发现。</p>
-</li>
+<h5 id="XSS-Labs"><a href="#XSS-Labs" class="headerlink" title="XSS-Labs"></a>XSS-Labs</h5><h5 id="Upload-labs"><a href="#Upload-labs" class="headerlink" title="Upload-labs"></a>Upload-labs</h5><ul>
+<li>参考：<a href="https://github.com/c0ny1/upload-labs" target="_blank" rel="noopener">Upload-labs:github</a></li>
 </ul>
-<h3 id="zmap"><a href="#zmap" class="headerlink" title="zmap"></a>zmap</h3><ul>
-<li><p>ZMap 是一款扫描软件，由 Durumeric 领导密歇根大学研究团队开发。</p>
-</li>
-<li><p>这一工具能在一个小时内扫描整个公共互联网，显示近 40 亿在线设备的信息。</p>
-</li>
-<li><p>扫描结果能显示哪些网站无法防御特定漏洞。</p>
-</li>
-<li><p>而在 FREAK 的例子中，扫描是为了在漏洞公开宣布前评估漏洞的威胁程度。</p>
-</li>
-</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-27/Web-penetration-web-range/uoload-labs.png" class title="Upload-labs">
+
+<p>图片出处：<a href="https://www.cnblogs.com/hack404/p/10385049.html" target="_blank" rel="noopener">上传漏洞总结 - upload-labs</a></p>
 ]]></content>
       <categories>
         <category>WEB渗透网络篇</category>
@@ -1162,112 +1657,8 @@
       <tags>
         <tag>WEB渗透</tag>
         <tag>网络篇</tag>
-        <tag>端口</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>WEB 渗透 -- 网络篇 --IP 相关及常见网络设备</title>
-    <url>/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-23/Web-penetration-ip/</url>
-    <content><![CDATA[<h2 id="IP-相关"><a href="#IP-相关" class="headerlink" title="IP 相关"></a>IP 相关</h2><ul>
-<li>IP 地址 (Internet Protocol Address) 是指互联网协议地址，又译为网际协议地址。IP 地址是 IP 协议提供的一种统一的地址格式，它为互联网上的每一个网络和每一台主机分配了一个逻辑地址，以此来屏蔽物理地址的差异。</li>
-</ul>
-<a id="more"></a>
-
-<ul>
-<li><p>IP 地址分类</p>
-<ul>
-<li><p>IP 地址根据⽹络号和主机号来分，分为 A、B、C 三类及特殊地址 D、E。 全 0 和全 1 的都保留不⽤。</p>
-</li>
-<li><p>A 类：(1.0.0.0-126.0.0.0)(默认子网掩码：255.0.0.0 或 0xFF000000) 第一个字节为网络号，后三个字节为主机号。该类 IP 地址的最前面为 “10”，所以地址的网络号取值于 1~126 之间。一般用于大型网络。</p>
-</li>
-<li><p>B 类：(128.0.0.0-191.255.0.0)(默认⼦⽹掩码：255.255.0.0 或 0xFFFF0000) 前两个字节为⽹络号，后两个字节为主机号。该类 IP 地址的最前⾯为 “10”，所以地址的⽹络号取值于 128~191 之间。⼀般⽤于中等规模⽹络</p>
-</li>
-<li><p>C 类：(192.0.0.0-223.255.255.0)(⼦⽹掩码：255.255.255.0 或 0xFFFFFF00) 前三个字节为⽹络号，最后⼀个字节为主机号。该类 IP 地址的最前⾯为 “110”，所以地址的⽹络号取值于 192~223 之间。⼀般⽤于⼩型⽹络。</p>
-</li>
-<li><p>D 类：是多播地址。该类 IP 地址的最前⾯为 “1110”，所以地址的⽹络号取值于 224~239 之间。⼀般⽤于多路⼴播⽤户。</p>
-</li>
-<li><p>E 类：是保留地址。该类 IP 地址的最前⾯为 “1111”，所以地址的⽹络号取值于 240~255 之间。</p>
-<ul>
-<li><p>IP 地址 3 种主要类型里，各保留了 3 个区域作为私有地址，其地址范围：       </p>
-</li>
-<li><p>A 类地址：10.0.0.0~10.255.255.255</p>
-</li>
-<li><p>B 类地址：172.16.0.0~172.31.255.255</p>
-</li>
-<li><p>C 类地址：192.168.0.0~192.168.255.255</p>
-</li>
-<li><p>回送地址：127.0.0.1   也是本机地址，等效于 localhost 或本机 IP。一般用于测试使用。例如：ping 127.0.0.1 来测试本机 TCP/IP 是否正常。</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>子网划分</p>
-<p>  详见：<a href="https://jingyan.baidu.com/article/ae97a646d936ddbbfd461d02.html" target="_blank" rel="noopener">百度经验</a></p>
-</li>
-<li><p>网关</p>
-<p>  详见：<a href="https://blog.csdn.net/qiuzhongweiwei/article/details/80172529" target="_blank" rel="noopener">什么是网关及网关的作用</a></p>
-<p>  简单释义：一个出口，相对于几条河流汇集后进入海的入口</p>
-</li>
-</ul>
-<h2 id="常见网络设备"><a href="#常见网络设备" class="headerlink" title="常见网络设备"></a>常见网络设备</h2><h3 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h3><ul>
-<li><p>服务器，也称伺服器，是提供计算服务的设备。</p>
-</li>
-<li><p>由于服务器需要响应服务请求，并进⾏处理，因此⼀般来说服务器应具备承担服务并且保障服务的能⼒。</p>
-</li>
-</ul>
-<h3 id="VPS"><a href="#VPS" class="headerlink" title="VPS"></a>VPS</h3><ul>
-<li><p>Virtual Private Server 虚拟专⽤服务器技术，将⼀台服务器分割成多个虚拟专享服务器的优质服务。</p>
-</li>
-<li><p>我们⼀般⼈通常说的 VPS 就是⼀台⼈家虚拟出来的服务器，这台服务器有外⽹ IP，我们可以装好系统并直接连接。</p>
-</li>
-</ul>
-<h3 id="ECS"><a href="#ECS" class="headerlink" title="ECS"></a>ECS</h3><ul>
-<li><p>ECS 是阿⾥的云服务器的名字，不同云服务器的供应商名字叫法不⼀样，例如百度的云服务器好像叫 BCC。</p>
-</li>
-<li><p>云服务器简单粗暴的可以理解为就是⼀台电脑，⽐你说的主机空间好⼀点。</p>
-</li>
-<li><p>空间相当于电脑的⼀部分，通常只能⽤来上传⽹站。电脑你就可以⾃⼰装程序了。想怎么折腾都可以，关键的是这台电脑永不关机还不耗⾃⼰家的电。</p>
-</li>
-</ul>
-<h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><ul>
-<li>防⽕墙技术是通过有机结合各类⽤于安全管理与筛选的软软件件和硬硬件件设备，帮助计算机⽹络于其内、外⽹之间构建⼀道相对隔绝的保护屏障，以保护⽤户资料与信息安全性的⼀种技术。</li>
-</ul>
-<h3 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h3><ul>
-<li><p>连接两个或多个⽹络的硬件设备，在⽹络间起⽹关的作⽤，读取每⼀个数据包中的地址然后决定如何传送的专⽤智能性的⽹络设备。</p>
-</li>
-<li><p>通常是⼀个计算机，它能够理解不同的协议，例如某个局域⽹使⽤的以太协议，因特⽹ 使⽤的 TCP/IP 协议。</p>
-</li>
-<li><p>这样，路由器可以分析各种不同类型⽹络传来的数据包的⽬的地址，把⾮ TCP/IP ⽹络的地 址转换成 TCP/IP 地址，或者反之；再根据选定的路由算法把各数据包按最佳路线传送到指定位置。</p>
-</li>
-<li><p>所以路由器可以把⾮ TCP/ IP ⽹络连接到因特⽹上。</p>
-</li>
-</ul>
-<h3 id="交换机"><a href="#交换机" class="headerlink" title="交换机"></a>交换机</h3><ul>
-<li><p>交换机（Switch）意为 “开关” 是⼀种⽤于电（光）信号转发的⽹络设备。</p>
-</li>
-<li><p>它可以为接⼊交换机的任意两个⽹络节点提供独享的电信号通路。</p>
-</li>
-<li><p>最常见的交换机是以太⽹交换机。其他常见的还有电话语⾳交换机、光纤交换机等。</p>
-</li>
-</ul>
-<h3 id="集线器"><a href="#集线器" class="headerlink" title="集线器"></a>集线器</h3><ul>
-<li><p>集线器的英⽂称为 “Hub”，是 “中心” 的意思。</p>
-</li>
-<li><p>集线器的主要功能是对接收到的信号进⾏再⽣整形放⼤，以扩⼤⽹络的传输距离，同时把所有节点集中在以它为中⼼的节点上。</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>WEB渗透网络篇</category>
-      </categories>
-      <tags>
-        <tag>WEB渗透</tag>
-        <tag>网络篇</tag>
-        <tag>IP</tag>
-        <tag>网络设备</tag>
+        <tag>基础网站</tag>
+        <tag>本地靶场</tag>
       </tags>
   </entry>
   <entry>
@@ -1373,730 +1764,6 @@
       </tags>
   </entry>
   <entry>
-    <title>PHP 基础巩固 -- 数组</title>
-    <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-20/PHP-foundation-consolidation-array/</url>
-    <content><![CDATA[<h2 id="数组特点及声明方式"><a href="#数组特点及声明方式" class="headerlink" title="数组特点及声明方式"></a>数组特点及声明方式</h2><ul>
-<li>数组是一种复合数据，可以装下多个值，每个值用不同的键来区分</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = array (<span class="string">'001'</span>=&gt;<span class="string">'a'</span>, <span class="string">'002'</span>=&gt;<span class="string">'b'</span>, <span class="string">'003'</span>=&gt;<span class="string">'c'</span>, <span class="string">'004'</span>=&gt;<span class="string">'d'</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="索引数组，关联数组，多维数组"><a href="#索引数组，关联数组，多维数组" class="headerlink" title="索引数组，关联数组，多维数组"></a>索引数组，关联数组，多维数组</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = array (0=&gt;<span class="string">' 东 '</span>,1=&gt;<span class="string">' 西 '</span>,2=&gt;<span class="string">' 南 '</span>);   </span><br><span class="line">// 键不必有特殊意义，纯数字，这种叫 < span class="string">"索引数组"</span><br><span class="line"></span><br><span class="line"><span class="variable">$stu</span> = array (<span class="string">'name'</span>=&gt;<span class="string">' 东 '</span>,<span class="string">'age'</span>=&gt;30);</span><br><span class="line">// 字符串做键，一般能体现该单元的内容，如 age-&gt; 年龄，这种叫 < span class="string">"关联数组"</span><br><span class="line"></span><br><span class="line"><span class="variable">$arr</span> = array (0=&gt;<span class="string">'a'</span>, 1=&gt;array (<span class="string">'stu'</span>=&gt;<span class="string">'li'</span>,<span class="string">'bag'</span>=&gt;array (<span class="string">'yuwen'</span>,<span class="string">'shuxue'</span>)));</span><br><span class="line">// 多维数组 </span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h2 id="键的规则"><a href="#键的规则" class="headerlink" title="键的规则"></a>键的规则</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = array (<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>);</span><br><span class="line">// 如果不声明键，会从 0 1 2 3... 递增来生成键 </span><br><span class="line"></span><br><span class="line"><span class="variable">$arr</span> = array (3=&gt;<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>);</span><br><span class="line">// 如果已经存在某 1 个或几个数字键，则从最大的数字键，递增生成数字键 </span><br><span class="line"></span><br><span class="line"><span class="variable">$arr</span> = array (3=&gt;<span class="string">'a'</span>,3=&gt;<span class="string">'b'</span>,<span class="string">'c'</span>);</span><br><span class="line">// 如果键生命重复了，后面的值覆盖前面的值 </span><br><span class="line"></span><br><span class="line"><span class="variable">$arr</span> = array (2=&gt;<span class="string">'a'</span>,2.5=&gt;<span class="string">'b'</span>,<span class="string">'2.5'</span>=&gt;<span class="string">'c'</span>,<span class="string">'2'</span>=&gt;<span class="string">'d'</span>);</span><br><span class="line">// 键可以是整数，也可以是字符串 </span><br><span class="line">// 浮点数转成整数，如果字符串内容恰好是整数，也理解为整数 </span><br></pre></td></tr></table></figure>
-
-<h2 id="操作数组单元"><a href="#操作数组单元" class="headerlink" title="操作数组单元"></a>操作数组单元</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = array (<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>);</span><br><span class="line"></span><br><span class="line">// 增 1 个单元 </span><br><span class="line"><span class="variable">$arr</span>[] = <span class="string">'d'</span>;</span><br><span class="line"><span class="variable">$arr</span>[99] = <span class="string">'e'</span>;</span><br><span class="line"><span class="variable">$arr</span>[<span class="string">'stu'</span>] = array (<span class="string">'li'</span>, <span class="string">'wang'</span>);</span><br><span class="line"></span><br><span class="line">// 读取单元值 </span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$arr</span>[3];</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$arr</span>[<span class="string">'stu'</span>][1];</span><br><span class="line"></span><br><span class="line">// 改单元的值 </span><br><span class="line"><span class="variable">$arr</span>[0] = <span class="string">'A'</span>;</span><br><span class="line"></span><br><span class="line">// 删除某个单元 </span><br><span class="line"><span class="built_in">unset</span>(<span class="variable">$arr</span>[1]);</span><br></pre></td></tr></table></figure>
-
-<h2 id="循环数组"><a href="#循环数组" class="headerlink" title="循环数组"></a>循环数组</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// <span class="keyword">for</span> 循环，对于 0 1 2... 递增的索引数组 </span><br><span class="line"><span class="variable">$arr</span> = array (<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>,<span class="string">'g'</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$key</span> = 0; % key&lt;count (<span class="variable">$arr</span>); % key++) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$arr</span>[<span class="variable">$key</span>], <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$arr</span> = array (<span class="string">'age'</span>=&gt;28,<span class="string">'height'</span>=&gt;180,<span class="string">'name'</span>=&gt;<span class="string">'lisi'</span>);</span><br><span class="line">foreach (% arr as % key =&gt; <span class="variable">$value</span>) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$key</span> , <span class="string">'~'</span> , <span class="variable">$value</span> , <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foreach (% arr as <span class="variable">$value</span>) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$value</span> , <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="游标操作"><a href="#游标操作" class="headerlink" title="游标操作"></a>游标操作</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">current ();  // 取当前游标指向的数组单元的值 </span><br><span class="line">next ();     // 把数组游标往后移 </span><br><span class="line">prec ();     // 把数组的游标前移一位 </span><br><span class="line">end ();      // 把数组游标移到最后 </span><br><span class="line">reset ();    // 把数组游标复位，重新指向第一个 </span><br><span class="line"></span><br><span class="line">//----------------------------------------</span><br><span class="line"></span><br><span class="line"><span class="variable">$arr</span> = array (<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>);</span><br><span class="line"><span class="built_in">echo</span> current (<span class="variable">$arr</span>);    //a</span><br><span class="line"></span><br><span class="line">next (<span class="variable">$arr</span>);</span><br><span class="line"><span class="built_in">echo</span> current (<span class="variable">$arr</span>);    //b</span><br><span class="line"></span><br><span class="line">end (<span class="variable">$arr</span>);</span><br><span class="line"><span class="built_in">echo</span> current (<span class="variable">$arr</span>);    //c</span><br><span class="line"></span><br><span class="line">prev (<span class="variable">$arr</span>);</span><br><span class="line"><span class="built_in">echo</span> current (<span class="variable">$arr</span>);    //b</span><br><span class="line"></span><br><span class="line">reset (<span class="variable">$arr</span>);</span><br><span class="line"><span class="built_in">echo</span> current (<span class="variable">$arr</span>);    //a</span><br></pre></td></tr></table></figure>
-
-<h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = array (<span class="string">'a'</span>=&gt;<span class="string">' 张三 '</span>, <span class="string">'b'</span>=&gt;<span class="string">' 李四 '</span>, <span class="string">'c'</span>=&gt;NULL);</span><br><span class="line"></span><br><span class="line">// 判断是否存在 </span><br><span class="line">//isest 无法判断 NULL</span><br><span class="line"><span class="keyword">if</span> (isset (<span class="variable">$arr</span>[<span class="string">'c'</span>])) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'c 号单元存在 '</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'c 号单元不存在 '</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 当值为 NULL 时，判断键是否存在 array_key_exists ();</span><br><span class="line"><span class="keyword">if</span> (array_key_exists (<span class="string">'c'</span>, % arr)) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'c 号单元存在 '</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'c 号单元不存在 '</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 搜索值是否存在 </span><br><span class="line"><span class="keyword">if</span> (in_array (<span class="string">' 李四 '</span>, <span class="variable">$arr</span>)) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">' 李四存在 '</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">' 李四不存在 '</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>PHP基础巩固</category>
-      </categories>
-      <tags>
-        <tag>PHP</tag>
-        <tag>基础</tag>
-        <tag>数组</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PHP 基础巩固 -- 字符串</title>
-    <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-19/PHP-foundation-consolidation-str/</url>
-    <content><![CDATA[<h2 id="字符串的定义方式"><a href="#字符串的定义方式" class="headerlink" title="字符串的定义方式"></a>字符串的定义方式</h2><ul>
-<li>除了单引号和双引号，可以使用 heredoc，nowdoc 定义大断文本</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; heredoc</span><br><span class="line">$str &#x3D; &lt;&lt;&lt;HTML</span><br><span class="line">hello</span><br><span class="line">world   abc</span><br><span class="line">    ok now;</span><br><span class="line">HTML;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; heredoc 和 nowdoc 的区别就是单引号 </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; nowdoc</span><br><span class="line">$str &#x3D; &lt;&lt;&lt;&#39;INTRO&#39;</span><br><span class="line"> 远看山有色，</span><br><span class="line"> 进听水无声 </span><br><span class="line">INTRO;</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h2 id="单双引号对比、转义、解析、速度"><a href="#单双引号对比、转义、解析、速度" class="headerlink" title="单双引号对比、转义、解析、速度"></a>单双引号对比、转义、解析、速度</h2><ul>
-<li><p>转义符 \ </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$str1</span> = <span class="string">'\'</span> \\ \n \t \v \$ <span class="string">';</span></span><br><span class="line"><span class="string">// '</span> \ \n \t \v \$</span><br><span class="line"></span><br><span class="line"><span class="variable">$str2</span> = <span class="string">"\" \\ \n \t \v \$"</span>;</span><br><span class="line">// 双引号里的变量能解析 </span><br><span class="line"><span class="variable">$age</span> = 30;</span><br><span class="line"><span class="variable">$str3</span> = <span class="string">' 今年 $age 岁 '</span>;</span><br><span class="line"><span class="variable">$str4</span> = <span class="string">" 今年 <span class="variable">$age</span> 岁 "</span>;</span><br><span class="line">//str3 今年 <span class="variable">$age</span> 岁 </span><br><span class="line">//str4 今年 30 岁 </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>单引号不需要分析串内有没有变量，需要转义的内容也少，速度比双引号要快</p>
-</li>
-<li><p>优先使用单引号</p>
-</li>
-</ul>
-<h2 id="字符串常用函数"><a href="#字符串常用函数" class="headerlink" title="字符串常用函数"></a>字符串常用函数</h2><h3 id="字符长度函数"><a href="#字符长度函数" class="headerlink" title="字符长度函数"></a>字符长度函数</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">strlen (<span class="variable">$string</span>);</span><br><span class="line">// 传入 string 类型，返回 int 型 </span><br><span class="line">//utf8 编码，中文占 3 个字节 </span><br><span class="line"></span><br><span class="line">mb_strlen (<span class="variable">$string</span>, <span class="string">'$encoding'</span>);</span><br><span class="line">// 传入 string，编码方式，返回 int 型 </span><br></pre></td></tr></table></figure>
-
-<h3 id="查找字符位置函数"><a href="#查找字符位置函数" class="headerlink" title="查找字符位置函数"></a>查找字符位置函数</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">strpos (<span class="variable">$str</span>, <span class="variable">$char</span>);</span><br><span class="line">// <span class="variable">$str</span> 中是否含有 < span class="variable">$char</span>，返回在字符串中第一次出现的位置 <br><span class="line"></span><br><span class="line">stripos (<span class="variable">$str</span>, <span class="variable">$char</span>);</span><br><span class="line">// <span class="variable">$str</span> 中是否含有 < span class="variable">$char</span>，返回在字符串中第一次出现的位置。该函数对大小写不敏感 <br><span class="line"></span><br><span class="line">strrpos (<span class="variable">$str</span>, <span class="variable">$char</span>);</span><br><span class="line">// <span class="variable">$str</span> 中是否含有 < span class="variable">$char</span>，返回在字符串中最后一次出现的位置 <br></pre></td></tr></table></figure>
-
-<h3 id="字符串替换函数"><a href="#字符串替换函数" class="headerlink" title="字符串替换函数"></a>字符串替换函数</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">str_replace (search, replace, <span class="variable">$str</span>);</span><br><span class="line">// 从 < span class="variable">$str</span> 中查找 search 用 replace 替换 <br><span class="line"></span><br><span class="line">strstr (<span class="variable">$str</span>, search, replace);</span><br><span class="line">//search，replace 可以是 array (<span class="string">'a'</span> =&gt; <span class="string">'b'</span>, <span class="string">'b'</span> =&gt; <span class="string">'a'</span>)</span><br><span class="line">// 从而同时替换多个字符 </span><br></pre></td></tr></table></figure>
-
-<h3 id="截取子字符串，分割，连接，反转函数"><a href="#截取子字符串，分割，连接，反转函数" class="headerlink" title="截取子字符串，分割，连接，反转函数"></a>截取子字符串，分割，连接，反转函数</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">substr (<span class="variable">$str</span>, start [, length]);</span><br><span class="line">//length 如果为负，代表结束位置，后往前数 </span><br><span class="line"></span><br><span class="line">str_split (<span class="variable">$str</span>, length);</span><br><span class="line">// 把 < span class="variable">$str</span> 按 length 长度进行分割返回数组 <br><span class="line"></span><br><span class="line">split (search, <span class="variable">$str</span>[, int]);</span><br><span class="line">// 把 < span class="variable">$str</span> 按 search 字符进行分割返回数组 int 是分割几次，后面的将不分割 <br><span class="line"></span><br><span class="line">explode (search, <span class="variable">$str</span>[, int]);</span><br><span class="line">// 把 < span class="variable">$str</span> 按 search 字符拆分成数组 <br><span class="line"></span><br><span class="line">implode (glue, pieces);</span><br><span class="line">// 把 glue 数组，用 pieces 拼接成字符串 </span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>PHP基础巩固</category>
-      </categories>
-      <tags>
-        <tag>PHP</tag>
-        <tag>基础</tag>
-        <tag>字符串</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PHP 基础巩固 -- 时间戳函数</title>
-    <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-19/PHP-foundation-consolidation-time/</url>
-    <content><![CDATA[<h2 id="获取时间戳"><a href="#获取时间戳" class="headerlink" title="获取时间戳"></a>获取时间戳</h2><ul>
-<li>时间戳是指自 1970 01 01 00:00:00 到现在这一瞬间经过的秒数。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">time ()</span><br><span class="line">microtime ()</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;----------------------------------------</span><br><span class="line"></span><br><span class="line">echo time ();       &#x2F;&#x2F; 获取时间戳 </span><br><span class="line"></span><br><span class="line">print_r (microtime ());       &#x2F;&#x2F; 获取秒与微秒 </span><br><span class="line"></span><br><span class="line">print_r (microtime (true));   &#x2F;&#x2F; 获取秒。微妙 </span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h2 id="时间戳格式化"><a href="#时间戳格式化" class="headerlink" title="时间戳格式化"></a>时间戳格式化</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">date ()</span><br><span class="line">gmdate ()</span><br><span class="line"></span><br><span class="line">//----------------------------------------</span><br><span class="line"></span><br><span class="line"><span class="variable">$time</span> = time ();</span><br><span class="line"><span class="built_in">echo</span> deta (<span class="string">'Y-m-d 星期 N h:i:s'</span> , <span class="variable">$time</span>);</span><br><span class="line"></span><br><span class="line">// YYYY-mm-dd 星期 N hh:ii:ss</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> deta (<span class="string">'Y-m-d 星期 N h:i:s'</span>);   // 表示当前时间 </span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> deta (<span class="string">'Y-m-d 星期 N h:i:s'</span>, 0);   // 表示 1970 01 01 08:00:00</span><br><span class="line">//h 为 12 小时时间制，H 为 24 小时时间制 </span><br><span class="line"><span class="built_in">echo</span> gmdate (<span class="string">'Y-m-d 星期 N H:i:s'</span>, 0);   // 表示格林威治时间，不考虑时区 1970 01 01 00:00:00</span><br></pre></td></tr></table></figure>
-
-<h2 id="解析检测日期"><a href="#解析检测日期" class="headerlink" title="解析检测日期"></a>解析检测日期</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mktime ();</span><br><span class="line">strtotime ();</span><br><span class="line">checkdate ();</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> mktime (14, 35, 20, 11, 27, 2013);     // 日期转换为时间戳 </span><br><span class="line">          // 时，分，秒，月，日，年 </span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> strtotime (<span class="string">'now'</span>);    // 字符串转换为时间戳 </span><br><span class="line"><span class="built_in">echo</span> strtotime (<span class="string">'now +1 day'</span>);</span><br><span class="line"><span class="built_in">echo</span> strtotime (<span class="string">'now -1 day'</span>);</span><br><span class="line"></span><br><span class="line">var_dump (checkdate (2, 29, 2000));    // 检测日期是否合法 </span><br><span class="line">var_dump (checkdate (2, 29, 100));</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>PHP基础巩固</category>
-      </categories>
-      <tags>
-        <tag>PHP</tag>
-        <tag>基础</tag>
-        <tag>时间戳函数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PHP 基础巩固 - 函数</title>
-    <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-18/PHP-foundation-consolidation-method/</url>
-    <content><![CDATA[<h2 id="函数概念"><a href="#函数概念" class="headerlink" title="函数概念"></a>函数概念</h2><ul>
-<li>一段封装好的代码，可以随时调用</li>
-</ul>
-<p>定义格式：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> 函数名 (参数 1, 参数..N) &#123;</span><br><span class="line">    // 执行语句 </span><br><span class="line">    // <span class="built_in">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h2 id="函数的命名规范"><a href="#函数的命名规范" class="headerlink" title="函数的命名规范"></a>函数的命名规范</h2><ul>
-<li><p>对于函数，命名规则和变量是一样的，但是函数不区分大小写</p>
-</li>
-<li><p>函数名称应该提示出它的功能</p>
-</li>
-<li><p>函数名称以字母或下划线开头 (不能以数字开头)</p>
-</li>
-</ul>
-<h2 id="函数的调用过程与返回值"><a href="#函数的调用过程与返回值" class="headerlink" title="函数的调用过程与返回值"></a>函数的调用过程与返回值</h2><ul>
-<li><p>函数调用时，代码执行权进入函数</p>
-</li>
-<li><p>当函数所有语句执行完毕，函数返回，交回执行权</p>
-</li>
-<li><p>或者函数碰到 return 语句时，函数返回，交回执行权</p>
-</li>
-</ul>
-<h2 id="函数参数的传值方式"><a href="#函数参数的传值方式" class="headerlink" title="函数参数的传值方式"></a>函数参数的传值方式</h2><ul>
-<li><p>函数外部的值 $b，传入到函数内部 $a，相当于把 $b 的值，赋给 $a，而 $a 是函数内部的值，怎么变，和外界无关</p>
-</li>
-<li><p>使用动态变量名时，$a 与 $b 指向了同一个地址，这种传参方式是不推荐的，因为函数内部的语句，影响到了外部的变量，破坏了函数的封装性</p>
-</li>
-</ul>
-<h2 id="函数中变量的作用域"><a href="#函数中变量的作用域" class="headerlink" title="函数中变量的作用域"></a>函数中变量的作用域</h2><ul>
-<li><p>在 PHP 的页面中声明的变量，叫 “全局变量”</p>
-</li>
-<li><p>函数内的变量，叫 “局部变量”</p>
-</li>
-<li><p>函数内生命全局变量，变量前增加 global</p>
-</li>
-<li><p>超级全局变量，在页面的任何部分，包括函数，方法等，都可以直接访问</p>
-</li>
-</ul>
-<h2 id="动态调用函数"><a href="#动态调用函数" class="headerlink" title="动态调用函数"></a>动态调用函数</h2><ul>
-<li>可以用变量的值当作函数，并调用函数</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> a (<span class="variable">$c</span>) &#123;</span><br><span class="line">    <span class="variable">$c</span> += 1;</span><br><span class="line">    <span class="built_in">return</span> <span class="variable">$c</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">b = <span class="string">'a'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> b (3);</span><br><span class="line"></span><br><span class="line">//--------------------</span><br><span class="line"></span><br><span class="line">4</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>PHP基础巩固</category>
-      </categories>
-      <tags>
-        <tag>PHP</tag>
-        <tag>基础</tag>
-        <tag>函数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PHP 基础巩固 - 控制结构</title>
-    <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-14/PHP-foundation-consolidation-control/</url>
-    <content><![CDATA[<h2 id="控制结构"><a href="#控制结构" class="headerlink" title="控制结构"></a>控制结构</h2><h3 id="if-else"><a href="#if-else" class="headerlink" title="if else"></a>if else</h3><ul>
-<li><p>if 语句 - 在条件成立时执行代码</p>
-</li>
-<li><p>if…else 语句 - 在条件成立时执行一块代码，条件不成立时执行另一块代码</p>
-</li>
-<li><p>if…else if….else 语句 - 在若干条件之一成立时执行一个代码块</p>
-</li>
-</ul>
-<a id="more"></a>
-
-<h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><ul>
-<li>if 语句用于仅当指定条件成立时执行代码</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (条件) &#123;</span><br><span class="line">    条件成立时要执行的代码；</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//-----------------------------</span><br><span class="line"></span><br><span class="line"><span class="variable">$t</span>=date (<span class="string">"H"</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$t</span>&lt;<span class="string">"20"</span>) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Have a good day!"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="if…else"><a href="#if…else" class="headerlink" title="if…else"></a>if…else</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (条件) &#123;</span><br><span class="line">    条件成立时执行的代码；</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    条件不成立时执行的代码；</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//-----------------------------</span><br><span class="line"></span><br><span class="line"><span class="variable">$t</span>=date (<span class="string">"H"</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$t</span>&lt;<span class="string">"20"</span>) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Have a good day!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Have a good night!"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="if…else-if…-else"><a href="#if…else-if…-else" class="headerlink" title="if…else if….else"></a>if…else if….else</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (条件) &#123;</span><br><span class="line">    <span class="keyword">if</span> 条件成立时执行的代码；</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (条件) &#123;</span><br><span class="line">    elseif 条件成立时执行的代码；</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    条件不成立时执行的代码；</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//-----------------------------</span><br><span class="line"></span><br><span class="line"><span class="variable">$t</span>=date (<span class="string">"H"</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$t</span>&lt;<span class="string">"10"</span>) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Have a good morning!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (<span class="variable">$t</span>&lt;<span class="string">"20"</span>) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Have a good day!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Have a good night!"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="switch-case"><a href="#switch-case" class="headerlink" title="switch case"></a>switch case</h3><ul>
-<li><p>switch 语句 - 在若干条件之一成立时执行一个代码块</p>
-</li>
-<li><p>switch case 适合用在验证多个可能的值时使用，不适合用在判断范围</p>
-<ul>
-<li>比如 60 - 80 及格， 0 - 59 不及格， 81 - 100 优</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">switch (n) &#123;</span><br><span class="line">    <span class="keyword">case</span> label1:</span><br><span class="line">        如果 n=label1，此处代码将执行；</span><br><span class="line">        <span class="built_in">break</span>;</span><br><span class="line">    <span class="keyword">case</span> label2:</span><br><span class="line">        如果 n=label2，此处代码将执行；</span><br><span class="line">        <span class="built_in">break</span>;</span><br><span class="line">    default:</span><br><span class="line">        如果 n 既不等于 label1 也不等于 label2，此处代码将执行；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>原理：首先对一个简单的表达式 n（通常是变量）进行一次计算。将表达式的值与结构中每个 case 的值进行比较。如果存在匹配，则执行与 case 关联的代码。代码执行后，使用 break 来阻止代码跳入下一个 case 中继续执行。default 语句用于不存在匹配（即没有 case 为真）时执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$favcolor</span>=<span class="string">"red"</span>;</span><br><span class="line">switch (<span class="variable">$favcolor</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"red"</span>:</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"你喜欢的颜色是红色！"</span>;</span><br><span class="line">        <span class="built_in">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"blue"</span>:</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"你喜欢的颜色是蓝色！"</span>;</span><br><span class="line">        <span class="built_in">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"green"</span>:</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"你喜欢的颜色是绿色！"</span>;</span><br><span class="line">        <span class="built_in">break</span>;</span><br><span class="line">    default:</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"你喜欢的颜色不是 红，蓝，或绿色！"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><ul>
-<li>while 循环将重复执行代码块，直到指定的条件不成立</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (条件) &#123;</span><br><span class="line">    要执行的代码；</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//-----------------------------</span><br><span class="line"></span><br><span class="line"><span class="variable">$i</span>=1;</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$i</span>&lt;=5) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"The number is"</span> . <span class="variable">$i</span> . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">    <span class="variable">$i</span>++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// The number is 1</span><br><span class="line">// The number is 2</span><br><span class="line">// The number is 3</span><br><span class="line">// The number is 4</span><br><span class="line">// The number is 5</span><br></pre></td></tr></table></figure>
-
-<h3 id="do-while"><a href="#do-while" class="headerlink" title="do while"></a>do while</h3><ul>
-<li>do…while 语句会至少执行一次代码，然后检查条件，只要条件成立，就会重复进行循环</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    要执行的代码；</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> (条件);</span><br><span class="line"></span><br><span class="line">//-----------------------------</span><br><span class="line"></span><br><span class="line"><span class="variable">$i</span>=1;</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="variable">$i</span>++;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"The number is"</span> . <span class="variable">$i</span> . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> (<span class="variable">$i</span>&lt;=5);</span><br><span class="line"></span><br><span class="line">// The number is 2</span><br><span class="line">// The number is 3</span><br><span class="line">// The number is 4</span><br><span class="line">// The number is 5</span><br><span class="line">// The number is 6</span><br></pre></td></tr></table></figure>
-
-<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><h4 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h4><ul>
-<li>for 循环用于预先知道脚本需要运行次数的情况</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (初始值；条件；增量) &#123;</span><br><span class="line">    要执行的代码；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>参数：</p>
-<ul>
-<li><p>初始值：主要是初始化一个变量值，用于设置一个计数器（但可以是任何在循环的开始被执行一次的代码）</p>
-</li>
-<li><p>条件：循环执行的限制条件。如果为 TRUE，则循环继续。如果为 FALSE，则循环结束</p>
-</li>
-<li><p>增量：主要用于递增计数器（但可以是任何在循环的结束被执行的代码）</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="variable">$i</span>=1; <span class="variable">$i</span>&lt;=5; <span class="variable">$i</span>++) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"The number is"</span> . <span class="variable">$i</span> . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//-----------------------------</span><br><span class="line"></span><br><span class="line">// The number is 1</span><br><span class="line">// The number is 2</span><br><span class="line">// The number is 3</span><br><span class="line">// The number is 4</span><br><span class="line">// The number is 5</span><br></pre></td></tr></table></figure>
-
-<h4 id="foreach-循环"><a href="#foreach-循环" class="headerlink" title="foreach 循环"></a>foreach 循环</h4><ul>
-<li>foreach 循环用于遍历数组</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">foreach (<span class="variable">$array</span> as <span class="variable">$value</span>) &#123;</span><br><span class="line">    要执行代码；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>每进行一次循环，当前数组元素的值就会被赋值给 $value 变量（数组指针会逐一地移动），在进行下一次循环时，将看到数组中的下一个值</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$x</span>=array (<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>);</span><br><span class="line">foreach (<span class="variable">$x</span> as <span class="variable">$value</span>) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$value</span> . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//-----------------------------</span><br><span class="line"></span><br><span class="line">//one</span><br><span class="line">//two</span><br><span class="line">//three</span><br></pre></td></tr></table></figure>
-
-<h3 id="break-continue"><a href="#break-continue" class="headerlink" title="break/continue"></a>break/continue</h3><h4 id="break"><a href="#break" class="headerlink" title="break"></a>break</h4><ul>
-<li><p>break 是被用在各种循环和 switch 语句中的</p>
-</li>
-<li><p>他的作用是跳出当前的语法结构，执行下面的语句</p>
-</li>
-</ul>
-<h4 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h4><ul>
-<li><p>continue 是用来用在循环结构中，控制程序放弃本次循环 continue 语句之后的代码并转而进行下一次循环</p>
-</li>
-<li><p>continue 本身并不跳出循环结构，只是放弃这一次循环</p>
-</li>
-<li><p>如果在非循环结构中 (例如 if 语句中，switch 语句中) 使用 continue，程序将会出错</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>PHP基础巩固</category>
-      </categories>
-      <tags>
-        <tag>PHP</tag>
-        <tag>基础</tag>
-        <tag>控制结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PHP 基础巩固 -- 运算符</title>
-    <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-14/PHP-foundation-consolidation-operator/</url>
-    <content><![CDATA[<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>参考：<a href="https://www.runoob.com/php/php-operators.html" target="_blank" rel="noopener">PHP 菜鸟教程</a></p>
-<h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><ul>
-<li><p>在 PHP 中，赋值运算符 = 用于给变量赋值</p>
-</li>
-<li><p>在 PHP 中，算术运算符 + 用于把值加在一起</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">运算符</th>
-<th align="center">名称</th>
-<th align="center">描述</th>
-<th align="center">实例</th>
-<th align="center">结果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">x + y</td>
-<td align="center">加</td>
-<td align="center">x 和 y 的和</td>
-<td align="center">2 + 2</td>
-<td align="center">4</td>
-</tr>
-<tr>
-<td align="center">x - y</td>
-<td align="center">减</td>
-<td align="center">x 和 y 的差</td>
-<td align="center">5 - 2</td>
-<td align="center">3</td>
-</tr>
-<tr>
-<td align="center">x * y</td>
-<td align="center">乘</td>
-<td align="center">x 和 y 的积</td>
-<td align="center">5 * 2</td>
-<td align="center">10</td>
-</tr>
-<tr>
-<td align="center">x /y</td>
-<td align="center">除</td>
-<td align="center">x 和 y 的商</td>
-<td align="center">15 / 5</td>
-<td align="center">3</td>
-</tr>
-<tr>
-<td align="center">x % y</td>
-<td align="center">模</td>
-<td align="center">x 除以 y 的余数</td>
-<td align="center">5 % 2</td>
-<td align="center">1</td>
-</tr>
-<tr>
-<td align="center">-x</td>
-<td align="center">取反</td>
-<td align="center">x 取反</td>
-<td align="center">$x = 2; echo -x;</td>
-<td align="center">-2</td>
-</tr>
-</tbody></table>
-<a id="more"></a>
-
-<p>注意：</p>
-<ul>
-<li><p>如果 int 型，运算后数据过大，会转换成 float 型</p>
-</li>
-<li><p>去摸算法时，结果的正负仅取决于被除数</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$a</span> = 10            // 使用 10 或 - 10</span><br><span class="line"><span class="variable">$b</span> = 3             // 使用 3 或 - 3</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span> / <span class="variable">$b</span>       //a=-10 时，均为 - 1</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><ul>
-<li><p>比较运算符可以比较两个值</p>
-</li>
-<li><p>比较运算符的结果是布尔型的值</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">运算符</th>
-<th align="center">名称</th>
-<th align="center">描述</th>
-<th align="center">实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">x == y</td>
-<td align="center">等于</td>
-<td align="center">如果 x 等于 y，则返回 true</td>
-<td align="center">5==8 返回 false</td>
-</tr>
-<tr>
-<td align="center">x === y</td>
-<td align="center">绝对等于</td>
-<td align="center">如果 x 等于 y，且它们类型相同，则返回 true</td>
-<td align="center">5===”5” 返回 false</td>
-</tr>
-<tr>
-<td align="center">x != y</td>
-<td align="center">不等于</td>
-<td align="center">如果 x 不等于 y，则返回 true</td>
-<td align="center">5!=8 返回 true</td>
-</tr>
-<tr>
-<td align="center">x &lt;&gt; y</td>
-<td align="center">不等于</td>
-<td align="center">如果 x 不等于 y，则返回 true</td>
-<td align="center">5&lt;&gt;8 返回 true</td>
-</tr>
-<tr>
-<td align="center">x !== y</td>
-<td align="center">绝对不等于</td>
-<td align="center">如果 x 不等于 y，或它们类型不相同，则返回 true</td>
-<td align="center">5!==”5” 返回 true</td>
-</tr>
-<tr>
-<td align="center">x &gt; y</td>
-<td align="center">大于</td>
-<td align="center">如果 x 大于 y，则返回 true</td>
-<td align="center">5&gt;8 返回 false</td>
-</tr>
-<tr>
-<td align="center">x &lt; y</td>
-<td align="center">小于</td>
-<td align="center">如果 x 小于 y，则返回 true</td>
-<td align="center">5&lt;8 返回 true</td>
-</tr>
-<tr>
-<td align="center">x &gt;= y</td>
-<td align="center">大于等于</td>
-<td align="center">如果 x 大于或者等于 y，则返回 true</td>
-<td align="center">5&gt;=8 返回 false</td>
-</tr>
-<tr>
-<td align="center">x &lt;= y</td>
-<td align="center">小于等于</td>
-<td align="center">如果 x 小于或者等于 y，则返回 true</td>
-<td align="center">5&lt;=8 返回 true</td>
-</tr>
-</tbody></table>
-<ul>
-<li>全等于 / 绝对等于，要求类型相同，且值相等</li>
-</ul>
-<h3 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h3><ul>
-<li>另一个条件运算符是 “?:”</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">(expr1) ? (expr2) : (expr3)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>对 expr1 求值为 TRUE 时的值为 expr2，在 expr1 求值为 false 时的值为 expr3。</p>
-</li>
-<li><p>自 PHP 5.3 起，可以省略三元运算符中间那部分。表达式 expr1 ?: expr3 在 expr1 求值为 TRUE 时返回 expr1，否则返回 expr3。</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$test</span> = <span class="string">'PHP 基础 '</span>;</span><br><span class="line">// 普通写法 </span><br><span class="line"><span class="variable">$username</span> = isset (<span class="variable">$test</span>) ? <span class="variable">$test</span> : <span class="string">'nobody'</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$username</span>, PHP_EOL;     // PHP 基础 </span><br><span class="line"></span><br><span class="line">// PHP 5.3+ 版本写法 </span><br><span class="line"><span class="variable">$username</span> = <span class="variable">$test</span> ?: <span class="string">'nobody'</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$username</span>, PHP_EOL;     // PHP 基础 </span><br></pre></td></tr></table></figure>
-
-<p>注意：</p>
-<ul>
-<li><p>PHP_EOL 是一个换行符，兼容更大平台</p>
-</li>
-<li><p>在 PHP7+ 版本多了一个 NULL 合并运算符？？</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 如果 <span class="variable">$_GET</span>[<span class="string">'user'</span>] 不存在返回 <span class="string">'nobody'</span>，否则返回 <span class="variable">$_GET</span>[<span class="string">'user'</span>] 的值 </span><br><span class="line"><span class="variable">$username</span> = <span class="variable">$_GET</span>[<span class="string">'user'</span>] ?? <span class="string">'nobody'</span>;</span><br><span class="line">// 类似的三元运算符 </span><br><span class="line"><span class="variable">$username</span> = isset (<span class="variable">$_GET</span>[<span class="string">'user'</span>]) ? <span class="variable">$_GET</span>[<span class="string">'user'</span>] : <span class="string">'nobody'</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p>例如：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$x</span> = 10</span><br><span class="line"><span class="variable">$y</span> = 5</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th align="center">运算符</th>
-<th align="center">名称</th>
-<th align="center">描述</th>
-<th align="center">实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">x and y</td>
-<td align="center">与</td>
-<td align="center">如果 x 和 y 都为 true，则返回 true</td>
-<td align="center">(x &lt; 15 and y &gt; 1) 返回 true</td>
-</tr>
-<tr>
-<td align="center">x or y</td>
-<td align="center">或</td>
-<td align="center">如果 x 和 y 至少有一个为 true，则返回 true</td>
-<td align="center">(x &lt; 5 or y &gt; 1) 返回 true</td>
-</tr>
-<tr>
-<td align="center">x xor y</td>
-<td align="center">异或</td>
-<td align="center">如果 x 和 y 有且仅有一个为 true，则返回 true</td>
-<td align="center">(x == 10 xor y == 1) 返回 true</td>
-</tr>
-<tr>
-<td align="center">x &amp;&amp; y</td>
-<td align="center">与</td>
-<td align="center">如果 x 和 y 都为 true，则返回 true</td>
-<td align="center">(x &lt; 15 and y &gt; 1) 返回 true</td>
-</tr>
-<tr>
-<td align="center">x &#124;&#124; y</td>
-<td align="center">或</td>
-<td align="center">如果 x 和 y 至少有一个为 true，则返回 true</td>
-<td align="center">(x &lt; 5 or y &gt; 1) 返回 true</td>
-</tr>
-<tr>
-<td align="center">!x</td>
-<td align="center">非</td>
-<td align="center">如果 x 不为 true，则返回 true</td>
-<td align="center">!(x == y) 返回 true</td>
-</tr>
-</tbody></table>
-<h3 id="递增-递减运算符"><a href="#递增-递减运算符" class="headerlink" title="递增 / 递减运算符"></a>递增 / 递减运算符</h3><ul>
-<li>++/- - 符号在后，先赋值再 ++/- -</li>
-<li>++/- - 符号在前，先 ++/- - 再赋值</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$x</span>=10; </span><br><span class="line"><span class="built_in">echo</span> ++<span class="variable">$x</span>;         // 输出 11</span><br><span class="line"> </span><br><span class="line"><span class="variable">$y</span>=10; </span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$y</span>++;         // 输出 10</span><br><span class="line"> </span><br><span class="line"><span class="variable">$z</span>=5;</span><br><span class="line"><span class="built_in">echo</span> --<span class="variable">$z</span>;         // 输出 4</span><br><span class="line"> </span><br><span class="line"><span class="variable">$i</span>=5;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$i</span>--;         // 输出 5</span><br></pre></td></tr></table></figure>
-
-<h3 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h3><ul>
-<li>字符串符</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">运算符</th>
-<th align="center">名称</th>
-<th align="center">描述</th>
-<th align="center">实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">a . b</td>
-<td align="center">并置</td>
-<td align="center">连接两个字符串</td>
-<td align="center">‘hello’ + ‘world’ = ‘helloworld’</td>
-</tr>
-</tbody></table>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$a</span> = <span class="string">'hello'</span>;</span><br><span class="line"><span class="variable">$b</span> = <span class="string">'world'</span>;</span><br><span class="line"><span class="variable">$c</span> = <span class="variable">$a</span> . <span class="variable">$b</span>;</span><br><span class="line">var_dump (<span class="variable">$c</span>);      // <span class="string">'helloworld'</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$d</span> = 112;</span><br><span class="line"><span class="variable">$c</span> = <span class="variable">$c</span> . <span class="variable">$112</span></span><br><span class="line">var_dump (<span class="variable">$c</span>)       // <span class="string">'helloworld112'</span></span><br><span class="line"></span><br><span class="line">// 下面哪个运行速度快？</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span> , <span class="variable">$b</span>;      // 更快 </span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span> . <span class="variable">$b</span>;      // 如果仅仅需要 <span class="built_in">echo</span> 结果，使用上边的更快 </span><br></pre></td></tr></table></figure>
-
-<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><ul>
-<li>基本的赋值运算符是 “=”。它意味着左操作数被设置为右侧表达式的值。也就是说，”$x = 5” 的值是 5</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">运算符</th>
-<th align="center">等同于</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">x = y</td>
-<td align="center">x = y</td>
-<td align="center">左操作变量被设置成右侧表达式的值</td>
-</tr>
-<tr>
-<td align="center">x += y</td>
-<td align="center">x = x + y</td>
-<td align="center">加</td>
-</tr>
-<tr>
-<td align="center">x -= y</td>
-<td align="center">x = x - y</td>
-<td align="center">减</td>
-</tr>
-<tr>
-<td align="center">x *= y</td>
-<td align="center">x = x * y</td>
-<td align="center">乘</td>
-</tr>
-<tr>
-<td align="center">x /= y</td>
-<td align="center">x = x /y</td>
-<td align="center">除</td>
-</tr>
-<tr>
-<td align="center">x %= y</td>
-<td align="center">x = x % y</td>
-<td align="center">模</td>
-</tr>
-<tr>
-<td align="center">a .= b</td>
-<td align="center">a = a . b</td>
-<td align="center">连接两个字符串</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>PHP基础巩固</category>
-      </categories>
-      <tags>
-        <tag>PHP</tag>
-        <tag>基础</tag>
-        <tag>运算符</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PHP 基础巩固 -- 变量</title>
-    <url>/PHP%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/2020-06-13/PHP-foundation-consolidation-variable/</url>
-    <content><![CDATA[<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><ul>
-<li><p>变量以 $ 符号开始，后面跟着变量的名称</p>
-</li>
-<li><p>变量名必须以字母或者下划线字符开始</p>
-</li>
-<li><p>变量名只能包含字母数字字符以及下划线（A-z、0-9 和 _ ）</p>
-</li>
-<li><p>变量名不能包含空格</p>
-</li>
-<li><p>变量名是区分大小写的（$y 和 $Y 是两个不同的变量）</p>
-</li>
-</ul>
-<p>参考：<a href="https://www.runoob.com/php/php-datatypes.html" target="_blank" rel="noopener">菜鸟教程 PHP 数据类型</a></p>
-<a id="more"></a>
-
-<h3 id="Integer-整形"><a href="#Integer-整形" class="headerlink" title="Integer 整形"></a>Integer 整形</h3><ul>
-<li><p>整数必须至少有一个数字 (0-9)</p>
-</li>
-<li><p>整数不能包含逗号或空格</p>
-</li>
-<li><p>整数是没有小数点的</p>
-</li>
-<li><p>整数可以是正数或负数</p>
-</li>
-<li><p>整型可以用三种格式来指定：十进制， 十六进制（ 以 0x 为前缀）或八进制（前缀为 0）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$x</span> = 5985;</span><br><span class="line">var_dump (<span class="variable">$x</span>);    //int (5985)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;br&gt;"</span>; </span><br><span class="line"><span class="variable">$x</span> = -345;       // 负数 </span><br><span class="line">var_dump (<span class="variable">$x</span>);    //int (-345)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="variable">$x</span> = 0x8C;       // 十六进制数 </span><br><span class="line">var_dump (<span class="variable">$x</span>);    //int (140)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="variable">$x</span> = 047;        // 八进制数 </span><br><span class="line">var_dump (<span class="variable">$x</span>);    //int (39)</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="Float-浮点型"><a href="#Float-浮点型" class="headerlink" title="Float 浮点型"></a>Float 浮点型</h3><ul>
-<li>浮点数是带小数部分的数字，或是指数形式</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$x</span> = 10.365;</span><br><span class="line">var_dump (<span class="variable">$x</span>);    // <span class="built_in">float</span>(10.365)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;br&gt;"</span>; </span><br><span class="line"><span class="variable">$x</span> = 2.4e3;</span><br><span class="line">var_dump (<span class="variable">$x</span>);    // <span class="built_in">float</span>(2400)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;br&gt;"</span>; </span><br><span class="line"><span class="variable">$x</span> = 8E-5;</span><br><span class="line">var_dump (<span class="variable">$x</span>);    // <span class="built_in">float</span>(8.0E-5)</span><br></pre></td></tr></table></figure>
-
-<h3 id="String-字符串"><a href="#String-字符串" class="headerlink" title="String 字符串"></a>String 字符串</h3><ul>
-<li><p>一个字符串是一串字符的序列，就像 “Hello world!”</p>
-</li>
-<li><p>你可以将任何文本放在单引号和双引号中</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$x</span> = <span class="string">"Hello world!"</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$x</span>;         // Hello world!</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;br&gt;"</span>; </span><br><span class="line"><span class="variable">$x</span> = <span class="string">'Hello world!'</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$x</span>;         // Hello world!</span><br></pre></td></tr></table></figure>
-
-<h3 id="Boolean-布尔型"><a href="#Boolean-布尔型" class="headerlink" title="Boolean 布尔型"></a>Boolean 布尔型</h3><ul>
-<li>布尔型可以是 TRUE 或 FALSE</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$x</span>=<span class="literal">true</span>;</span><br><span class="line"><span class="variable">$y</span>=<span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>布尔型通常是用于条件判断</li>
-</ul>
-<h3 id="Array-数组"><a href="#Array-数组" class="headerlink" title="Array 数组"></a>Array 数组</h3><ul>
-<li>数组可以在一个变量中存储多个值</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span>=array (<span class="string">"Volvo"</span>,<span class="string">"BMW"</span>,<span class="string">"Toyota"</span>);</span><br><span class="line">var_dump (<span class="variable">$arr</span>);  //array (3)&#123;[0]=&gt;string (5)<span class="string">"Volvo"</span> [1]=&gt;string (3)<span class="string">"BMW"</span> [2]=&gt;string (6)<span class="string">"Toyota"</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Object-对象"><a href="#Object-对象" class="headerlink" title="Object 对象"></a>Object 对象</h3><ul>
-<li><p>对象数据类型也可以用于存储数据</p>
-</li>
-<li><p>在 PHP 中，对象必须声明</p>
-</li>
-<li><p>首先，你必须使用 class 关键字声明类对象。类是可以包含属性和方法的结构</p>
-</li>
-<li><p>然后我们在类中定义数据类型，然后在实例化的类中使用数据类型</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">class Car</span><br><span class="line">&#123;</span><br><span class="line">  var <span class="variable">$color</span>;</span><br><span class="line">  <span class="keyword">function</span> __construct (<span class="variable">$color</span>=<span class="string">"green"</span>) &#123;</span><br><span class="line">    <span class="variable">$this</span>-&gt;color = <span class="variable">$color</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">function</span> <span class="function"><span class="title">what_color</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> <span class="variable">$this</span>-&gt;color;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> print_vars (<span class="variable">$obj</span>) &#123;</span><br><span class="line">   foreach (get_object_vars (<span class="variable">$obj</span>) as <span class="variable">$prop</span> =&gt; <span class="variable">$val</span>) &#123;</span><br><span class="line">     <span class="built_in">echo</span> <span class="string">"\t<span class="variable">$prop</span> = <span class="variable">$val</span>\n"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 实例一个对象 </span><br><span class="line"><span class="variable">$herbie</span> = new Car (<span class="string">"white"</span>);</span><br><span class="line"></span><br><span class="line">// 显示 herbie 属性 </span><br><span class="line"><span class="built_in">echo</span> <span class="string">"\therbie: Properties\n"</span>;</span><br><span class="line">print_vars (<span class="variable">$herbie</span>);</span><br><span class="line"></span><br><span class="line">//herbie: Properties color = white</span><br></pre></td></tr></table></figure>
-
-<h3 id="NULL-空值"><a href="#NULL-空值" class="headerlink" title="NULL 空值"></a>NULL 空值</h3><ul>
-<li><p>NULL 值表示变量没有值。NULL 是数据类型为 NULL 的值</p>
-</li>
-<li><p>NULL 值指明一个变量是否为空值。 同样可用于数据空值和 NULL 值的区别</p>
-</li>
-<li><p>可以通过设置变量值为 NULL 来清空变量数据</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$x</span>=<span class="string">"Hello world!"</span>;</span><br><span class="line"><span class="variable">$x</span>=null;</span><br><span class="line">var_dump (<span class="variable">$x</span>);    // NULL</span><br></pre></td></tr></table></figure>
-
-<h2 id="变量检测"><a href="#变量检测" class="headerlink" title="变量检测"></a>变量检测</h2><ul>
-<li><p>isset — 检测变量是否已设置并且非 NULL</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">isset ( mixed <span class="variable">$var</span> [, mixed $... ] ) : bool</span><br></pre></td></tr></table></figure></li>
-<li><p>检测变量是否设置，并且不是 NULL</p>
-</li>
-<li><p>如果已经使用 unset () 释放 / 销毁了一个变量之后。若使用 isset () 测试一个被设置成 NULL 的变量，将返回 FALSE。同时要注意的是 null 字符（”\0”）并不等同于 PHP 的 NULL 常量</p>
-</li>
-<li><p>如果一次传入多个参数，那么 isset () 只有在全部参数都以被设置时返回 TRUE 计算过程从左至右，中途遇到没有设置的变量时就会立即停止</p>
-</li>
-</ul>
-<p>参考：<a href="https://www.php.net/manual/zh/function.isset.php" target="_blank" rel="noopener">PHP 手册 isset</a></p>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$var</span> = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">// 结果为 TRUE，所以后边的文本将被打印出来。</span><br><span class="line"><span class="keyword">if</span> (isset (<span class="variable">$var</span>)) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"This var is set so I will print."</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 在后边的例子中，我们将使用 var_dump 输出 isset () 的返回值。</span><br><span class="line">//the <span class="built_in">return</span> value of isset ().</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span> = <span class="string">"test"</span>;</span><br><span class="line"><span class="variable">$b</span> = <span class="string">"anothertest"</span>;</span><br><span class="line"></span><br><span class="line">var_dump (isset (<span class="variable">$a</span>))       // TRUE</span><br><span class="line">var_dump (isset (<span class="variable">$a</span>, <span class="variable">$b</span>));  // TRUE</span><br><span class="line"></span><br><span class="line"><span class="built_in">unset</span> (<span class="variable">$a</span>);</span><br><span class="line"></span><br><span class="line">var_dump (isset (<span class="variable">$a</span>));      // FALSE</span><br><span class="line">var_dump (isset (<span class="variable">$a</span>, <span class="variable">$b</span>));  // FALSE</span><br><span class="line"></span><br><span class="line"><span class="variable">$foo</span> = NULL;</span><br><span class="line">var_dump (isset (<span class="variable">$foo</span>));    // FALSE</span><br></pre></td></tr></table></figure>
-
-<h2 id="类型检测"><a href="#类型检测" class="headerlink" title="类型检测"></a>类型检测</h2><h3 id="gettype"><a href="#gettype" class="headerlink" title="gettype"></a>gettype</h3><ul>
-<li>gettype — 获取变量的类型<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ettype ( mixed <span class="variable">$var</span> ) : string</span><br><span class="line"></span><br><span class="line">Warning</span><br><span class="line"> 不要使用 gettype () 来测试某种类型，因为其返回的字符串在未来的版本中可能需要改变。此外，由于包含了字符串的比较，它的运行也是较慢的。</span><br><span class="line"> 可以使用 is_* 函数代替。</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$a</span> = <span class="string">'1'</span>;</span><br><span class="line"><span class="built_in">echo</span> gettype (<span class="variable">$a</span>);  //string</span><br></pre></td></tr></table></figure>
-<p>返回的字符串的可能值为：</p>
-<ul>
-<li><p>“boolean”（从 PHP 4 起）</p>
-</li>
-<li><p>“integer”</p>
-</li>
-<li><p>“double”（由于历史原因，如果是 float 则返回 “double”，而不是 “float”）</p>
-</li>
-<li><p>“string”</p>
-</li>
-<li><p>“array”</p>
-</li>
-<li><p>“object”</p>
-</li>
-<li><p>“resource”（从 PHP 4 起）</p>
-</li>
-<li><p>“NULL”（从 PHP 4 起）</p>
-</li>
-<li><p>“user function”（只用于 PHP 3，现已停用）</p>
-</li>
-<li><p>“unknown type”</p>
-</li>
-</ul>
-<p>参考：<a href="https://www.php.net/manual/zh/function.gettype.php" target="_blank" rel="noopener">PHP 手册 gettype</a></p>
-<h3 id="is"><a href="#is" class="headerlink" title="is_*"></a>is_*</h3><ul>
-<li><p>is_* — 判断是否是想要的类型</p>
-</li>
-<li><p>is_int，is_float，is_array，is_integer ()，is_string ()，is_object ()</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$a</span> = <span class="string">'1'</span>;</span><br><span class="line"><span class="keyword">if</span>(is_int (<span class="variable">$a</span>))&#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'a 是整形 '</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'a 不是整形 '</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//a 不是整形 </span><br></pre></td></tr></table></figure>
-
-<h2 id="变量打印"><a href="#变量打印" class="headerlink" title="变量打印"></a>变量打印</h2><ul>
-<li><p>echo，print，var_dump</p>
-<ul>
-<li><p>echo — 可以输出一个或多个字符串</p>
-</li>
-<li><p>print_r — 以易于理解的格式打印变量</p>
-</li>
-<li><p>var_dump — 打印变量的相关信息</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>参考：<a href="https://www.php.net/manual/zh/function.print-r.php" target="_blank" rel="noopener">PHP 手册 print_r</a></p>
-<p>参考：<a href="https://www.php.net/manual/zh/function.var-dump.php" target="_blank" rel="noopener">PHP 手册 var_dump</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$a</span> = 1;</span><br><span class="line"><span class="variable">$b</span> = array (<span class="string">'a'</span> =&gt; <span class="string">'apple'</span>, <span class="string">'b'</span> =&gt; <span class="string">'banana'</span>, <span class="string">'c'</span> =&gt; array (<span class="string">'x'</span>, <span class="string">'y'</span>, <span class="string">'z'</span>))</span><br><span class="line"><span class="variable">$c</span> = array (1, 2, array (<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>));</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span>;           // 1</span><br><span class="line"></span><br><span class="line">print_r (<span class="variable">$b</span>);       // 输出结果 </span><br><span class="line">                   // Array</span><br><span class="line">                   // (</span><br><span class="line">                   //     [a] =&gt; apple</span><br><span class="line">                   //     [b] =&gt; banana</span><br><span class="line">                   //     [c] =&gt; Array</span><br><span class="line">                   //         (</span><br><span class="line">                   //             [0] =&gt; x</span><br><span class="line">                   //             [1] =&gt; y</span><br><span class="line">                   //             [2] =&gt; z</span><br><span class="line">                   //         )</span><br><span class="line">                   // )</span><br><span class="line"></span><br><span class="line">var_dump (<span class="variable">$b</span>);      // 输出结果 </span><br><span class="line">                   //array (3) &#123;</span><br><span class="line">                   //     [0]=&gt;</span><br><span class="line">                   //     int (1)</span><br><span class="line">                   //     [1]=&gt;</span><br><span class="line">                   //     int (2)</span><br><span class="line">                   //     [2]=&gt;</span><br><span class="line">                   //     array (3) &#123;</span><br><span class="line">                   //         [0] =&gt; </span><br><span class="line">                   //         string (1) <span class="string">"a"</span></span><br><span class="line">                   //         [1] =&gt; </span><br><span class="line">                   //         string (1) <span class="string">"b"</span></span><br><span class="line">                   //         [2] =&gt; </span><br><span class="line">                   //         string (1) <span class="string">"c"</span></span><br><span class="line">                   //     &#125;</span><br><span class="line">                   // &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><ul>
-<li>PHP 中，变量的类型是可以随时转变的，最常见的是字符串与数字的转换，或是数字 / 字符串 -&gt; 布尔值的转换</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 字符串到数字的转换，从左到右截取，直到碰到不合法的数字，截取出来的部分转成数字 </span><br><span class="line"><span class="variable">$a</span> = <span class="string">'12'</span>;</span><br><span class="line"><span class="variable">$a</span> = <span class="variable">$a</span> + 3;</span><br><span class="line">var_dump (<span class="variable">$a</span>);      //int (15)</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span> = 123;</span><br><span class="line"><span class="variable">$a</span> = <span class="variable">$a</span> . <span class="string">'hello'</span>; </span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span>;           // 123hello</span><br><span class="line"></span><br><span class="line">// 到布尔值的转换，以下值，都被当成布尔值的假，而其他值，都被当成布尔值的真 </span><br><span class="line">// <span class="string">''</span>, <span class="string">'0'</span>, 0, 0.0, NULL, FALSE, array (), var <span class="variable">$var</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><ul>
-<li>传值赋值与引用赋值</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 传值赋值 </span><br><span class="line"><span class="variable">$li</span> = 29;</span><br><span class="line"><span class="variable">$wang</span> = 23;</span><br><span class="line"><span class="variable">$wang</span> = <span class="variable">$li</span>;</span><br><span class="line"></span><br><span class="line">var_dump (<span class="variable">$li</span>, <span class="variable">$wang</span>);    //29, 29</span><br><span class="line"><span class="variable">$wang</span> = <span class="string">'w'</span>;</span><br><span class="line">var_dump (<span class="variable">$li</span>, <span class="variable">$wang</span>);    //29, w</span><br><span class="line"></span><br><span class="line">// 引用赋值 </span><br><span class="line"><span class="variable">$li</span> = 29;</span><br><span class="line"><span class="variable">$wang</span> = 23;</span><br><span class="line"><span class="variable">$wang</span> = &amp;<span class="variable">$li</span>;</span><br><span class="line"></span><br><span class="line">var_dump (<span class="variable">$li</span>, <span class="variable">$wang</span>);    //29, 29</span><br><span class="line"><span class="variable">$wang</span> = <span class="string">'w'</span>;</span><br><span class="line">var_dump (<span class="variable">$li</span>, <span class="variable">$wang</span>);    //w, w</span><br></pre></td></tr></table></figure>
-
-<h2 id="释放-销毁"><a href="#释放-销毁" class="headerlink" title="释放 / 销毁"></a>释放 / 销毁</h2><ul>
-<li><p>unset — 释放给定的变量</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">unset</span> ( mixed <span class="variable">$var</span> [, mixed $... ] ) : void</span><br></pre></td></tr></table></figure></li>
-<li><p>unset () 销毁指定的变量</p>
-</li>
-<li><p>unset () 在函数中的行为会依赖于想要销毁的变量的类型而有所不同</p>
-</li>
-<li><p>如果在函数中 unset () 一个全局变量，则只是局部变量被销毁，而在调用环境中的变量将保持调用 unset () 之前一样的值</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$a</span> = 99;</span><br><span class="line"><span class="built_in">unset</span>(<span class="variable">$a</span>);</span><br><span class="line"><span class="keyword">if</span>(isset (<span class="variable">$a</span>))&#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'a 存在 '</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'a 不存在 '</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//a 不存在 </span><br><span class="line"></span><br><span class="line"><span class="variable">$li</span> = 29;</span><br><span class="line"><span class="variable">$wang</span> = &amp;<span class="variable">$li</span>;</span><br><span class="line">var_dump (<span class="variable">$li</span>, <span class="variable">$wang</span>);    //29, 29</span><br><span class="line"><span class="variable">$wang</span> = 20;</span><br><span class="line">var_dump (<span class="variable">$li</span>, <span class="variable">$wang</span>);    //20, 20</span><br><span class="line"><span class="built_in">unset</span>(<span class="variable">$li</span>);</span><br><span class="line">var_dump (<span class="variable">$li</span>, <span class="variable">$wang</span>);    //null, 20</span><br><span class="line">// 销毁后会提示 Notice: Undefined variable: li <span class="keyword">in</span> xxxxxx</span><br></pre></td></tr></table></figure>
-
-<h2 id="动态变量名"><a href="#动态变量名" class="headerlink" title="动态变量名"></a>动态变量名</h2><ul>
-<li>用变量的值再做变量的名，如 $$a;</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 动态变量名 </span><br><span class="line"><span class="variable">$liubei</span> = <span class="string">' 河北人 '</span>;</span><br><span class="line"><span class="variable">$laoda</span> = <span class="string">'liubei'</span>;</span><br><span class="line"><span class="variable">$paihang</span> = <span class="string">'laoda'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$laoda</span>, $<span class="variable">$laoda</span>, $$<span class="variable">$paihang</span>;     //liubei, 河北人，河北人 </span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>PHP基础巩固</category>
-      </categories>
-      <tags>
-        <tag>PHP</tag>
-        <tag>基础</tag>
-        <tag>变量</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/be-born/2020-06-12/undefined/</url>
     <content><![CDATA[<p>I set up my blog on June 12, 2020</p>
@@ -2120,6 +1787,388 @@
       </categories>
       <tags>
         <tag>born</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>WEB 渗透 -- 网络篇 -- 端口</title>
+    <url>/WEB%E6%B8%97%E9%80%8F%E7%BD%91%E7%BB%9C%E7%AF%87/2020-06-26/Web-penetration-port/</url>
+    <content><![CDATA[<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><ul>
+<li><p>“端口” 是英⽂ port 的意译，可以认为是设备与外界通讯交流的出口。</p>
+</li>
+<li><p>端口可分为虚拟端口和物理端口，其中虚拟端口指计算机内部或交换机路由器内的端口，不可见。例如计算机中的 80 端口、21 端口、23 端口等。</p>
+</li>
+<li><p>物理端口又称为口接口，是可见端口，计算机背板的 RJ45 网口，交换机路由器集线器等 RJ45 端口。电话使用 RJ11 插口也属于物理端口的范畴。</p>
+</li>
+<li><p>可以使用 netstat -ano 命令在 cmd 中查看 Windows 中的端口。</p>
+</li>
+<li><p>每个端口对应不用的服务。每一种都有可能出现不同的漏洞情况。</p>
+</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h2><h3 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h3><ul>
+<li><p>nmap 是一个网络连接端扫描软件，用来扫描网上电脑开放的网络连接端。</p>
+</li>
+<li><p>确定哪些服务运行在哪些连接端，并且推断计算机运行哪个操作系统（这是亦称 fingerprinting）。</p>
+</li>
+<li><p>它是网络管理员必用的软件之一，以及用以评估网络系统安全。</p>
+</li>
+<li><p>正如大多数被用于网络安全的工具，nmap 也是不少黑客及骇客（又称脚本小子）爱用的工具。</p>
+</li>
+<li><p>系统管理员可以利用 nmap 来探测工作环境中未经批准使用的服务器，但是黑客会利用 nmap 来搜集目标电脑的网络设定，从而计划攻击的方法。</p>
+</li>
+<li><p>Nmap 常被跟评估系统漏洞软件 Nessus 混为一谈。Nmap 以隐秘的手法，避开闯入检测系统的监视，并尽可能不影响目标系统的日常操作。</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nmap &lt;IP&gt;</span><br><span class="line">nmap -sS --open -Pn &lt;IP&gt;</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a href="https://www.freebuf.com/news/141607.html" target="_blank" rel="noopener">nmap 使用指南</a></p>
+<h3 id="Metasploit"><a href="#Metasploit" class="headerlink" title="Metasploit"></a>Metasploit</h3><ul>
+<li><p>Metasploit 是一款开源的安全漏洞检测工具，可以帮助安全和 IT 专业人士识别安全性问题，验证漏洞的缓解措施，并管理专家驱动的安全性进行评估，提供真正的安全风险情报。</p>
+</li>
+<li><p>这些功能包括智能开发，代码审计，Web 应用程序扫描，社会工程。团队合作，在 Metasploit 和综合报告提出了他们的发现。</p>
+</li>
+</ul>
+<h3 id="zmap"><a href="#zmap" class="headerlink" title="zmap"></a>zmap</h3><ul>
+<li><p>ZMap 是一款扫描软件，由 Durumeric 领导密歇根大学研究团队开发。</p>
+</li>
+<li><p>这一工具能在一个小时内扫描整个公共互联网，显示近 40 亿在线设备的信息。</p>
+</li>
+<li><p>扫描结果能显示哪些网站无法防御特定漏洞。</p>
+</li>
+<li><p>而在 FREAK 的例子中，扫描是为了在漏洞公开宣布前评估漏洞的威胁程度。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>WEB渗透网络篇</category>
+      </categories>
+      <tags>
+        <tag>WEB渗透</tag>
+        <tag>网络篇</tag>
+        <tag>端口</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>WEB 渗透 --BurpSuite--Spider</title>
+    <url>/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/</url>
+    <content><![CDATA[<h2 id="Spider"><a href="#Spider" class="headerlink" title="Spider"></a>Spider</h2><ul>
+<li><p>Spider (爬虫) 模块用于自动爬取网站的每个页面内容，并生成完整的网站地图。</p>
+</li>
+<li><p>Spider 通过跟踪 HTML 和 JavaScript 以及提交的表单中的超链接来映射目标应用程序。</p>
+</li>
+<li><p>它还使用了一些其他的线索，如目录列表，资源类型的注释，以及 robots.txt 文件。</p>
+</li>
+<li><p>结果会在站点地图中以树和表的形式显示出来，提供了一个清楚并非常详细的目标应用程序视图。</p>
+</li>
+</ul>
+<a id="more"></a>
+
+<hr>
+<ul>
+<li><p>Spider 的好处：</p>
+<ul>
+<li><p>Burp Spider 能使你清楚地了解到一个 web 应用程序是怎样工作的，让你避免进行大量的手动任务而浪费时间，跟踪链接，提交表单，精简 HTML 源代码。</p>
+</li>
+<li><p>可以快速地确人应用程序的潜在的脆弱功能，还允许你指定特定的漏洞，如 SQL 注入，路径遍历。</p>
+</li>
+</ul>
+</li>
+<li><p>使用 Spider：</p>
+<ul>
+<li><p>在 Target 模块中鼠标右键 host，选择 Spider this host</p>
+</li>
+<li><p>在 Proxy 模块中的 Intercept 标签，鼠标右键选择 Send to Spider</p>
+</li>
+<li><p>在 Proxy 模块中的 HTTP history 标签，鼠标右键选择 Spider from here</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Control"><a href="#Control" class="headerlink" title="Control"></a>Control</h3><ul>
+<li><p>在 Control 界面中可以启动爬虫功能，查看爬虫状态，设置爬虫的作用域。</p>
+</li>
+<li><p>在使用爬虫功能之前，需要设置代理，并获取域名。然后关闭代理拦截。</p>
+</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/Control.png" class title="control">
+
+<h4 id="Spider-Status"><a href="#Spider-Status" class="headerlink" title="Spider Status"></a>Spider Status</h4><ul>
+<li><p>查看爬虫状态，显示了运行 / 暂停按钮与清空队列按钮。</p>
+</li>
+<li><p>其中 4 行英文分别表示已完成的请求数，已传递的字节数，未完成的请求数，未完成的表单数</p>
+</li>
+</ul>
+<h4 id="Spider-Scope"><a href="#Spider-Scope" class="headerlink" title="Spider Scope"></a>Spider Scope</h4><ul>
+<li><p>设置爬虫作用域范围。</p>
+</li>
+<li><p>可以选择使用 Target 中的 scope 范围。</p>
+</li>
+<li><p>还可以自定义范围。</p>
+</li>
+</ul>
+<h3 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h3><ul>
+<li><p>Spider 可选项设置由抓取设置、抓取代理设置、表单提交设置、应用登陆设置、蜘蛛引擎设置、请求消息头设置六个部分组成。</p>
+</li>
+<li><p>详情查看：<a href="https://t0data.gitbooks.io/burpsuite/content/chapter6.html" target="_blank" rel="noopener">如何使用 Burp Spider</a></p>
+</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/Options.png" class title="options">]]></content>
+      <categories>
+        <category>WEB渗透</category>
+      </categories>
+      <tags>
+        <tag>WEB渗透</tag>
+        <tag>BurpSuite</tag>
+        <tag>Spider</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>WEB 渗透 --BurpSuite--Scanner</title>
+    <url>/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/</url>
+    <content><![CDATA[<h2 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h2><ul>
+<li><p>是一个进行自动发现 web 应用程序的安全漏洞的工具。</p>
+</li>
+<li><p>它是为渗透测试人员设计的，并且它和你现有的手动执行进行的 web 应用程序半自动渗透测试的技术方法很相似。</p>
+</li>
+<li><p>在攻击一个应用程序时它和你执行的操作紧紧的结合在一起。</p>
+</li>
+<li><p>让你细微控制着每一个扫描的请求，并直接反馈回结果。</p>
+</li>
+</ul>
+<a id="more"></a>
+
+<hr>
+<p>使用 Scanner：</p>
+<ul>
+<li><p>首先使用 proxy 模块，拦截请求，得到目标域名。</p>
+</li>
+<li><p>然后将目标域名添加到 scope 中，关闭 proxy 拦截功能，开启 spider 模块。</p>
+</li>
+<li><p>完成域名的详细目录信息之后就可以开始扫描功能了。</p>
+</li>
+</ul>
+<h3 id="Issue-activity"><a href="#Issue-activity" class="headerlink" title="Issue activity"></a>Issue activity</h3><ul>
+<li>查看扫描到的漏洞具体信息，可以对内容进行自定义标记，导出报告等操作。</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Issue_activity.jpg" class title="issue_activity">
+
+<h3 id="Scan-queue"><a href="#Scan-queue" class="headerlink" title="Scan queue"></a>Scan queue</h3><ul>
+<li><p>显示扫描进度的详情，可以显示漏洞详情、队列状态、进度、结果。</p>
+</li>
+<li><p>还可以将扫描信息发送至其他模块。</p>
+</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Scan_queue.png" class title="scan_queue">
+
+<p>主要包含内容：</p>
+<ul>
+<li><p>索引号的项目，反映该项目的添加顺序。</p>
+</li>
+<li><p>目的地协议，主机和 URL 。</p>
+</li>
+<li><p>Status 当前状态，包括完成百分比。</p>
+</li>
+<li><p>项目扫描问题的数量（这是根据所附的最严重问题的重要性和彩色化） 。</p>
+</li>
+<li><p>在扫描项目的请求数量进行。</p>
+</li>
+<li><p>网络错误的数目遇到的问题。</p>
+</li>
+<li><p>为项目创建的插入点的数量。</p>
+</li>
+</ul>
+<h3 id="Live-scanning"><a href="#Live-scanning" class="headerlink" title="Live scanning"></a>Live scanning</h3><ul>
+<li>Scanner 提供两种漏洞扫描方式：主动扫描 (Active Scanning)、被动扫描 (Passive Scanning)</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Live_scanning.png" class title="live_scanning">
+
+<h5 id="Active-Scanning-主动扫描"><a href="#Active-Scanning-主动扫描" class="headerlink" title="Active Scanning (主动扫描)"></a>Active Scanning (主动扫描)</h5><ul>
+<li><p>主动扫描会向得到的所有域名，发起大量带有攻击探测信息的请求，可以获得精准性高且详细的信息。</p>
+</li>
+<li><p>但是会对目标站点造成较大影响，所用时间和资源也较多。</p>
+</li>
+<li><p>适合在网站离线时做测试。</p>
+</li>
+<li><p>可以在 Scan queue 中查看主动扫描的进度。</p>
+</li>
+</ul>
+<h5 id="Passive-Scanning-被动扫描"><a href="#Passive-Scanning-被动扫描" class="headerlink" title="Passive Scanning (被动扫描)"></a>Passive Scanning (被动扫描)</h5><ul>
+<li><p>在 Target 的 Site map 模块中需要扫描的网站，右键点击 Passively scan this host (发送到被动扫描模块)。</p>
+</li>
+<li><p>被动扫描只会根据爬虫获得的内容上进行分析，不会重新对域名进行请求攻击，可以得到比较具体的信息。</p>
+</li>
+<li><p>当服务器正在运作时，可以使用该方式扫描，不会对网站造成损害。</p>
+</li>
+<li><p>该方式精准度低于主动扫描，但是时间短，消耗资源小，影响小。</p>
+</li>
+</ul>
+<h3 id="Issue-definitions"><a href="#Issue-definitions" class="headerlink" title="Issue definitions"></a>Issue definitions</h3><ul>
+<li>漏洞列表，列出了 Burp Suite 中可以扫描到的漏洞，与漏洞详情。</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Issue_Definitions.png" class title="issue_definitions">
+
+<h3 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h3><ul>
+<li><p>Scanner 设置。</p>
+</li>
+<li><p>设置扫描的规则选项、攻击插入点，检测敏感字段。</p>
+</li>
+<li><p>设置扫描的引擎，设置主动和被动扫描的选项。</p>
+</li>
+<li><p>详情查看：</p>
+<ul>
+<li><p><a href="https://blog.csdn.net/u011781521/article/details/54561341" target="_blank" rel="noopener">Scanner 模块</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/lynnlinlin/article/details/77480726" target="_blank" rel="noopener">Scanner</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/Options.png" class title="options">]]></content>
+      <categories>
+        <category>WEB渗透</category>
+      </categories>
+      <tags>
+        <tag>WEB渗透</tag>
+        <tag>BurpSuite</tag>
+        <tag>Scanner</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>软件测试面试记录</title>
+    <url>/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E9%9D%A2%E8%AF%95/2020-07-09/software-testing-recording/</url>
+    <content><![CDATA[<p>随时不定期更新</p>
+<a id="more"></a>
+
+<hr>
+<ul>
+<li><p>上家公司离职原因</p>
+</li>
+<li><p>期望薪资</p>
+</li>
+<li><p>对于加班的看法</p>
+</li>
+<li><p>近期 / 长期职业规划是什么</p>
+</li>
+<li><p>有 Aa、Bb、Cc，3 对父子关系的老虎，都想过河，但是船上只能待两只老虎，船过河后，必须由其中一只老虎划回来，任意一只小老虎没有老虎爸爸在身边，都会被任意一只非老虎爸爸吃掉，如何保证 3 对老虎都能安全过河</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>介绍下上家公司的测试流程</p>
+</li>
+<li><p>挑一个熟悉的项目，介绍下你在其中的工作职责</p>
+</li>
+<li><p>如果发现一个 BUG，开发坚持说不是 BUG，怎么办</p>
+</li>
+<li><p>如果遇到紧急的需要上线的需求，怎么办</p>
+</li>
+<li><p>BUG 的生命周期是什么</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>SQL 中视图是什么，如何创建</p>
+</li>
+<li><p>SQL 中索引是什么，有哪几类</p>
+</li>
+<li><p>排序后输出前 5 行用什么命令</p>
+</li>
+<li><p>SQL 万能的学生表及相关 SQL 语句</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">name        subject     grade</span><br><span class="line"> 张三         语文         <span class="number">73</span></span><br><span class="line"> 张三         数学         <span class="number">83</span></span><br><span class="line"> 张三         物理         <span class="number">93</span></span><br><span class="line"> 李四         语文         <span class="number">74</span></span><br><span class="line"> 李四         数学         <span class="number">84</span></span><br><span class="line"> 李四         物理         <span class="number">94</span></span><br><span class="line"> 小明         物理         <span class="number">70</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>、输出语文这门课成绩不低于 < span class="number">60</span> 分的人数 <br><span class="line"><span class="number">2</span>、输出数学这门课成绩前 < span class="number">5</span> 名的平均分 <br><span class="line"><span class="number">3</span>、输出两列，第一列是课程名，第二列是该课程名的平均分 </span><br><span class="line"><span class="number">4</span>、输出重名的名字以及该名字重名的次数，即输出两列，第一列是重名的名字，第二列是其重复的次数 </span><br><span class="line"><span class="number">5</span>、查询出所有名字（要求不重复）</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有如下的数据库表，写一个 sql 查询每个学生个课程的成绩，返回学号、姓名、课程名称、成绩、按学号排序</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line"> 课程表：            学生表：           成绩表：</span><br><span class="line"> 课程 ID | 名称         学号 | 姓名          课程 ID | 学号 | 成绩 </span><br><span class="line">   <span class="number">1</span>   | 操作系统    <span class="number">110101</span> | 张三            <span class="number">1</span> | <span class="number">110101</span> | <span class="number">70</span></span><br><span class="line">   <span class="number">2</span>   | 数据结构    <span class="number">110102</span> | 李四            <span class="number">1</span> | <span class="number">110102</span> | <span class="number">80</span></span><br><span class="line">   <span class="number">3</span>   | 数学        <span class="number">110103</span> | 王五            <span class="number">2</span> | <span class="number">110101</span> | <span class="number">55</span></span><br><span class="line">                                             <span class="number">2</span> | <span class="number">110102</span> | <span class="number">87</span></span><br><span class="line">                                             <span class="number">3</span> | <span class="number">110101</span> | <span class="number">88</span></span><br><span class="line">                                             <span class="number">3</span> | <span class="number">110102</span> | <span class="number">43</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>介绍下 Python 内存控制</p>
+</li>
+<li><p>什么是 Python 的浅拷贝与深拷贝</p>
+</li>
+<li><p>Python 的全局变量与局部变量是如何定义的</p>
+</li>
+<li><p>Python 修饰器是什么</p>
+</li>
+<li><p>Python 中 break、continue、pass 的分别</p>
+</li>
+<li><p>如何使用 Python 删除文件</p>
+</li>
+<li><p>说下 Python 中，平时经常使用的内置 / 导入模块</p>
+</li>
+<li><p>介绍下 Python 的列表 / 元组 / 字典 / 集合</p>
+</li>
+<li><p>使用 Python 编写，输出列表中的偶数元素，或者偶数索引</p>
+</li>
+<li><p>写一个方法，其中入参为字符串，返回值为该字符串去重</p>
+</li>
+<li><p>写一个程序输出 99 乘法表</p>
+</li>
+<li><p>try except finally 中带 return 时的执行顺序</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>说下 Java 中 &amp; 与 &amp;&amp; 的区别</p>
+</li>
+<li><p>Java 中 == 与 equals 的区别</p>
+</li>
+<li><p>try {} catch {} finally {} 中带有 return 时的执行顺序</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>Jmeter 中关联是什么，如何使用</p>
+</li>
+<li><p>Jmeter 断言，以及使用</p>
+</li>
+<li><p>做性能测试时，如何确定性能指标</p>
+</li>
+<li><p>使用 Jmeter 做接口测试步骤</p>
+</li>
+<li><p>实际项目的性能参考了哪些性能指标</p>
+</li>
+<li><p>Jmeter 中同时释放用户 (线程) 应该怎么做</p>
+</li>
+<li><p>Jmeter 如果需要在测试中下载文件，如何下载</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>Selenium 鼠标悬停如何操作</p>
+</li>
+<li><p>Selenium 页面元素文字高亮如何操作</p>
+</li>
+<li><p>Selenium 定位元素时 //*[contains (@id,”123”)] 代表了什么</p>
+</li>
+<li><p>Selenum 元素的等待方式都有哪些</p>
+</li>
+<li><p>Unittest 框架中特殊方法的执行顺序</p>
+</li>
+<li><p>Selenium 执行时出现错误，都有哪些原因</p>
+</li>
+<li><p>Selenium 执行时，用例没通过，接下来应该怎么办</p>
+</li>
+<li><p>Unittest 框架中用例的执行顺序</p>
+</li>
+<li><p>Selenium 定位元素后，如何判断元素存在</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>说下 Linux 的常用命令</p>
+</li>
+<li><p>Linux 查看日志用什么命令</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>软件测试面试</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+        <tag>面试</tag>
       </tags>
   </entry>
 </search>
