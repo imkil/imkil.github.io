@@ -20,25 +20,27 @@
     var CONFIG = {"hostname":"imkil.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Spider Spider (爬虫) 模块用于自动爬取网站的每个页面内容，并生成完整的网站地图。  Spider 通过跟踪 HTML 和 JavaScript 以及提交的表单中的超链接来映射目标应用程序。  它还使用了一些其他的线索，如目录列表，资源类型的注释，以及 robots.txt 文件。  结果会在站点地图中以树和表的形式显示出来，提供了一个清楚并非常详细的目标应用程序视图。">
+  <meta name="description" content="Intruder Intruder 是一个高度可配置的自动化攻击模块。  它可以用来爆破用户名或密码，它还可以用来当作简单的爬虫使用。  用户可以使用 Intruder 方便地执行许多任务，包括枚举标识符，获取有用数据，漏洞模糊测试。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WEB 渗透 --BurpSuite--Spider">
-<meta property="og:url" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/index.html">
+<meta property="og:title" content="WEB 渗透 --BurpSuite--Intruder">
+<meta property="og:url" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-20/Web-penetration-BurpSuite-Intruder/index.html">
 <meta property="og:site_name" content="道虽迩，不行不至">
-<meta property="og:description" content="Spider Spider (爬虫) 模块用于自动爬取网站的每个页面内容，并生成完整的网站地图。  Spider 通过跟踪 HTML 和 JavaScript 以及提交的表单中的超链接来映射目标应用程序。  它还使用了一些其他的线索，如目录列表，资源类型的注释，以及 robots.txt 文件。  结果会在站点地图中以树和表的形式显示出来，提供了一个清楚并非常详细的目标应用程序视图。">
+<meta property="og:description" content="Intruder Intruder 是一个高度可配置的自动化攻击模块。  它可以用来爆破用户名或密码，它还可以用来当作简单的爬虫使用。  用户可以使用 Intruder 方便地执行许多任务，包括枚举标识符，获取有用数据，漏洞模糊测试。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/Control.png">
-<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/Options.png">
-<meta property="article:published_time" content="2020-07-06T06:51:01.000Z">
-<meta property="article:modified_time" content="2020-07-07T10:34:34.670Z">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-20/Web-penetration-BurpSuite-Intruder/target.png">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-20/Web-penetration-BurpSuite-Intruder/positions.png">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-20/Web-penetration-BurpSuite-Intruder/payload.png">
+<meta property="og:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-20/Web-penetration-BurpSuite-Intruder/options.png">
+<meta property="article:published_time" content="2020-07-20T06:47:41.000Z">
+<meta property="article:modified_time" content="2020-07-31T08:54:57.415Z">
 <meta property="article:author" content="imkil">
 <meta property="article:tag" content="WEB渗透">
 <meta property="article:tag" content="BurpSuite">
-<meta property="article:tag" content="Spider">
+<meta property="article:tag" content="Intruder">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/Control.png">
+<meta name="twitter:image" content="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-20/Web-penetration-BurpSuite-Intruder/target.png">
 
-<link rel="canonical" href="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/">
+<link rel="canonical" href="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-20/Web-penetration-BurpSuite-Intruder/">
 
 
 <script id="page-configurations">
@@ -51,7 +53,7 @@
   };
 </script>
 
-  <title>WEB 渗透 --BurpSuite--Spider | 道虽迩，不行不至</title>
+  <title>WEB 渗透 --BurpSuite--Intruder | 道虽迩，不行不至</title>
   
 
 
@@ -200,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/">
+    <link itemprop="mainEntityOfPage" href="https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-20/Web-penetration-BurpSuite-Intruder/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/najiong.jpg#/images/avatar.gif">
@@ -213,7 +215,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          WEB 渗透 --BurpSuite--Spider
+          WEB 渗透 --BurpSuite--Intruder
         </h1>
 
         <div class="post-meta">
@@ -223,14 +225,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-07-06 14:51:01" itemprop="dateCreated datePublished" datetime="2020-07-06T14:51:01+08:00">2020-07-06</time>
+              <time title="创建时间：2020-07-20 14:47:41" itemprop="dateCreated datePublished" datetime="2020-07-20T14:47:41+08:00">2020-07-20</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-07 18:34:34" itemprop="dateModified" datetime="2020-07-07T18:34:34+08:00">2020-07-07</time>
+                <time title="修改时间：2020-07-31 16:54:57" itemprop="dateModified" datetime="2020-07-31T16:54:57+08:00">2020-07-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -248,14 +250,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>723</span>
+              <span>1.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -267,68 +269,134 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Spider"><a href="#Spider" class="headerlink" title="Spider"></a>Spider</h2><ul>
-<li><p>Spider (爬虫) 模块用于自动爬取网站的每个页面内容，并生成完整的网站地图。</p>
+        <h2 id="Intruder"><a href="#Intruder" class="headerlink" title="Intruder"></a>Intruder</h2><ul>
+<li><p>Intruder 是一个高度可配置的自动化攻击模块。</p>
 </li>
-<li><p>Spider 通过跟踪 HTML 和 JavaScript 以及提交的表单中的超链接来映射目标应用程序。</p>
+<li><p>它可以用来爆破用户名或密码，它还可以用来当作简单的爬虫使用。</p>
 </li>
-<li><p>它还使用了一些其他的线索，如目录列表，资源类型的注释，以及 robots.txt 文件。</p>
-</li>
-<li><p>结果会在站点地图中以树和表的形式显示出来，提供了一个清楚并非常详细的目标应用程序视图。</p>
+<li><p>用户可以使用 Intruder 方便地执行许多任务，包括枚举标识符，获取有用数据，漏洞模糊测试。</p>
 </li>
 </ul>
 <a id="more"></a>
 
-<hr>
-<ul>
-<li><p>Spider 的好处：</p>
-<ul>
-<li><p>Burp Spider 能使你清楚地了解到一个 web 应用程序是怎样工作的，让你避免进行大量的手动任务而浪费时间，跟踪链接，提交表单，精简 HTML 源代码。</p>
-</li>
-<li><p>可以快速地确人应用程序的潜在的脆弱功能，还允许你指定特定的漏洞，如 SQL 注入，路径遍历。</p>
-</li>
+<h3 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h3><ul>
+<li>指定待攻击的目标服务器站点、端口、SSL 连接是否启用。</li>
 </ul>
-</li>
-<li><p>使用 Spider：</p>
-<ul>
-<li><p>在 Target 模块中鼠标右键 host，选择 Spider this host</p>
-</li>
-<li><p>在 Proxy 模块中的 Intercept 标签，鼠标右键选择 Send to Spider</p>
-</li>
-<li><p>在 Proxy 模块中的 HTTP history 标签，鼠标右键选择 Spider from here</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Control"><a href="#Control" class="headerlink" title="Control"></a>Control</h3><ul>
-<li><p>在 Control 界面中可以启动爬虫功能，查看爬虫状态，设置爬虫的作用域。</p>
-</li>
-<li><p>在使用爬虫功能之前，需要设置代理，并获取域名。然后关闭代理拦截。</p>
-</li>
-</ul>
-<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/Control.png" class title="control">
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-20/Web-penetration-BurpSuite-Intruder/target.png" class title="target">
 
-<h4 id="Spider-Status"><a href="#Spider-Status" class="headerlink" title="Spider Status"></a>Spider Status</h4><ul>
-<li><p>查看爬虫状态，显示了运行 / 暂停按钮与清空队列按钮。</p>
+<h3 id="Positions"><a href="#Positions" class="headerlink" title="Positions"></a>Positions</h3><ul>
+<li>配置攻击时 HTTP 中的变量模式，与需要的变量。</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-20/Web-penetration-BurpSuite-Intruder/positions.png" class title="positions">
+
+<ul>
+<li><p>在 Positions 中使用一对 § 字符来标记变量位置，可以在 Payloads 模块中指定变量字典。</p>
 </li>
-<li><p>其中 4 行英文分别表示已完成的请求数，已传递的字节数，未完成的请求数，未完成的表单数</p>
+<li><p>可以使用选项上的按钮来控制标记位置：</p>
+<ul>
+<li>Add §：在当前光标位置插入一个标记，或者把选中的文本标记为变量。</li>
+<li>Clear §：删除整个模板中或选中的部分模板里的标记。</li>
+<li>Auto §：自动判断标记位置，常用于常规漏洞 (SQL 注入) 的快速标记。</li>
+<li>Refresh：可以刷新编辑器里有颜色的代码。</li>
+<li>Clear：删除整个编级起内容。</li>
+</ul>
 </li>
 </ul>
-<h4 id="Spider-Scope"><a href="#Spider-Scope" class="headerlink" title="Spider Scope"></a>Spider Scope</h4><ul>
-<li><p>设置爬虫作用域范围。</p>
+<h3 id="Payloads"><a href="#Payloads" class="headerlink" title="Payloads"></a>Payloads</h3><ul>
+<li>指定变量的字典，及每一次取出字典时，是否需要进一步编码字典等。</li>
+</ul>
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-20/Web-penetration-BurpSuite-Intruder/payload.png" class title="payload">
+
+<h4 id="Payload-Sets"><a href="#Payload-Sets" class="headerlink" title="Payload Sets"></a>Payload Sets</h4><ul>
+<li><p>Payload set：指定需要配置的变量。</p>
 </li>
-<li><p>可以选择使用 Target 中的 scope 范围。</p>
+<li><p>Payload type：变量类型。</p>
+<ul>
+<li>Simple list：简单字典</li>
+<li>Runtime file：运行文件</li>
+<li>Custom iterator：自定义迭代器</li>
+<li>Character substitution：字符替换</li>
+<li>Recursive grep：递归查找</li>
+<li>Illegal Unicode：非法字符</li>
+<li>Character blocks：字符块</li>
+<li>Numbers：数字</li>
+<li>Dates：日期</li>
+<li>Brute forcer：暴力破解</li>
+<li>Null payloads：空</li>
+<li>Username generator：用户名生成</li>
+<li>copy other payload：复制其他 payload</li>
+</ul>
 </li>
-<li><p>还可以自定义范围。</p>
+</ul>
+<h4 id="Payload-Opetions-type-name"><a href="#Payload-Opetions-type-name" class="headerlink" title="Payload Opetions [type name]"></a>Payload Opetions [type name]</h4><ul>
+<li><p>该选项跟随 Payload type 的实际设置而改变。</p>
+</li>
+<li><p>[] 中显示 type 名称。</p>
+</li>
+</ul>
+<h4 id="Payload-Processing"><a href="#Payload-Processing" class="headerlink" title="Payload Processing"></a>Payload Processing</h4><ul>
+<li>对生成的 Payload (变量值) 进行编码、加密、截取等操作。</li>
+</ul>
+<h4 id="Payload-Encoding"><a href="#Payload-Encoding" class="headerlink" title="Payload Encoding"></a>Payload Encoding</h4><ul>
+<li><p>此设置可用于对最终有效内容中的哪些字符进行 URL 编码，以在 HTTP 请求中安全传输。</p>
+</li>
+<li><p>URL-encode these characters：对这些字符进行 URL 编码。</p>
 </li>
 </ul>
 <h3 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h3><ul>
-<li><p>Spider 可选项设置由抓取设置、抓取代理设置、表单提交设置、应用登陆设置、蜘蛛引擎设置、请求消息头设置六个部分组成。</p>
+<li><p>包含了收发包细节、发包速度、发包记录是否保存，每一次发包后是否更新请求头，是否主动生命请求连接已关闭、收包时匹配到哪些数据要记录等。</p>
 </li>
-<li><p>详情查看：<a href="https://t0data.gitbooks.io/burpsuite/content/chapter6.html" target="_blank" rel="noopener">如何使用 Burp Spider</a></p>
+<li><p>大部分设置也可以再攻击时对已在运行的窗口进行修改。</p>
 </li>
 </ul>
-<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-06/Web-penetration-BurpSuite-Spider/Options.png" class title="options">
+<img src="/WEB%E6%B8%97%E9%80%8F/2020-07-20/Web-penetration-BurpSuite-Intruder/options.png" class title="options">
+
+<h4 id="Request-Headers"><a href="#Request-Headers" class="headerlink" title="Request Headers"></a>Request Headers</h4><ul>
+<li><p>设置是否更新配置请求头。</p>
+</li>
+<li><p>Update Content-Length header</p>
+<ul>
+<li>这个功能对一些需要把可变长度的变量插入到 HTTP 请求模板主体的攻击是很有必要的。</li>
+<li>这个 HTTP 规范和大多数 web 服务器一样，需要使用消息头内容长度来指定 HTTP 主体长度的正确值。</li>
+<li>如果没有指定正确值，目标服务器会返回一个错误，也可能返回一个未完成的请求，也可能无限期地等待接收请求里的进一步数据。</li>
+</ul>
+</li>
+<li><p>Set Connection:close：则会添加或更新 HTTP 消息头的连接来请求在每个请求后已关闭的连接。在多数情况下，这个选项会让攻击执行的更快。</p>
+</li>
+</ul>
+<h4 id="Request-Engine"><a href="#Request-Engine" class="headerlink" title="Request Engine"></a>Request Engine</h4><ul>
+<li><p>设置发送请求的线程、超时重试等。</p>
+</li>
+<li><p>Number of threads：控制攻击请求的并发数</p>
+</li>
+<li><p>Number of retries on network failure：故障重试次数</p>
+</li>
+<li><p>Pause before retry：重试前等待时间 (毫秒)</p>
+</li>
+<li><p>Throttle between requests：请求之间的等待时间 (毫秒)</p>
+</li>
+<li><p>Start time：开始时间。延时、暂停或立即启动</p>
+</li>
+</ul>
+<h4 id="Attack-Results"><a href="#Attack-Results" class="headerlink" title="Attack Results"></a>Attack Results</h4><ul>
+<li>设置攻击结果的显示。</li>
+</ul>
+<h4 id="Grep-Match"><a href="#Grep-Match" class="headerlink" title="Grep - Match"></a>Grep - Match</h4><ul>
+<li>在响应中找出存在指定内容的一项。</li>
+</ul>
+<h4 id="Grep-Extract"><a href="#Grep-Extract" class="headerlink" title="Grep - Extract"></a>Grep - Extract</h4><ul>
+<li>正则提取返回信息中的内容。</li>
+</ul>
+<h4 id="Grep-Payloads"><a href="#Grep-Payloads" class="headerlink" title="Grep - Payloads"></a>Grep - Payloads</h4><ul>
+<li><p>这些设置可以用于包含已提交的有效负载的反射的标志结果项目。</p>
+</li>
+<li><p>如果启用了此选项，BurpSuite 会添加包含一个复选框指示当前负载的值在每个响应发现新的结果列。</p>
+</li>
+</ul>
+<h4 id="Redirections"><a href="#Redirections" class="headerlink" title="Redirections"></a>Redirections</h4><ul>
+<li>重定向，控制 BurpSuite 在攻击时如何处理重定向。</li>
+</ul>
+
     </div>
 
     
@@ -339,7 +407,7 @@
           <div class="post-tags">
               <a href="/tags/WEB%E6%B8%97%E9%80%8F/" rel="tag"># WEB渗透</a>
               <a href="/tags/BurpSuite/" rel="tag"># BurpSuite</a>
-              <a href="/tags/Spider/" rel="tag"># Spider</a>
+              <a href="/tags/Intruder/" rel="tag"># Intruder</a>
           </div>
 
         
@@ -348,13 +416,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/WEB%E6%B8%97%E9%80%8F/2020-07-05/Web-penetration-BurpSuite-Target/" rel="prev" title="WEB 渗透 --BurpSuite--Target">
-      <i class="fa fa-chevron-left"></i> WEB 渗透 --BurpSuite--Target
+    <a href="/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E9%9D%A2%E8%AF%95/2020-07-09/software-testing-recording/" rel="prev" title="软件测试面试记录">
+      <i class="fa fa-chevron-left"></i> 软件测试面试记录
     </a></div>
-      <div class="post-nav-item">
-    <a href="/WEB%E6%B8%97%E9%80%8F/2020-07-07/Web-penetration-BurpSuite-Scanner/" rel="next" title="WEB 渗透 --BurpSuite--Scanner">
-      WEB 渗透 --BurpSuite--Scanner <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -413,7 +478,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spider"><span class="nav-number">1.</span> <span class="nav-text">Spider</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Control"><span class="nav-number">1.1.</span> <span class="nav-text">Control</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Spider-Status"><span class="nav-number">1.1.1.</span> <span class="nav-text">Spider Status</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spider-Scope"><span class="nav-number">1.1.2.</span> <span class="nav-text">Spider Scope</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Options"><span class="nav-number">1.2.</span> <span class="nav-text">Options</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intruder"><span class="nav-number">1.</span> <span class="nav-text">Intruder</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Target"><span class="nav-number">1.1.</span> <span class="nav-text">Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Positions"><span class="nav-number">1.2.</span> <span class="nav-text">Positions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Payloads"><span class="nav-number">1.3.</span> <span class="nav-text">Payloads</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Payload-Sets"><span class="nav-number">1.3.1.</span> <span class="nav-text">Payload Sets</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Payload-Opetions-type-name"><span class="nav-number">1.3.2.</span> <span class="nav-text">Payload Opetions [type name]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Payload-Processing"><span class="nav-number">1.3.3.</span> <span class="nav-text">Payload Processing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Payload-Encoding"><span class="nav-number">1.3.4.</span> <span class="nav-text">Payload Encoding</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Options"><span class="nav-number">1.4.</span> <span class="nav-text">Options</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Request-Headers"><span class="nav-number">1.4.1.</span> <span class="nav-text">Request Headers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Request-Engine"><span class="nav-number">1.4.2.</span> <span class="nav-text">Request Engine</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Attack-Results"><span class="nav-number">1.4.3.</span> <span class="nav-text">Attack Results</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Grep-Match"><span class="nav-number">1.4.4.</span> <span class="nav-text">Grep - Match</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Grep-Extract"><span class="nav-number">1.4.5.</span> <span class="nav-text">Grep - Extract</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Grep-Payloads"><span class="nav-number">1.4.6.</span> <span class="nav-text">Grep - Payloads</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redirections"><span class="nav-number">1.4.7.</span> <span class="nav-text">Redirections</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
