@@ -325,7 +325,7 @@
 </li>
 <li><p>Unittest 框架中用例的执行顺序</p>
 </li>
-<li><p>Selenium 定位元素后，如何判断元素存在</p>
+<li><p>Selenium 定位元素后，如何判断元素是否存在</p>
 </li>
 </ul>
 <hr>
