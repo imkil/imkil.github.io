@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://imkil.github.io/LeetCode/2020-08-03/leetCode-python-study-1/</loc>
+    <lastmod>2020-08-12</lastmod>
+  </url>  <url>
+    <loc>https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-08-08/Web-penetration-BurpSuite-Repeater/</loc>
+    <lastmod>2020-08-12</lastmod>
+  </url>  <url>
     <loc>https://imkil.github.io/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E9%9D%A2%E8%AF%95/2020-07-09/software-testing-recording/</loc>
-    <lastmod>2020-07-31</lastmod>
+    <lastmod>2020-08-05</lastmod>
   </url>  <url>
     <loc>https://imkil.github.io/WEB%E6%B8%97%E9%80%8F/2020-07-20/Web-penetration-BurpSuite-Intruder/</loc>
     <lastmod>2020-07-31</lastmod>
